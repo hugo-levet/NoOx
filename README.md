@@ -1,6 +1,5 @@
 # NoOx
 <h1>Git du projet </h1>
-<br>
 <b> Commit dans la branche associée à votre nom. </b>
 <br>
 Chaqu'une de vos pages doivent avoir une en tête avec :
@@ -14,9 +13,6 @@ Chaqu'une de vos pages doivent avoir une en tête avec :
   -un brief
 
 <h1>Sémantiques des noms de fichiers :</h1>
-<br>
-
-<br>
 PHP :
 <br>
     -Vue : nomPageV.php
