@@ -22,3 +22,16 @@ PHP :
    -Controler : nomPageC.php
     <br>
 CSS : nomPage.css
+
+<h1>Fonctions </h1>
+Pour éviter de perdre du temps à chercher dans le code de chacun, nous allons faire également une en-tête pour chacune des fonctions sous ce format :
+<br>
+// nom de la fonction
+<br>
+// l'auteur / les auteurs
+<br>
+// brief
+<br>
+// Paramètres d'entrée de la fonction
+<br>
+// renvoie de la fonction
