@@ -1,5 +1,5 @@
 # NoOx
-<u>Git du projet </u>
+<h1>Git du projet </h1>
 <br>
 <b> Commit dans la branche associée à votre nom. </b>
 <br>
@@ -13,7 +13,7 @@ Chaqu'une de vos pages doivent avoir une en tête avec :
 <br>
   -un brief
 
-<u>Sémantiques des noms de fichiers :</u>
+<h1>Sémantiques des noms de fichiers :</h1>
 <br>
 CSS : nomPage.css
 <br>
