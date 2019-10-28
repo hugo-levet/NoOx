@@ -17,11 +17,12 @@ PHP :
 <br>
     -Vue : nomPageV.php
 <br>
-    -Model : nomPageM.php
+    -Model : nomPageM.php   NomClasse.php (Première lettre des classes en majuscule)
 <br>
    -Controler : nomPageC.php
     <br>
 CSS : nomPage.css
+
 
 <h1>Fonctions </h1>
 Pour éviter de perdre du temps à chercher dans le code de chacun, nous allons faire également une en-tête pour chacune des fonctions sous ce format :
