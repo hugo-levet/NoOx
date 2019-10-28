@@ -35,3 +35,19 @@ Pour éviter de perdre du temps à chercher dans le code de chacun, nous allons 
 // Paramètres d'entrée de la fonction
 <br>
 // renvoie de la fonction
+
+<h1> Fichiers </h1>
+Public :
+  <br>
+-view // vues
+  <br>
+-assets // CSS, images, JS
+  <br>
+ Server :
+  <br>
+ -model // Modèle
+ <br>
+ -controller // controlleur
+ <br>
+<b> Ressources // personnes n'écris dedans c'est l'endroit ou vous trouverez la doc pour le template. </b>
+  
