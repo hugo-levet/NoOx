@@ -24,16 +24,10 @@ class CreationAvatar
             if($this->isValid($formValues))
             {
                 //add to database
-                echo 'Valid form.';
             }
             else
             {
                 //error : form no valid
-                echo 'Not valid form.<br>';
-                foreach($this->error as $value)
-                {
-                    echo $value . '<br>';
-                }
             }
         }
     }

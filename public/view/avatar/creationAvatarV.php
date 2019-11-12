@@ -7,8 +7,8 @@
 */
 ?>
 <section id="avatarCreation">
-    <h2>Avatar creation.</h2>
-    <form method="post" action="../../../server/controller/avatar/CreationAvatarC.php">
+    <h2>Avatar creation</h2>
+    <form method="post" action="">
         <div>
             <?php
             if($controller->isError('nameType'))
@@ -48,7 +48,8 @@
 
         <div>
             <label for="notes">Notes (optional)</label>
-            <input type="text" id="notes" name="notes">
+<!--            <input type="text" id="notes" name="notes">-->
+            <textarea  id="notes" name="notes"></textarea>
         </div>
 
         <div>
