@@ -1,8 +1,8 @@
 <?php
-    /*
-        title : loginC.php
-        author : Celia
-        started on : 
-        brief : controller page connexion + cookies se souvenir de moi
-    */
+/*
+    title : profileC.php
+    author : Hugo.P
+    started on :
+    brief : controller page profile
+*/
 ?>
