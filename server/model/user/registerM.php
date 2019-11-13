@@ -22,8 +22,6 @@ class register {
         return $req;
     }
 
-
-
 }
 
 ?>
