@@ -1,8 +1,8 @@
 <?php
     /*
-        title : profileC.php 
+        title : profileC.php
         author : Hugo.P
-        started on : 
+        started on :
         brief : controller page profile
     */
 ?>
