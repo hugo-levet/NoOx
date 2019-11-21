@@ -80,7 +80,7 @@ if(isset($_GET['url']))
 }
 else
 {
-    echo 'pas d url';
+    echo 'url not found';
 }
 
 
