@@ -9,7 +9,7 @@ class CreationAvatar
 {
     private $error = [];
 
-    function __construct()
+    function __construct($url)
     {
         //form sended
         if(!empty($_POST['creationAvatar']))

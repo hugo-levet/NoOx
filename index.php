@@ -6,12 +6,9 @@ $controller;
 if(isset($_GET['url']))
 {
     $url = explode("/", $_GET['url']);
-
-    //$category
-
-
+    
     $classController = ucfirst($url[0]);
-
+    
     //def category
     if(preg_match ( "/.*(A|a)vatar.*/" , $classController))
     {
@@ -21,30 +18,22 @@ if(isset($_GET['url']))
     {
         $category ="user";
     }
-
-    $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
+    
     $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
-
+    $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
+    
     try
     {
         if(file_exists($fileController))
         {
             require_once($fileController);
-            $controller = new $classController($url);
         }
         else
         {
             throw new Exception('Controller file not found.');
         }
-    }
-    catch(Exception $e)
-    {
-        $messageErreur = $e->getMessage();
-        echo $messageErreur;
-    }
-
-    try
-    {
+        $controller = new $classController($url);
+        
         if(file_exists($fileView))
         {
             require_once($fileView);
@@ -56,40 +45,18 @@ if(isset($_GET['url']))
     }
     catch(Exception $e)
     {
-        $messageErreur = $e->getMessage();
+        $messageErreur = $e->getMessage(); //for development
+        
+        require_once('./server/controller/PageNotFoundC.php');
+        $controller = new PageNotFound($url);
+        require_once('./public/view/PageNotFoundV.php');
+        
         echo $messageErreur;
     }
-
-
-
-    //    $classController = 'C' . ucfirst(strtolower($url[0]));
-    //    $view = 'V' . ucfirst(strtolower($url[0]));
-    //    $fichierController = './controller/' . $classController . '.php';
-    //    $fichierView = './view/' . $view . '.php';
-    //    try
-    //    {
-    //        if(file_exists($fichierController))
-    //        {
-    //            require_once($fichierController);
-    //            $controller = new $classController($url);
-    //            require_once($fichierView);
-    //        }
-    //        else
-    //        {
-    //            throw new Exception('Page introuvable');
-    //        }
-    //    }
-    //    catch(Exception $e)
-    //    {
-    //        $messageErreur = $e->getMessage();
-    //        require_once('./controller/CErreur.php');
-    //        $controller = new CErreur($url, $messageErreur);
-    //        require_once('./view/VErreur.php');
-    //    }
 }
 else
 {
-    echo 'url not found';
+    echo 'not yet implement : open home';
 }
 
 
