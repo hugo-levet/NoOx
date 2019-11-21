@@ -8,13 +8,22 @@ if(isset($_GET['url']))
     $url = explode("/", $_GET['url']);
 
     //$category
-    //preg_match ( string $pattern , string $subject)
 
 
     $classController = ucfirst($url[0]);
-    $fileView = './public/view/avatar/' . $url[0] . 'V.php';
 
-    $fileController = './server/controller/avatar/' . $classController . 'C.php';
+    //def category
+    if(preg_match ( "/.*(A|a)vatar.*/" , $classController))
+    {
+        $category ="avatar";
+    }
+    else
+    {
+        $category ="user";
+    }
+
+    $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
+    $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
 
     try
     {
