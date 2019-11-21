@@ -2,7 +2,7 @@
 
 $controller;
 
-//dirige vers le bon controlleur
+//redirects to the good controller
 if(isset($_GET['url']))
 {
     $url = explode("/", $_GET['url']);
@@ -58,7 +58,4 @@ else
 {
     echo 'not yet implement : open home';
 }
-
-
-//translate in english
 ?>
