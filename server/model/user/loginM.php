@@ -13,14 +13,14 @@ class login extends database
         $sql = 'SELECT password FROM user WHERE login = '.'$login'.';';
         $res = $this->Request($sql);
         if ($res == $pwd)
-            retrurn 1;
+            return 1;
         else
             return 0;
     }
 
     public function adminTry($login) {
         $sql = 'SELECT admin FROM USER WHERE login =$login;';
-        $res = $this->Request($sal);
+        $res = $this->Request($sql);
         if ($res == 1)
             return 1;
         else
