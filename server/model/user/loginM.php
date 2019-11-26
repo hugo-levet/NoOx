@@ -6,24 +6,26 @@
     brief : controller page profile
 */
 
-require_once '../databse/databse.php';
-
-class login
+class login extends database
 {
 
-    public function LoginTry ($login, $pwd) {
-        $sql1 = 'SELECT login FROM user WHERE login = $login;';
-        $req1 = query($sql1);
-        $sql2 = 'SELECT login FROM user WHERE password = $pwd;';
-        $req2 = query($sql2);
-        if ($req1 == $req2)
-            $res = true;
+    public function loginTry ($login, $pwd) {
+        $sql = 'SELECT password FROM user WHERE login = '.'$login'.';';
+        $res = $this->Request($sql);
+        if ($res == $pwd)
+            retrurn 1;
         else
-            $res = false;
-        return $res;
+            return 0;
     }
 
-
+    public function adminTry($login) {
+        $sql = 'SELECT admin FROM USER WHERE login =$login;';
+        $res = $this->Request($sal);
+        if ($res == 1)
+            return 1;
+        else
+            return 0;
+    }
 
 }
 
