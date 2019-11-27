@@ -26,7 +26,7 @@
         <div id="ListProfile">
             <div class="ProfileLine">
                 <p class="CategoryName"> Nom </p>
-                <p class="Value"><?php //getSurname(); ?></p>
+                <p class="Value"><?php //getlastName(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Prénom </p>
