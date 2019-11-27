@@ -5,8 +5,8 @@
     started on : 27/11/2019
     brief : global controller
 */
-require_once('model/MUtilisateur.php');
-class Controller
+require_once('model/user/UserM.php');
+abstract class Controller
 {
     protected $currentUser = null;
     protected $isConnected = false;
@@ -27,7 +27,7 @@ class Controller
         {
             //TODO verify if password and id are correct
             $this->isConnected = true;
-            $this->currentUser = new MUtilisateur($_SESSION['idcurrentUser']);
+            $this->currentUser = new MUser($_SESSION['idcurrentUser']);
         }
 
         // initialization $rootReturn
