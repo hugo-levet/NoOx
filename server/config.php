@@ -5,8 +5,8 @@
     started on : 27/11/2019
     brief : configuration variables
 */
-$host  = 'TODO';
-$databaseName = 'TODO';
-$databaseId = 'TODO';
-$databasePassword = 'TODO';
+$host  = 'mysql-projet-noox.alwaysdata.net';
+$databaseName = 'projet-noox_database';
+$databaseId = '193036';
+$databasePassword = 'Projetnoox';
 ?>
