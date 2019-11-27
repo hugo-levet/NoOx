@@ -6,7 +6,7 @@
     brief : configuration variables
 */
 $host  = 'TODO';
-$dbname = 'TODO';
-$identifiantBdd = 'TODO';
-$mdpBdd = 'TODO';
+$databaseName = 'TODO';
+$databaseId = 'TODO';
+$databasePassword = 'TODO';
 ?>

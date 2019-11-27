@@ -5,27 +5,37 @@
     started on : 27/11/2019
     brief : global model
 */
-abstract class MModel{
-    private static $db;
+abstract class Model{
+    private static $database;
     private static $connected;
     
-    // TODO
-    public function connexionBdd()
+    /*
+        name : databaseConnection
+        author : Hugo.L
+        brief : connection to the database
+        input parameters : void
+        return : void
+    */
+    public function databaseConnection()
     {
         if(!self::$connected)
         {
             require('server/config.php');
-            // $link = mysqli_connect('localhost', 'mysql_username', 'mysql_passwd') or die('Pb de connexion au serveur: ' . mysqli_connect_error());
-            // mysqli_select_db($link, 'my_dbname') or die ('Pb de sélection BD : ' . mysqli_error($link));
-            self::$bdd = mysqli_connect($host, $identifiantBdd, $mdpBdd, $dbname) or die('Server connection error : ' . mysqli_connect_error());
+            self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
             self::$connected = true;
         }
     }
     
-    // TODO
+    /*
+        name : execute
+        author : Hugo.L
+        brief : execute the query to the database
+        input parameters : string $query
+        return : array of result or null
+    */
     public function execute($query)
     {
-        $result = mysqli_query(self::$bdd, $query);
+        $result = mysqli_query(self::$database, $query);
         if (!$result)
         {
             echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$bdd);
@@ -34,9 +44,18 @@ abstract class MModel{
         {
             if (mysqli_num_rows($result) != 0)
             {
-                return mysqli_fetch_assoc($result);
+                $table = [];
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    array_push ($table, $row);
+                }
+            }
+            else
+            {
+                return null;
             }
         }
+        return $table;
     }
 }
 ?>
