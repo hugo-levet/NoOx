@@ -18,7 +18,7 @@ abstract class Controller
         author : Hugo.L
         brief : verificate connection of user and initialize paths
         input parameters : array $url
-        return : null
+        return : void
     */
     protected function automaticConnection($url = [])
     {
