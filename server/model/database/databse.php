@@ -18,14 +18,8 @@ abstract class database {
         return $this->bd;
     }
 
-    public function Request($sql, $condition=null) {
-        if ($condition == null) {
-            $res = $this->getBd()->query($sql);
-        }
-        else {
-            $res = $this->getBd()->prepare($sql);
-            $res->excecute($condition);
-        }
+    public function Request($sql) {
+        $res = $this->getBd()->query($sql);
         return $res;
     }
 
