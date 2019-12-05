@@ -8,6 +8,9 @@
 ?>
 
 <?php
+
+require_once ('../../model/user/profileM.php');
+
 public class profileC extends Controller {
 
     private $lastName;
@@ -380,3 +383,4 @@ public class profileC extends Controller {
     }
 
 }
+?>
