@@ -1,9 +1,9 @@
 <?php
     /*
         title : loginV.php 
-        author : 
+        author : Celia.H
         started on : 
-        brief : view page de connexion
+        brief : view page login
     */
 ?>
 

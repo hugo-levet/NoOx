@@ -1,26 +1,28 @@
 <?php
 /*
-    title : login.php
+    title : loginM.php
     author : Celia.H
     started on :
-    brief : controller page profile
+    brief : model page login
 */
 
-class login extends database
+class login extends Model
 {
 
     public function loginTry ($login, $pwd) {
-        $sql = 'SELECT password FROM user WHERE login = '.'$login'.';';
-        $res = $this->Request($sql);
+    $this->databaseConnection();
+    $sql = "SELECT password FROM user WHERE login = ' $login ' ";
+        $res = $this->execute($sql);
         if ($res == $pwd)
-            retrurn 1;
+            return 1;
         else
             return 0;
     }
 
     public function adminTry($login) {
-        $sql = 'SELECT admin FROM USER WHERE login =$login;';
-        $res = $this->Request($sal);
+        $this->databaseConnection();
+        $sql = "SELECT admin FROM USER WHERE login = ' $login' ";
+        $res = $this->exucute($sql);
         if ($res == 1)
             return 1;
         else
