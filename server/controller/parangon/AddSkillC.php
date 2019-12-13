@@ -1,7 +1,7 @@
 <?php
 require_once('./server/controller/ControllerC.php');
 require_once('./server/model/parangon/SkillsManagerM.php');
-class RecupBd extends Controller
+class AddSkill extends Controller
 {
     function __construct($url)
     {

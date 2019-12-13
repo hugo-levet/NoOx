@@ -141,7 +141,7 @@ brief : sphering skills view
         <script>
         function updateBd()
         {
-            lesCompetences = <?php echo json_encode($controller->getSkills()); ?>;
+            lesCompetences = <?php echo json_encode($controller->getSkills()); ?>; //TRANSLATE
         }
         updateBd();
         </script>
@@ -156,7 +156,7 @@ brief : sphering skills view
                     console.log('plus');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
-                        url : '<?= $controller->getRootReturn(); ?>../parangon/recupBd', // La ressource ciblée
+                        url : '<?= $controller->getRootReturn(); ?>../parangon/addSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',
@@ -166,9 +166,7 @@ brief : sphering skills view
                             {
                                 console.log('text[2] ' + text[2]);
                                 currentComp['level'] = text[2];//TO AMELIORE
-                                
-                                // closePopup(); //TO DELETE
-                                // openPopup(currentComp['id']);
+                            
                                 createRond(currentCompJson);
                             }
                             else
