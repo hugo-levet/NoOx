@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /*
     title : ModelM.php
@@ -62,4 +63,3 @@ abstract class Model{
         }
     }
 }
-?>
