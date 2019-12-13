@@ -385,14 +385,4 @@ public class User extends Controller {
 
 
 ?>
-=======
-        started on : 05/12/2019
-        brief : class user
-    */
 
-?>
-
-<?php
-
-?>
->>>>>>> master
