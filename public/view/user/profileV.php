@@ -26,83 +26,83 @@
         <div id="ListProfile">
             <div class="ProfileLine">
                 <p class="CategoryName"> Nom </p>
-                <p class="Value"><?php //getlastName(); ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getlastName(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Prénom </p>
-                <p class="Value"><?php //getName(); ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getName(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Pseudo </p>
-                <p class="Value"><?php //getPseudo() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getPseudo(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> e-mail </p>
-                <p class="Value"><?php //getMail() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getMail(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Mot de passe </p>
-                <p class="Value"><?php //getPassword() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getPassword(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Statut </p>
-                <p class="Value"><?php //getStatus() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getStatus(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Rang communautaire </p>
-                <p class="Value"><?php //getRank() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getRank(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Langue </p>
-                <p class="Value"><?php //getLanguage() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getLanguage(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Adresse </p>
-                <p class="Value"><?php //getAdresse() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getAdresse(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Téléphone </p>
-                <p class="Value"><?php //getPhone() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getPhone(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Date de naissance </p>
-                <p class="Value"><?php //getBirthDate() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getBirthDate(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Site web </p>
-                <p class="Value"><?php //getWebSite() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getWebSite(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Première connexion </p>
-                <p class="Value"><?php //getFirstConnexion() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getFirstConnexion(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Dernière connexion </p>
-                <p class="Value"><?php //getLastConnexion() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getLastConnexion(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Portrait </p>
-                <p class="Value"><?php //getPortrait() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getPortrait(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Civilité </p>
-                <p class="Value"><?php //getCivility() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getCivility(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Signature </p>
-                <p class="Value"><?php //getSignature() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getSignature(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Présentation </p>
-                <p class="Value"><?php //getPresentation() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getPresentation(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Fuseau horaire </p>
-                <p class="Value"><?php //getTimeZone() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getTimeZone(); ?></p>
             </div>
             <div class="ProfileLine">
                 <p class="CategoryName"> Devise </p>
-                <p class="Value"><?php //getCurrency() ?></p>
+                <p class="Value"><?php $controller->getCurrentUser()->getCurrency(); ?></p>
             </div>
         </div>
     </section>

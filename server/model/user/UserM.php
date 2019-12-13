@@ -1,16 +1,14 @@
 <?php
-    /*
-        title : profileC.php
-        author : Hugo.P
-        started on : 27/11/2019
-        brief : controller page profile
+    /*  
+        title : UserM.php
+        author : Hugo Panis
+        started on : 12/12/2019
+        brief : class User
     */
-?>
 
-<?php
 require_once('./server/controller/ControllerC.php');
 
-public class profileC extends Controller {
+public class User extends Controller {
 
     private $lastName;
     private $name;
@@ -36,8 +34,29 @@ public class profileC extends Controller {
     /**
      * profileC constructor.
      */
-    public function __construct()
+    public function __construct($id)
     {
+        $this->autoConnection($url);
+        $this->lastName = currentUser.getLastName();
+        $this->name = currentUser.getName();
+        $this->pseudo = currentUser.getPseudo();
+        $this->mail = currentUser.getMail();
+        $this->mdp = currentUser.getMdp();
+        $this->status = currentUser.getMdp();
+        $this->rank = currentUser.getRank();
+        $this->language = currentUser.getLanguage();
+        $this->address = currentUser.getAddress();
+        $this->phone = currentUser.getPhone();
+        $this->birthDate = currentUser.getBirthDate();
+        $this->webSite = currentUser.getWebSite();
+        $this->firstConnexion = currentUser.getFirstConnexion();
+        $this->lastConnexion = currentUser.getLastConnexion();
+        $this->portrait = currentUser.getPortrait();
+        $this->civility = currentUser.getCivility();
+        $this->signature = currentUser.getSignature();
+        $this->presentation = currentUser.getPresentation();
+        $this->timeZone = currentUser.getTimeZone();
+        $this->currency = currentUser.getCurrency();
     }
 
 
@@ -362,3 +381,6 @@ public class profileC extends Controller {
     }
 
 }
+
+
+?>
