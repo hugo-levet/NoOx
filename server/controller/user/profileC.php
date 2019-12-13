@@ -8,12 +8,8 @@
 ?>
 
 <?php
-<<<<<<< HEAD
-require_once('./server/controller/ControllerC.php');
-=======
 
-require_once ('../../model/user/profileM.php');
->>>>>>> master
+require_once('./server/controller/ControllerC.php');
 
 public class profileC extends Controller {
 

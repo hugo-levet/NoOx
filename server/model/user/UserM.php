@@ -37,27 +37,6 @@ public class User extends Controller {
      */
     public function __construct($id)
     {
-        $this->autoConnection($url);
-        $this->lastName = currentUser.getLastName();
-        $this->name = currentUser.getName();
-        $this->pseudo = currentUser.getPseudo();
-        $this->mail = currentUser.getMail();
-        $this->mdp = currentUser.getMdp();
-        $this->status = currentUser.getMdp();
-        $this->rank = currentUser.getRank();
-        $this->language = currentUser.getLanguage();
-        $this->address = currentUser.getAddress();
-        $this->phone = currentUser.getPhone();
-        $this->birthDate = currentUser.getBirthDate();
-        $this->webSite = currentUser.getWebSite();
-        $this->firstConnexion = currentUser.getFirstConnexion();
-        $this->lastConnexion = currentUser.getLastConnexion();
-        $this->portrait = currentUser.getPortrait();
-        $this->civility = currentUser.getCivility();
-        $this->signature = currentUser.getSignature();
-        $this->presentation = currentUser.getPresentation();
-        $this->timeZone = currentUser.getTimeZone();
-        $this->currency = currentUser.getCurrency();
     }
 
 
