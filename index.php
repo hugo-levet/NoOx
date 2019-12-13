@@ -36,7 +36,6 @@ if(isset($_GET['url']))
         $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
     }
     
-    
     try
     {
         if(file_exists($fileController))

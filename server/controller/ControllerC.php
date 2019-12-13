@@ -48,5 +48,51 @@ abstract class Controller
             }
         }
     }
+
+    /*
+        name : getUrlHere
+        author : Hugo.L
+        brief : Get the value of urlHere
+        return : mixed
+    */
+    public function getUrlHere()
+    {
+        return $this->urlHere;
+    }
+
+    /*
+        name : setUrlHere
+        author : Hugo.L
+        brief : Set the value of urlHere
+        input parameters : mixed $urlHere  
+        return : null
+    */
+    public function setUrlHere()
+    {
+        $this->urlHere = $urlHere;
+    }
+
+    /*
+        name : getRootReturn
+        author : Hugo.L
+        brief : Get the value of rootReturn
+        return : mixed
+    */
+    public function getRootReturn()
+    {
+        return $this->rootReturn;
+    }
+
+    /*
+        name : setRootReturn
+        author : Hugo.L
+        brief : Set the value of rootReturn
+        input parameters : mixed $rootReturn  
+        return : null
+    */
+    public function setRootReturn()
+    {
+        $this->rootReturn = $rootReturn;
+    }
 }
 ?>
