@@ -5,13 +5,10 @@
         started on : 27/11/2019
         brief : controller page profile
     */
-?>
-
-<?php
 
 require_once('./server/controller/ControllerC.php');
-
-public class profileC extends Controller {
+class profile extends Controller
+{
 
     private $lastName;
     private $name;
