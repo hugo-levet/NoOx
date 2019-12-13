@@ -50,7 +50,12 @@ if(isset($_GET['url']))
         
         if(file_exists($fileView))
         {
-            require_once($fileView);
+            // require_once($fileView);
+            $ressource = fopen($fileView, 'r');
+            // $title = 'caca';
+
+            //appelle le template
+            require_once('./public/view/template/template.php');
         }
         else
         {

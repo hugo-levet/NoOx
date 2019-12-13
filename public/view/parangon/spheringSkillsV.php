@@ -5,75 +5,9 @@ author : Hugo.L
 started on : 03/12/2019
 brief : sphering skills view
 */
+
+$title = 'Sphérier de compétences';
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Test map image cliquable</title>
-        <!-- <script>
-            function openPopup()
-            {
-                console.log('ouverture');
-                var popup = document.getElementById('popup');
-                popup.style.display = "block";
-            }
-
-            function closePopup()
-            {
-                console.log('fermeture');
-                var popup = document.getElementById('popup');
-                popup.style.display = "none";
-            }
-        </script> -->
-        <style type="text/css">
-            area:hover  
-            {
-                cursor: pointer;
-            }
-
-            #popup
-            {
-                display: none;
-                position: fixed;
-                bottom: 0;
-                background: white;
-                border: 2px solid black;
-                padding: 5px;
-            }
-
-            #lesronds{
-                display: flex;
-                flex-direction: row;
-            }
-
-            .rond{
-                width : 10px;
-                height : 10px;
-                background: grey;
-                margin: 2px;
-                border-radius: 99px;
-            }
-
-            .knowledge{
-                background: green;
-            }
-
-            .hermetic_capacity{
-                background: purple;
-            }
-
-            .skill{
-                background: blue;
-            }
-
-            .acquis{
-                border: 2px solid black;
-            }
-        </style>
-    </head>
-    
-    <body>
         <h1>Sphérier de compétences</h1>
         <!-- <img src="../public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
         <!-- <img src="../public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
@@ -219,6 +153,3 @@ brief : sphering skills view
                 });
             });
         </script>
-
-    </body>
-</html>
