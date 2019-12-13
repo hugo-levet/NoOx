@@ -41,10 +41,5 @@ class SpheringSkills extends Controller
     {
         $this->skills = $skills;
     }
-
-    public function ditMoiOui()
-    {
-        echo 'OUI';
-    }
 }
 ?>

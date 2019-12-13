@@ -74,6 +74,49 @@ class SkillsManager extends Model
     }
 
     /*
+        name : addSkill
+        author : Hugo.L
+        brief : add a level of a skill
+        input parameters : integer $id
+        return : boolean
+    */
+    public function removeSkill($id)
+    {
+        //selectionnne les infos des compétences
+        $contentFileJson = file_get_contents('public/assets/js/skills.json');
+        $skills = json_decode($contentFileJson, true);
+
+        // select la comp dans bd
+        $compDansBD = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId AND comp_id = $id");
+        // si existe
+        if($compDansBD)
+        {
+            // si on peut la modifier
+            if($compDansBD[0]['level'] > 0)
+            {
+                // la modifie dans la base de donnée
+                $this->execute("UPDATE skill SET level = level-1 WHERE user_id = $this->userId AND comp_id = $id");
+                //update $this-skills   
+                //CHANGE user to parangon
+                $this->skills = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId");
+                //return true
+                return true;
+            }
+            //sinon return false
+            else
+            {
+                return false;
+            }
+        }
+        //si existe pas
+        else
+        {
+            //sinon return false
+            return false;
+        }
+    }
+
+    /*
         name : getSkills
         author : Hugo.L
         brief : Get the value of skills

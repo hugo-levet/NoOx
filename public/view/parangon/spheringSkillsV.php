@@ -184,6 +184,39 @@ brief : sphering skills view
                         }
                     });
                 });
+
+                $("#moins").click(function(){
+                    console.log('moins');
+                    console.log('currentComp[\'id\']' + currentComp['id']);
+                    $.ajax({
+                        url : '<?= $controller->getRootReturn(); ?>../parangon/removeSkill', // La ressource ciblée
+                        type : 'POST', // Le type de la requête HTTP.
+                        data : 'comp_id=' + currentComp['id'],
+                        dataType : 'text',
+                        success : function(text, statut){
+                            console.log(text);
+                            if(text[0] != '/')
+                            {
+                                console.log('text[2] ' + text[2]);
+                                currentComp['level'] = text[2];//TO AMELIORE
+                            
+                                createRond(currentCompJson);
+                            }
+                            else
+                            {
+                                console.log('Cette compétence ne peut pas être enlevé.');
+                            }
+                            
+                        },
+                        error : function(resultat, statut, erreur){
+                            
+                        },
+
+                        complete : function(resultat, statut){
+
+                        }
+                    });
+                });
             });
         </script>
 
