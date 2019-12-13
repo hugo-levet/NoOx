@@ -1,8 +1,8 @@
 <?php
-    /*
-        title : registerC.php 
-        author : Julien
-        started on : 
-        brief : controller page d'inscription
-    */
+/*
+    title : loginC.php
+    author : Hugo.P
+    started on :
+    brief : controller page profile
+*/
 ?>
