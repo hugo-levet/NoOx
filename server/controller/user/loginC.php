@@ -6,12 +6,12 @@
     brief : controller page login
 */
 
-require_once '../../../public/view/user/loginV.php';
+require_once './public/view/user/loginV.php';
 
-class loginC extends Controller {
-    function __construct()
+class Login extends Controller {
+    function __construct($url)
     {
-        $this->automaticConnection('NoOx/user/login');
+        $this->automaticConnection($url);
         if(isset($_POST['submit'])) {
             $loginnow = new login();
             $login = $_POST['idcurrentUser'];
