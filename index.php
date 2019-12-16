@@ -46,6 +46,7 @@ if(isset($_GET['url']))
     {
         if(file_exists($fileController))
         {
+            require_once('./server/controller/ControllerC.php');
             require_once($fileController);
         }
         else
