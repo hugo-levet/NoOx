@@ -9,14 +9,14 @@ brief : sphering skills view
 $title = 'Sphérier de compétences';
 ?>
         <h1>Sphérier de compétences</h1>
-        <!-- <img src="../public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
-        <!-- <img src="../public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
-        <img src="../public/assets/images/sherier.png" usemap="#image-map">
+        <!-- <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
+        <!-- <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
+        <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sherier.png" usemap="#image-map">
         
         <map name="image-map">
                 <?php
                 //load file json
-                $contentFileJson = file_get_contents('public/assets/js/skills.json');
+                $contentFileJson = file_get_contents('./public/assets/js/skills.json');
                 $skills = json_decode($contentFileJson, true);
                 for($i = 0; $i < count($skills); $i++)
                 {
@@ -68,8 +68,8 @@ $title = 'Sphérier de compétences';
             </div>
         </div>
 
-        <script src="..\public\assets\js\ajax.js"></script>
-        <script src="..\public\assets\js\skills.js"></script>
+        <script src="<?= $controller->getRootReturn(); ?>public\assets\js\ajax.js"></script>
+        <script src="<?= $controller->getRootReturn(); ?>public\assets\js\skills.js"></script>
 
 
         <script>
@@ -90,7 +90,7 @@ $title = 'Sphérier de compétences';
                     console.log('plus');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
-                        url : '<?= $controller->getRootReturn(); ?>../parangon/addSkill', // La ressource ciblée
+                        url : '<?= $controller->getRootReturn(); ?>parangon/AddSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',
@@ -123,7 +123,7 @@ $title = 'Sphérier de compétences';
                     console.log('moins');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
-                        url : '<?= $controller->getRootReturn(); ?>../parangon/removeSkill', // La ressource ciblée
+                        url : '<?= $controller->getRootReturn(); ?>parangon/RemoveSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',

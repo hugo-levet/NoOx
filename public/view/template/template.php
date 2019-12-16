@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="./../public/assets/css/templateG.css">
+    <link rel="stylesheet" href="<?= $controller->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
         // for ( $i= 0 ; $i < sizeof ($listStyle); ++$i){
         //     echo '<link rel="stylesheet" href"./../public/assets/css/'.$listStyle[$i].'.css">';
@@ -24,10 +24,10 @@
         // }//??
     ?>
 
-    <?= '<link rel="stylesheet" href="./../public/assets/css/' . $category . '/' . lcfirst($url[1]) . '.css">'; ?>
+    <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
-    <script src="./../public/assets/js/template.js" defer></script>
+    <script src="<?= $controller->getRootReturn(); ?>public/assets/js/template.js" defer></script>
 
     <title>NoOx</title>
 </head>
@@ -38,7 +38,7 @@
         </button>
 
         <!-- logo -->
-        <img src="./../public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
+        <img src="<?= $controller->getRootReturn(); ?>public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
     </section>
 
     <!-- si utilisateur connecté -->
@@ -79,13 +79,13 @@
 
             </nav>
         <div id="footerContainer">
-            2019 - NoOx
+            <p>2019 - NoOx</p>
         </div>
     </section>
 
     <?= require_once($fileView); ?>
     <script type="text/javascript">
-        document.title = "<?=$title;?> | NoOx"
+        document.title = "<?= $title; ?> | NoOx"
     </script>
 
 </body>

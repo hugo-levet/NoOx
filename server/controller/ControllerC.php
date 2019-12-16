@@ -31,13 +31,15 @@ abstract class Controller
         }
 
         // initialization $rootReturn
-        foreach ($url as $key)
+        $this->rootReturn = './';
+        foreach ($url as $key => $value)
         {
             if($key != 0)
             {
                 $this->rootReturn .= '../';
             }
         }
+        
         // initialization $urlHere
         foreach ($url as $key => $p)
         {
