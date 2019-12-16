@@ -5,7 +5,7 @@
     started on : 20/11
     brief : template du site 
 */
-session_start();
+// session_start();
 
 
 ?>
@@ -16,19 +16,21 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="../../assets/css/templateG.css">
+    <link rel="stylesheet" href="../../../public/assets/css/templateG.css">
     <?php
-        for ( $i= 0 ; $i < sizeof ($listStyle); ++$i){
-            echo '<link rel="stylesheet" href"../../assets/css/'.$listStyle[$i].'.css">';
+        for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
+        {
+            $linkcss = '../../../public/assets/css/'.$listStyles[$i];
+            echo '<link rel="stylesheet" href="'.$linkcss.'">';
         }
 
         for ($i = 0; $i < sizeof($listJS); ++$i) {
-            echo '<script src="../../assets/js/'.$listJS[$i].'.js" defer></script>';
+            echo '<script src="../../../public/assets/js/'.$listJS[$i].'.js" defer></script>';
         }
     ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
-    <script src="../../assets/js/template.js" defer></script>
+    <script src="../../../public/assets/js/template.js" defer></script>
 
     <title><?= $title ?> | NoOx</title>
 </head>
@@ -50,9 +52,9 @@ session_start();
                 <label for="navUser" class="navLabel">Utilisateur</label>
 
                 <?php
-                    if (!isset($_SESSION['id']) {
+                    if (!isset($_SESSION['id'])) {
                         echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
-                        echo '</div>'
+                        echo '</div>';
                     }
                     else {
                 ?>
