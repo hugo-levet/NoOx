@@ -31,5 +31,4 @@ class login extends Model
 
 }
 
-
 ?>
