@@ -6,6 +6,8 @@
     brief : template du site 
 */
 // session_start();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
