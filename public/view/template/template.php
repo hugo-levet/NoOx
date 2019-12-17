@@ -1,35 +1,35 @@
 <?php
 /*
     title : template.php
-    author : Hugo.L
-    started on : 13/12/19
-    brief : view Template
+    author : Audrey
+    started on : 20/11
+    brief : template du site 
 */
+// session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-git
-    <link rel="stylesheet" href="<?= $controller->getRootReturn(); ?>public/assets/css/templateG.css">
+
+    <link rel="stylesheet" href="../../../public/assets/css/templateG.css">
     <?php
-        // for ( $i= 0 ; $i < sizeof ($listStyle); ++$i){
-        //     echo '<link rel="stylesheet" href"./../public/assets/css/'.$listStyle[$i].'.css">';
-        // }
-        // for ($i = 0; $i < sizeof($listJS); ++$i) {
-        //     echo '<script src="./..///js/'.$listJS[$i].'.js" defer></script>';
-        // }//??
+        for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
+        {
+            $linkcss = '../../../public/assets/css/'.$listStyles[$i];
+            echo '<link rel="stylesheet" href="'.$linkcss.'">';
+        }
+        for ($i = 0; $i < sizeof($listJS); ++$i) {
+            echo '<script src="../../../public/assets/js/'.$listJS[$i].'.js" defer></script>';
+        }
     ?>
 
-    <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
-
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
-    <script src="<?= $controller->getRootReturn(); ?>public/assets/js/template.js" defer></script>
+    <script src="../../../public/assets/js/template.js" defer></script>
 
-    <title>NoOx</title>
+    <title><?= $title ?> | NoOx</title>
 </head>
 <body>
     <section id="logoNavContainer">
@@ -38,7 +38,7 @@ git
         </button>
 
         <!-- logo -->
-        <img src="<?= $controller->getRootReturn(); ?>public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
+        <img src="./NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
     </section>
 
     <!-- si utilisateur connecté -->
@@ -79,14 +79,11 @@ git
 
             </nav>
         <div id="footerContainer">
-            <p>2019 - NoOx</p>
+            2019 - NoOx
         </div>
     </section>
 
-    <?= require_once($fileView); ?>
-    <script type="text/javascript">
-        document.title = "<?= $title; ?> | NoOx"
-    </script>
+    <?= $content ?>
 
 </body>
 </html>
