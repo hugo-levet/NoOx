@@ -23,6 +23,7 @@
             $linkcss = '../../../public/assets/css/'.$listStyles[$i];
             echo '<link rel="stylesheet" href="'.$linkcss.'">';
         }
+    
         for ($i = 0; $i < sizeof($listJS); ++$i) {
             echo '<script src="../../../public/assets/js/'.$listJS[$i].'.js" defer></script>';
         }
