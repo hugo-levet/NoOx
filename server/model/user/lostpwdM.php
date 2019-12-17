@@ -6,6 +6,8 @@
     brief : model page lost password
 */
 
+require_once ('./server/model/ModelM.php');
+
 class lostpwd extends Model {
     private $mail;
     private $login;

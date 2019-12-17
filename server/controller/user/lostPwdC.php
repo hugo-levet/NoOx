@@ -6,7 +6,10 @@
     brief : controller page lost password
 */
 
-require '../../../public/view/user/lostPwdV.php';
+require ('./public/view/user/lostPwdV.php');
+require_once ('./server/model/user/lostpwdM.php');
+require_once ('./server/controller/ControllerC.php');
+
 
 class LosstPwdC extends Controller {
 

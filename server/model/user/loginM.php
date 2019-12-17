@@ -6,7 +6,9 @@
     brief : model page login
 */
 
-class login extends Model
+require_once ('./server/model/ModelM.php');
+
+class Login extends Model
 {
 
     public function loginTry ($login, $pwd) {
