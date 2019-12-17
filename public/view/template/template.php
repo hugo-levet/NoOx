@@ -16,19 +16,22 @@
 
     <link rel="stylesheet" href="<?= $controller->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
-        // for ( $i= 0 ; $i < sizeof ($listStyle); ++$i){
-        //     echo '<link rel="stylesheet" href"./../public/assets/css/'.$listStyle[$i].'.css">';
-        // }
-        // for ($i = 0; $i < sizeof($listJS); ++$i) {
-        //     echo '<script src="./..///js/'.$listJS[$i].'.js" defer></script>';
-        // }//??
+        for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
+        {
+            $linkcss = $controller->getRootReturn() . 'public/assets/css/' . $listStyles[$i];
+            echo '<link rel="stylesheet" href="'.$linkcss.'">';
+        }
+
+        for ($i = 0; $i < sizeof($listJS); ++$i) {
+            echo '<script src="' . $controller->getRootReturn() . 'public/assets/js/'.$listJS[$i].'.js" defer></script>';
+        }
     ?>
 
     <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
+    
     <script src="<?= $controller->getRootReturn(); ?>public/assets/js/template.js" defer></script>
-
     <title>NoOx</title>
 </head>
 <body>
