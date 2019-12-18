@@ -41,7 +41,7 @@ if(isset($_POST['submit']))
         }
         else
         {
-            if (strlen($password) > 0)
+            if (strlen($password) > 2)
             {
 
                 if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
@@ -88,7 +88,7 @@ if (isset($_GET['error']))
     else if ($_GET['error'] == 'email')
         $error = 'L\'email que vous avez choisi est déjà utilisé';
     else if ($_GET['error'] == 'wrongPassword')
-        $error = 'Le mot de passe doit contenir au moins 8 caractères';
+        $error = 'Le mot de passe doit contenir au moins 2 caractères';
     else
         $error = '';
 }
