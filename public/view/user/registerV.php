@@ -2,7 +2,7 @@
 /*
     title : registerV.php
     author : Julien
-    started on :
+    started on : 03/12/19
     brief : view page d'inscription
 */
 ?>

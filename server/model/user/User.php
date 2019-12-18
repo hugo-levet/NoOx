@@ -1,8 +1,8 @@
 <?php
 /*
     title : User.php
-    author :
-    started on :
+    author : Julien
+    started on : 03/12/19
     brief : class user
 */
 

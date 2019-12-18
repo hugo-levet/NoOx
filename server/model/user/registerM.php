@@ -2,8 +2,8 @@
 /*
     title : register.php
     author : Julien
-    started on :
-    brief : controller page profile
+    started on : 03/12/19
+    brief : controller page d'inscription
 */
 
 require(__DIR__."/../ModelM.php");

@@ -2,16 +2,15 @@
 /*
     title : registerC.php
     author : Julien
-    started on :
+    started on : 03/12/19
     brief : controller page d'inscription
 */
 
-require '../../../public/view/user/registerV.php';
 
 // Cration d'un compte
+
 require (__DIR__ . '/../../model/user/registerM.php');
 require (__DIR__ . '/../../model/user/User.php');
-
 $registration = new registration();
 
 if(isset($_POST['submit']))
@@ -44,6 +43,7 @@ if(isset($_POST['submit']))
         {
             if (strlen($password) > 0)
             {
+
                 if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
                 {
                     $Password = password_hash($password, PASSWORD_DEFAULT);
@@ -95,6 +95,7 @@ if (isset($_GET['error']))
 else
     $error = '';
 
+require '../../../public/view/user/registerV.php';
 
 ?>
 
