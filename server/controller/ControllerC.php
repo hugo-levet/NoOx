@@ -5,7 +5,7 @@
     started on : 27/11/2019
     brief : global controller
 */
-require_once('model/user/UserM.php');
+require_once('../model/user/User.php');
 abstract class Controller
 {
     protected $currentUser = null;

@@ -26,7 +26,6 @@ class login extends database
         else
             return 0;
     }
-
 }
 
 

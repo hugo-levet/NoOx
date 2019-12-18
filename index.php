@@ -1,5 +1,6 @@
 <?php
 
+
 $controller;
 
 //redirects to the good controller

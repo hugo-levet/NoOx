@@ -1,27 +1,64 @@
 <?php
 /*
     title : register.php
-    author : Celia.H
+    author : Julien
     started on :
     brief : controller page profile
 */
 
-require_once '../databse/databse.php';
+include_once '../ModelM.php';
 
-class register {
-
-    public function MailTry ($mail) {
-        $sql = 'select email from user where email= $mail;';
-        $req = query($sql);
-        return $req;
+class registration extends Model
+{
+    public function register($newUser) {
+        $this->databaseConnection();
+        $sql = 'INSERT INTO user ( pseudo, email, password, status, "community rank", "language code", portrait, civility, surname, firstname, address, city, phone, birthday, presentation) 
+            VALUES (\'' . $newUser->getMyPseudo() . '\',
+                    \'' . $newUser->getMyEmail() . '\',
+                    \'' . $newUser->getMyPassword() . '\',
+                    \'' . $newUser->getMyStatus() . '\',
+                    \'' . $newUser->getMyCommunityRank() . '\',
+                    \'' . $newUser->getMyPortrait() . '\',
+                    \'' . $newUser->getMyCivility() . '\',
+                    \'' . $newUser->getMySurname() . '\',
+                    \'' . $newUser->getMyFirstName() . '\',
+                    \'' . $newUser->getMyAdress() . '\',  
+                    \'' . $newUser->getMyCity() . '\',
+                    \'' . $newUser->getMyPhone() . '\',
+                    \'' . $newUser->getMyBirthday() . '\',                                                                                                                               
+                    \'' . $newUser->getMyPresentaion() . '\')';
+        if (!($dbResult = mysqli_query($this, $sql)))
+        {
+            echo 'Erreur de requête<br/>';
+            //Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($this) . '<br/>';
+            //Affiche la requête envoyée.
+            echo 'Requête : ' . $sql . '<br/>';
+            exit();
+        }
     }
 
-    public function login_try ($login) {
-        $sql = 'select login from user where login= $login;';
-        $req = query($sql);
-        return $req;
+
+
+    public function checkEmail ( $email ) {
+        $this->databaseConnection();
+        $sql = "SELECT email FROM user WHERE email = '$email'";
+        $res = $this->execute($sql);
+        if ($res == 1)
+            return 1;
+        else
+            return 0;
+    }
+
+    public function checkPseudo ( $pseudo ) {
+        $this->databaseConnection();
+        $sql = "SELECT pseudo FROM user WHERE pseudo = '$pseudo'";
+        $res = $this->execute($sql);
+        if ($res == 1)
+            return 1;
+        else
+            return 0;
     }
 
 }
-
 ?>

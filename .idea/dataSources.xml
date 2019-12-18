@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Projet_Noox" uuid="43cbdb3b-21b0-4ae8-9149-2d45fe7b6e42">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://mysql-projet-noox.alwaysdata.net:3306/projet-noox_database</jdbc-url>
+    </data-source>
+  </component>
+</project>

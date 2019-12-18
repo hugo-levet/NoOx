@@ -5,6 +5,8 @@
     started on : 27/11/2019
     brief : global model
 */
+
+
 abstract class Model{
     private static $database;
     private static $connected;
@@ -20,7 +22,7 @@ abstract class Model{
     {
         if(!self::$connected)
         {
-            require('server/config.php');
+            require('../config.php');
             self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
             self::$connected = true;
         }

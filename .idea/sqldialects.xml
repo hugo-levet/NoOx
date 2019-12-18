@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="remoteDeploymentFS://&lt;e5babf12-e90a-4ffa-8dce-d331b71a2fb3&gt;/server/model/user/registerM.php" dialect="GenericSQL" />
+    <file url="file://$USER_HOME$/Downloads/projet-noox_database.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/server/model/user/registerM.php" dialect="GenericSQL" />
+  </component>
+</project>
