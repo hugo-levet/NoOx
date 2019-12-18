@@ -6,7 +6,13 @@
     brief : controller page d'inscription
 */
 
+require '../../../public/view/user/registerV.php';
+
 // Cration d'un compte
+require (__DIR__ . '/../../model/user/registerM.php');
+require (__DIR__ . '/../../model/user/User.php');
+
+$registration = new registration();
 
 if(isset($_POST['submit']))
 {
@@ -15,7 +21,7 @@ if(isset($_POST['submit']))
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $status = $_POST['status'];
-    $communityrank = $_POST['communityrank'];
+    $communityrank = 1;
     $languagecode = $_POST['languagecode'];
     $portrait = $_POST['portrait'];
     $civility = $_POST['civility'];
@@ -33,31 +39,28 @@ if(isset($_POST['submit']))
         if ($password != $password2)
         {
             header('Location: ../../../server/controller/user/registerC.php?error=password');
-            print ('ezrazoe,foz,ef');
         }
         else
         {
-            if (strlen($password) > 8)
+            if (strlen($password) > 0)
             {
-                require '../../model/user/registerM.php';
-                if (checkEmail($email) AND checkPseudo($pseudo))
+                if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
                 {
                     $Password = password_hash($password, PASSWORD_DEFAULT);
                     $newUser = new User($pseudo, $email,  $password, $status, $communityrank,
                         $languagecode, $portrait, $civility, $surname,
                         $firstname, $adress, $city, $phone, $birthday,
                         $presentation);
-                    register($newUser);
+                    $registration->register($newUser);
                     print 'Vous avez été correctement inscrit';
-                    header('Location: ../../../server/controller/user/loginC.php');
                 }
 
-                else if (!checkPseudo($pseudo))
+                else if (($registration->checkPseudo($pseudo)) == 1)
                 {
                     header('Location: ../../../server/controller/user/registerC.php?error=pseudo');
                 }
 
-                else if (!checkEmail($email))
+                else if (($registration->checkEmail($email)) == 1)
                 {
                     header('Location: ../../../server/controller/user/registerC.php?error=email');
                 }
@@ -92,6 +95,6 @@ if (isset($_GET['error']))
 else
     $error = '';
 
-require '../../../public/view/user/registerV.php';
+
 ?>
 

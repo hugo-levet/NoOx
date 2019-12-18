@@ -5,12 +5,10 @@
     started on : 27/11/2019
     brief : global model
 */
-
-
 abstract class Model{
-    private static $database;
-    private static $connected;
-    
+    protected static $database;
+    protected static $connected;
+
     /*
         name : databaseConnection
         author : Hugo.L
@@ -22,12 +20,12 @@ abstract class Model{
     {
         if(!self::$connected)
         {
-            require('../config.php');
+            require(__DIR__.'../../config.php');
             self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
             self::$connected = true;
         }
     }
-    
+
     /*
         name : execute
         author : Hugo.L
@@ -40,7 +38,7 @@ abstract class Model{
         $result = mysqli_query(self::$database, $query);
         if (!$result)
         {
-            echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$bdd);
+            echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$database);
         }
         else
         {
