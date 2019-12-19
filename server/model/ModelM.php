@@ -45,8 +45,7 @@ abstract class Model{
             }
             else
             {
-                
-                    if (mysqli_num_rows($result) != 0)
+                    if (gettype($result) != "boolean")
                     {
                         $table = [];
                         while ($row = mysqli_fetch_assoc($result))

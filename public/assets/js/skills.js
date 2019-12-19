@@ -5,7 +5,7 @@ ajaxGet("./../public/assets/js/skills.json", function(rep){
 
 function trouverComp(compId) //TRANSLATE
 {
-    updateBd();
+    // updateBd();
     for(var i = 0; i < lesCompetences.length; ++i)
     {
         if(lesCompetences[i]['comp_id'] == compId)
@@ -60,9 +60,10 @@ function closePopup()
 
 function createRond(a_comp)
 {
+    console.log('creation ronds');
     var tabDeRonds = lesronds.getElementsByTagName("div");
     
-    updateBd();
+    // updateBd();
 
     //crée les rond de la compétences
     var nombreRond = tabDeRonds.length;

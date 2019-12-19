@@ -36,6 +36,7 @@ class SkillsManager extends Model
 
         // select la comp dans bd
         $compDansBD = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId AND comp_id = $id");
+        // echo "compdans db : " . sizeof($compDansBD);
         // si existe
         if($compDansBD)
         {
@@ -43,7 +44,7 @@ class SkillsManager extends Model
             if(strlen($skills[$id-1]['pattern']) > $compDansBD[0]['level'])
             {
                 // la modifie dans la base de donnée
-                $this->execute("UPDATE skill SET level = level+1 WHERE user_id = $this->userId AND comp_id = $id");
+                $var =$this->execute("UPDATE skill SET level = level+1 WHERE user_id = $this->userId AND comp_id = $id");
                 //update $this-skills   
                 //CHANGE user to parangon
                 $this->skills = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId");

@@ -89,9 +89,9 @@
         </div>
     </section>
 
-    <?= require_once('./public/view/' . $url[0] . '/' . $url[1] . 'V.php'); ?>
-    <script type="text/javascript">
-        document.title = "<?= $title; ?> | NoOx"
+    <?php require_once('./public/view/' . $url[0] . '/' . $url[1] . 'V.php'); ?>
+    <script>
+        document.title = "<?= $title; ?> | NoOx";
     </script>
 
 </body>

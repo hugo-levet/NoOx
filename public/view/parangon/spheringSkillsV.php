@@ -71,15 +71,6 @@ $title = 'Sphérier de compétences';
         <script src="<?= $this->getRootReturn(); ?>public\assets\js\ajax.js"></script>
         <script src="<?= $this->getRootReturn(); ?>public\assets\js\skills.js"></script>
 
-
-        <script>
-        function updateBd()
-        {
-            lesCompetences = <?php echo json_encode($this->getSkills()); ?>; //TRANSLATE
-        }
-        updateBd();
-        </script>
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         
         <script>
@@ -115,9 +106,8 @@ $title = 'Sphérier de compétences';
                             if(text[0] != '/')
                             {
                                 console.log('text[2] ' + text[2]);
-                                currentComp['level'] = text[2];//TO AMELIORE
-                            
-                                createRond(currentCompJson);
+                                
+                                updateBd();
                             }
                             else
                             {
@@ -148,9 +138,7 @@ $title = 'Sphérier de compétences';
                             if(text[0] != '/')
                             {
                                 console.log('text[2] ' + text[2]);
-                                currentComp['level'] = text[2];//TO AMELIORE
-                            
-                                createRond(currentCompJson);
+                                updateBd();
                             }
                             else
                             {
@@ -167,5 +155,31 @@ $title = 'Sphérier de compétences';
                         }
                     });
                 });
+
+                function updateBd()
+                {
+                    $.ajax({
+                        url : '<?= $this->getRootReturn(); ?>parangon/updateDb', // La ressource ciblée
+                        type : 'POST', // Le type de la requête HTTP.
+                        dataType : 'json',
+                        success : function(text, statut){
+                            console.log(text);
+                            lesCompetences = text;
+                            if(typeof currentCompJson != 'undefined')
+                            {
+                                currentComp = trouverComp(currentCompJson["id"]);
+                                // currentComp['level'] = text[2];//TO AMELIORE
+                                createRond(currentCompJson);
+                            }
+                        },
+                        error : function(resultat, statut, erreur){
+                            console.log('json : erreur' + erreur);    
+                        },
+                        complete : function(resultat, statut){
+                        
+                        }
+                    });
+                }
+                updateBd();
             });
         </script>
