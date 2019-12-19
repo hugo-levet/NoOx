@@ -9,36 +9,7 @@ if(isset($_GET['url']))
 {
     $url = explode("/", $_GET['url']);
     
-    // $classController = ucfirst($url[0]);
-    
-    //def category
-    // if(preg_match ( "/.*(A|a)vatar.*/" , $classController))
-    // {
-    //     $category ="avatar";
-    // }
-    // if(preg_match ( "/.*(P|p)arangon.*/" , $classController))
-    // {
-    //     $category ="parangon";
-    // }
-    // else
-    // {
-    //     $category ="user";
-    // }
-
-    //found files
-    // if($category == "parangon" && isset($url[1]))
-    // {
-    //     $classController = ucfirst($url[1]);
-    //     $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
-    //     $fileView = './public/view/' . $category . '/' . $url[1] . 'V.php';
-    // }
-    // else
-    // {
-    //     $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
-    //     $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
-    // }
-    
-        $classController = ucfirst($url[sizeof($url)-1]);
+        $classController = lcfirst($url[sizeof($url)-1]);
         $fileController = './server/controller/' . $url[0] . '/' . $classController . 'C.php';
         $fileView = './public/view/' . $url[0] . '/' . $url[1] . 'V.php';
     
