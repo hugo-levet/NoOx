@@ -47,9 +47,11 @@ abstract class Model{
         input parameters : string $query
         return : array of result or null
     */
-    public function execute($query)
+    public function execute($query/*, $var*/)
     {
         $this->databaseConnection();
+        // $q = self::$database->prepare($query);
+        // $q->execute($var);
         $result = self::$database->query($query);
         if(!preg_match('/^(UPDATE).*$/', $query))
         {
