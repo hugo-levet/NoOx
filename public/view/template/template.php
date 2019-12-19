@@ -1,9 +1,9 @@
 <?php
 /*
     title : template.php
-    author : Hugo.L
-    started on : 13/12/19
-    brief : view Template
+    author : Audrey Hugo.L
+    started on : 20/11/19
+    brief : website Template
 */
 ?>
 
@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="<?= $controller->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
+    if(isset($listStyles))
+    {
         for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
         {
             $linkcss = $controller->getRootReturn() . 'public/assets/css/' . $listStyles[$i];
@@ -25,6 +27,7 @@
         for ($i = 0; $i < sizeof($listJS); ++$i) {
             echo '<script src="' . $controller->getRootReturn() . 'public/assets/js/'.$listJS[$i].'.js" defer></script>';
         }
+    }
     ?>
 
     <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>

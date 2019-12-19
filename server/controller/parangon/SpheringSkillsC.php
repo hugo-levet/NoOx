@@ -1,6 +1,6 @@
 <?php
 /*
-title : spheringSkillsV.php
+title : spheringSkillsC.php
 author : Hugo.L
 started on : 03/12/2019
 brief : sphering skills controller
