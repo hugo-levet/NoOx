@@ -8,7 +8,7 @@ class AddSkill extends Controller
         $skillsManager = new SkillsManager(1); //1 = DEV
         echo $skillsManager->addSkill($_POST['comp_id']);
         echo '/';
-        echo $skillsManager->getSkills()[0]['level'];//TODO
+        echo $skillsManager->getSkill($_POST['comp_id'])[0]['level'];//TODO
     }
 }
 ?>

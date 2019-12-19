@@ -8,7 +8,7 @@ class RemoveSkill extends Controller
         $skillsManager = new SkillsManager(1); //1 = DEV
         echo $skillsManager->removeSkill($_POST['comp_id']);
         echo '/';
-        echo $skillsManager->getSkills()[$_POST['comp_id']-1]['level'];//TODO
+        echo $skillsManager->getSkill($_POST['comp_id'])[0]['level'];//TODO
     }
 }
 ?>

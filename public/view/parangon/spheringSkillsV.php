@@ -89,17 +89,13 @@ $title = 'Sphérier de compétences';
                 //le rapport de  map pour l'image
                 reduction = $('#spheringSkillsImg').width() / 1587;
                 $('map').children('area').each(function(index){
-                    console.log('une area');
-
                     // divise la chaine de caractere des coordonnées en tableau
                     tabCoords = $(this).attr('coords').split(',');
-                    console.log(tabCoords);
 
                     // multiplie chaque coordonnées
                     tabCoords.forEach(function(element, index){
                         tabCoords[index] = Math.floor(element * reduction);
                     });
-                    console.log(tabCoords);
 
                     //applique les changements
                     $(this).attr('coords', tabCoords.join(','));
@@ -108,11 +104,11 @@ $title = 'Sphérier de compétences';
 
                 $("#plus").click(function(){
                     console.log('plus');
-                    console.log('currentComp[\'id\']' + currentComp['id']);
+                    console.log('currentComp[\'id\']' + currentCompJson['id']);
                     $.ajax({
                         url : '<?= $this->getRootReturn(); ?>parangon/AddSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
-                        data : 'comp_id=' + currentComp['id'],
+                        data : 'comp_id=' + currentCompJson['id'],
                         dataType : 'text',
                         success : function(text, statut){
                             console.log(text);
@@ -141,11 +137,11 @@ $title = 'Sphérier de compétences';
 
                 $("#moins").click(function(){
                     console.log('moins');
-                    console.log('currentComp[\'id\']' + currentComp['id']);
+                    console.log('currentComp[\'id\']' + currentCompJson['id']);
                     $.ajax({
                         url : '<?= $this->getRootReturn(); ?>parangon/RemoveSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
-                        data : 'comp_id=' + currentComp['id'],
+                        data : 'comp_id=' + currentCompJson['id'],
                         dataType : 'text',
                         success : function(text, statut){
                             console.log(text);

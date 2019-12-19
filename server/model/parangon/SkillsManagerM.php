@@ -61,7 +61,7 @@ class SkillsManager extends Model
         {
             // si on peut la modif TODO
                 // l'ajoute dans la BD
-                $this->execute("INSERT INTO skill (user_id, comp_id, level) VALUES ($this->userId, $id, 1)");
+                $var = $this->execute("INSERT INTO skill (user_id, comp_id, level) VALUES ($this->userId, $id, 1)");
 
                 //update $this-skills   
                 //CHANGE user to parangon
@@ -95,7 +95,7 @@ class SkillsManager extends Model
             if($compDansBD[0]['level'] > 0)
             {
                 // la modifie dans la base de donnée
-                $this->execute("UPDATE skill SET level = level-1 WHERE user_id = $this->userId AND comp_id = $id");
+                $var = $this->execute("UPDATE skill SET level = level-1 WHERE user_id = $this->userId AND comp_id = $id");
                 //update $this-skills   
                 //CHANGE user to parangon
                 $this->skills = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId");
@@ -137,6 +137,19 @@ class SkillsManager extends Model
     public function setSkills($skills)
     {
         $this->skills = $skills;
+    }
+
+    /*
+        name : getSkills
+        author : Hugo.L
+        brief : Get the value of skills
+        return : mixed
+    */
+    public function getSkill($id)
+    {
+        //recherche dans bdd
+        $comp = $this->execute("SELECT * FROM skill WHERE user_id = $this->userId AND comp_id = $id");
+        return $comp;
     }
 }
 
