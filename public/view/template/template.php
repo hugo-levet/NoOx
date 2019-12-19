@@ -14,27 +14,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="<?= $controller->getRootReturn(); ?>public/assets/css/templateG.css">
+    <link rel="stylesheet" href="<?= $this->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
     if(isset($listStyles))
     {
         for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
         {
-            $linkcss = $controller->getRootReturn() . 'public/assets/css/' . $listStyles[$i];
+            $linkcss = $this->getRootReturn() . 'public/assets/css/' . $listStyles[$i];
             echo '<link rel="stylesheet" href="'.$linkcss.'">';
         }
 
         for ($i = 0; $i < sizeof($listJS); ++$i) {
-            echo '<script src="' . $controller->getRootReturn() . 'public/assets/js/'.$listJS[$i].'.js" defer></script>';
+            echo '<script src="' . $this->getRootReturn() . 'public/assets/js/'.$listJS[$i].'.js" defer></script>';
         }
     }
     ?>
 
-    <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
+    <?= '<link rel="stylesheet" href="' . $this->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
     
-    <script src="<?= $controller->getRootReturn(); ?>public/assets/js/template.js" defer></script>
+    <script src="<?= $this->getRootReturn(); ?>public/assets/js/template.js" defer></script>
     <title>NoOx</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
         </button>
 
         <!-- logo -->
-        <img src="<?= $controller->getRootReturn(); ?>public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
+        <img src="<?= $this->getRootReturn(); ?>public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
     </section>
 
     <!-- si utilisateur connecté -->
@@ -89,7 +89,7 @@
         </div>
     </section>
 
-    <?= require_once($fileView); ?>
+    <?= require_once('./public/view/' . $url[0] . '/' . $url[1] . 'V.php'); ?>
     <script type="text/javascript">
         document.title = "<?= $title; ?> | NoOx"
     </script>
