@@ -21,8 +21,22 @@ abstract class Model{
         if(!self::$connected)
         {
             require('server/config.php');
-            self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
-            self::$connected = true;
+            try
+            {
+                // Connexion à la base de données.
+                $dsn = 'mysql:host=' . $host . ';dbname=' . $databaseName;
+                self::$database = new PDO($dsn, $databaseId, $databasePassword);
+                // Codage de caractères.
+                self::$database->exec('SET CHARACTER SET utf8');
+                // Gestion des erreurs sous forme d'exceptions.
+                self::$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$connected = true;
+            }
+            catch(PDOException $e)
+            {
+                // Affichage de l'erreur.
+                die('Erreur : ' . $e->getMessage());
+            }
         }
     }
     
@@ -36,7 +50,7 @@ abstract class Model{
     public function execute($query)
     {
         $this->databaseConnection();
-        $result = mysqli_query(self::$database, $query);
+        $result = self::$database->query($query);
         if(!preg_match('/^(UPDATE).*$/', $query))
         {
             if (!$result)
@@ -48,7 +62,7 @@ abstract class Model{
                     if (gettype($result) != "boolean")
                     {
                         $table = [];
-                        while ($row = mysqli_fetch_assoc($result))
+                        while ($row = $result->fetch())
                         {
                             array_push ($table, $row);
                         }
