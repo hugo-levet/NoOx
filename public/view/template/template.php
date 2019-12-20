@@ -1,12 +1,9 @@
 <?php
 /*
-    title : template.php
-    author : Audrey
-    started on : 20/11
-    brief : template du site 
+    author : Audrey Hugo.L
+    started on : 20/11/19
+    brief : website Template
 */
-// session_start();
-
 
 ?>
 <!DOCTYPE html>
@@ -16,29 +13,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
     <link rel="stylesheet" href="../../../public/assets/css/templateG.css">
     <?php
+
+    if(isset($listStyles))
+    {
         for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
         {
-            $linkcss = '../../../public/assets/css/'.$listStyles[$i];
+            $linkcss = $controller->getRootReturn() . 'public/assets/css/' . $listStyles[$i];
             echo '<link rel="stylesheet" href="'.$linkcss.'">';
         }
     
         for ($i = 0; $i < sizeof($listJS); ++$i) {
-            echo '<script src="../../../public/assets/js/'.$listJS[$i].'.js" defer></script>';
+            echo '<script src="' . $controller->getRootReturn() . 'public/assets/js/'.$listJS[$i].'.js" defer></script>';
         }
-    ?>
+    }
+
+    <?= '<link rel="stylesheet" href="' . $controller->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
-    <script src="../../../public/assets/js/template.js" defer></script>
 
-    <title><?= $title ?> | NoOx</title>
+    <script src="<?= $controller->getRootReturn(); ?>public/assets/js/template.js" defer></script>
+    <title>NoOx</title>
 </head>
 <body>
     <section id="logoNavContainer">
         <button id="navbarTrigger" class="buttonNavND">
             <i class="fas fa-bars"></i>
         </button>
+
 
         <!-- logo -->
         <img src="./NoOxLogo.png" id="logoTopImg" alt="NoOx logo">

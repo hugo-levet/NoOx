@@ -1,43 +1,47 @@
-area:hover  
-            {
-                cursor: pointer;
-            }
+area:hover{
+cursor: pointer;
+}
 
-            #popup
-            {
-                display: none;
-                position: fixed;
-                bottom: 0;
-                background: white;
-                border: 2px solid black;
-                padding: 5px;
-            }
+#popup{
+display: none;
+position: fixed;
+bottom: 0;
+background: white;
+border: 2px solid black;
+padding: 5px;
+}
 
-            #lesronds{
-                display: flex;
-                flex-direction: row;
-            }
+#lesronds{
+display: flex;
+flex-direction: row;
+}
 
-            .rond{
-                width : 10px;
-                height : 10px;
-                background: grey;
-                margin: 2px;
-                border-radius: 99px;
-            }
+.rond{
+width : 10px;
+height : 10px;
+background: grey;
+margin: 2px;
+border-radius: 99px;
+}
 
-            .knowledge{
-                background: green;
-            }
+.knowledge{
+background: green;
+}
 
-            .hermetic_capacity{
-                background: purple;
-            }
+.hermetic_capacity{
+background: purple;
+}
 
-            .skill{
-                background: blue;
-            }
+.skill{
+background: blue;
+}
 
-            .acquis{
-                border: 2px solid black;
-            }
+.acquis{
+border: 2px solid black;
+}
+
+h1{
+text-align: center;
+margin-bottom: 1em;
+margin-top: 1em;
+}
