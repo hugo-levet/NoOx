@@ -51,7 +51,7 @@ ob_start();
                 <?php echo $error; ?>
             </form>
             <p id="LoginRegister">
-                Vous possédez déjà un compte ? <a id="LoginButton" href="#">Se connecter</a>
+                Vous possédez déjà un compte ? <a id="LoginButton" href="../../../server/controller/user/loginC.php">Se connecter</a>
             </p>
         </section>
     </main>
