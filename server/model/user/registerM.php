@@ -29,15 +29,6 @@ class registration extends Model
                         \'' . $newUser->getMyBirthday() . '\',                                                                                                                               
                         \'' . $newUser->getMyPresentaion() . '\')';
         $this->execute($sql);
-        if (!($dbResult = mysqli_query($this, $sql)))
-        {
-            echo 'Erreur de requête<br/>';
-            //Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($this) . '<br/>';
-            //Affiche la requête envoyée.
-            echo 'Requête : ' . $sql . '<br/>';
-            exit();
-        }
     }//register()
 
     public function checkEmail ( $email ) {

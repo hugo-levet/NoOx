@@ -28,7 +28,7 @@ class User
     public function __construct($pseudo, $email,  $password, $status, $communityrank,
                                 $languagecode, $portrait, $civility, $surname,
                                 $firstname, $adress, $city, $phone, $birthday,
-                                 $presentation)
+                                $presentation)
     {
         $this->myPseudo = $pseudo;
         $this->myEmail = $email;

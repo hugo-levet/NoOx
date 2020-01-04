@@ -2,16 +2,14 @@
 /*
     title : registerC.php
     author : Julien
-    started on : 03/12/19
+    started on :
     brief : controller page d'inscription
 */
 
+require('../../model/popup/popupM.php');
+
 
 // Cration d'un compte
-
-require (__DIR__ . '/../../model/user/registerM.php');
-require (__DIR__ . '/../../model/user/User.php');
-$registration = new registration();
 
 if(isset($_POST['submit']))
 {
@@ -31,9 +29,7 @@ if(isset($_POST['submit']))
     $phone = $_POST['phone'];
     $birthday = $_POST['birthday'];
     $presentation = $_POST['presentation'];
-    if ($pseudo != NULL AND $email != NULL AND $password != NULL AND $password2 != NULL AND $status != NULL
-        AND $portrait != NULL AND $civility != NULL AND $surname != NULL AND $firstname != NULL AND $adress != NULL
-        AND $city != NULL AND $phone != NULL AND $birthday != NULL)
+    if ($pseudo != NULL AND $email != NULL AND $password != NULL AND $password2 != NULL)
     {
         if ($password != $password2)
         {
@@ -41,33 +37,31 @@ if(isset($_POST['submit']))
         }
         else
         {
-            if (strlen($password) > 2)
+            require (__DIR__ . '/../../model/user/registerM.php');
+            require (__DIR__ . '/../../model/user/User.php');
+            $registration = new registration();
+
+            if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
             {
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $newUser = new User($pseudo, $email,  $password, $status, $communityrank,
+                    $languagecode, $portrait, $civility, $surname,
+                    $firstname, $adress, $city, $phone, $birthday,
+                    $presentation);
+                $registration->register($newUser);
+                $_SESSION['popup'] = new PopUp('success', 'Utilisateur', 'Vous êtes maintenant inscrit !');
+                header('Location: ../../../server/controller/user/loginC.php');
 
-                if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
-                {
-                    $Password = password_hash($password, PASSWORD_DEFAULT);
-                    $newUser = new User($pseudo, $email,  $password, $status, $communityrank,
-                        $languagecode, $portrait, $civility, $surname,
-                        $firstname, $adress, $city, $phone, $birthday,
-                        $presentation);
-                    $registration->register($newUser);
-                    print 'Vous avez été correctement inscrit';
-                }
-
-                else if (($registration->checkPseudo($pseudo)) == 1)
-                {
-                    header('Location: ../../../server/controller/user/registerC.php?error=pseudo');
-                }
-
-                else if (($registration->checkEmail($email)) == 1)
-                {
-                    header('Location: ../../../server/controller/user/registerC.php?error=email');
-                }
             }
-            else
+
+            else if (($registration->checkPseudo($pseudo)) != 0)
             {
-                header('Location : ../../../server/controller/user/registerC.php?error=wrongPassword');
+                header('Location: ../../../server/controller/user/registerC.php?error=pseudo');
+            }
+
+            else if (($registration->checkEmail($email)) != 0)
+            {
+                header('Location: ../../../server/controller/user/registerC.php?error=email');
             }
         }
     }
@@ -87,8 +81,6 @@ if (isset($_GET['error']))
         $error = 'Le pseudo que vous avez choisi est déjà utilisé.';
     else if ($_GET['error'] == 'email')
         $error = 'L\'email que vous avez choisi est déjà utilisé';
-    else if ($_GET['error'] == 'wrongPassword')
-        $error = 'Le mot de passe doit contenir au moins 2 caractères';
     else
         $error = '';
 }

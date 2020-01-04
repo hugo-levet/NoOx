@@ -4,3 +4,126 @@
     started on :
     brief : design page inscription
 */
+
+#Register
+{
+    display: flex;
+    justify-content: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+main
+{
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea
+{
+    resize: none;
+}
+
+#LogoRegister
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#TitleRegister
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+#Nooxlogo
+{
+
+    width: 175px;
+    filter: drop-shadow(0 0 2px #212121);
+    transition: 0.5s;
+}
+
+#Nooxlogo:hover
+{
+    filter: drop-shadow(0 0 2px #F9CA24);
+    transition: 0.5s;
+    -webkit-transform: rotate(360deg);
+    cursor: pointer;
+}
+
+#FormRegister
+{
+    text-align: center;
+    padding: 0px 20px 20px 20px;
+}
+
+.FormInput
+{
+    width: 90%;
+    margin: 0 0px 20px 0;
+    background: none;
+    border: none;
+    border-bottom: 2px solid ;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.FormInput:hover
+{
+    border-bottom: 2px solid #F9CA24;
+    transition: 0.4s;
+}
+
+@media screen and (min-width: 767px)
+{
+    .FormInput
+    {
+        width: 40%;
+        margin: 0 30px 20px 0;
+    }
+}
+
+
+.ButtonRegister
+{
+    padding: 7px 15px 7px 15px;
+    border: 1px solid #F9CA24;
+    background: none;
+    color: #ffff;
+    font-size: 18px;
+    transition: 0.4s;
+    color: #F9CA24;
+}
+
+
+.ButtonRegister:hover
+{
+    background-color: #F9CA24;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+
+}
+
+#LoginRegister
+{
+    margin-top: 10px;
+}
+
+#LoginButton
+{
+    text-decoration: none;
+    color: #F9CA24;
+    transition: 0.5s;
+}
+
+#LoginButton:hover
+{
+    text-shadow: 0px 1px 5px #F9CA24;
+}
