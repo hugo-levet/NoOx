@@ -8,22 +8,23 @@
 
 require_once ('./server/model/ModelM.php');
 
-class Login extends Model
+class LoginM extends Model
 {
 
     public function loginTry ($login, $pwd) {
-    $this->databaseConnection();
-    $sql = "SELECT password FROM user WHERE login = ' $login ' ";
+        $sql = "SELECT password FROM user WHERE pseudo = ' $login ' ";
         $res = $this->execute($sql);
-        if ($res == $pwd)
+        echo($res[0]['password']);
+        if ($res[0]['password'] == $pwd){
             return 1;
-        else
+        }
+        else {
             return 0;
+        }
     }
 
     public function adminTry($login) {
-        $this->databaseConnection();
-        $sql = "SELECT admin FROM USER WHERE login = ' $login' ";
+        $sql = "SELECT admin FROM USER WHERE pseudo = ' $login' ";
         $res = $this->exucute($sql);
         if ($res == 1)
             return 1;

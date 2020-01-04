@@ -17,15 +17,15 @@ class lostpwd extends Model {
     }
 
     public function getLogin() {
-        $this->databaseConnection();
-        $sql = "SELECT login FROM user WHERE mail = $this->mail . ";
+        $sql = "SELECT pseudo FROM user WHERE email = $this->mail . ";
         $res = $this->execute($sql);
         return $res;
     }
 
     public function setLogin() {
-        if ($this->getLogin() != null) {
-            $this->login->getLogin();
+        $res = $this->getLogin();
+        if ($res != null) {
+            $this->login = $res[0]['pseudo'];
             return 1;
         }
         return 0;
@@ -43,18 +43,20 @@ class lostpwd extends Model {
     }
 
     public function bddPwd() {
-        $tmpPwd = randPwd();
-        $this->databaseConnection();
-        $sql = "UPDATE user SET password = ' $tmpPwd 'WHERE login = ' $this->login'";
+        $tmpPwd = $this->randPwd();
+        $sql = "UPDATE user SET password = ' $tmpPwd 'WHERE pseudo = ' $this->login'";
         $this->execute($sql);
         return $tmpPwd;
     }
 
     public function sendMail() {
-        $message = 'Bonjour ' . $this->login . ',  \n\n';
+        $tmp = $this->bddPwd();
+        $message = 'Bonjour ' . $this->login . ', '." \n\n";
         $message .= 'Suite à votre signalement du mot de passe perdu, ';
-        $message .= 'voici votre nouveau mot de passe : ' . $this->bddPwd() . '\n';
+        $message .= 'voici votre nouveau mot de passe : ' . $tmp . "\n";
         $message .= 'Pensez à le changer.';
-        mail($this->mail, 'Mot de passe perdu', $message);
+        $to = $this->mail;
+        $subject = 'Mot de passe perdu';
+        mail($to, $subject, $message);
     }
 }
