@@ -6,7 +6,7 @@
     brief : controller page logout
 */
 
-class LogOutC extends Controller {
+class LogOut extends Controller {
     function __construct()
     {
         session_destroy();

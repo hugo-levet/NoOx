@@ -15,42 +15,56 @@ class Login extends Controller {
     {
         $this->automaticConnection($url);
         if(isset($_POST['submit'])) {
-            $loginnow = new LoginM();
-            $login = $_POST['idcurrentUser'];
+            $mail = htmlspecialchars($_POST['mail']);
             $pwd = $_POST['pwd'];
-            $loginnow->loginTry($login,$pwd);
+            if (!empty($pwd) AND !empty($mail)) {
+                if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
 
-           // $res = $loginnow->loginTry($login,$pwd);
-            //echo($res);
-//            if($res == 1){
-//                echo('yeye');
-//                echo('logintry');
-//                echo('yoyoy');
-//                session_start();
-//                $_SESSION['idcurrentUser'] = 1;
-//                echo('login marche');
-//                header('Location : NoOx/user/profile');
-//
-////                if($loginnow->adminTry($login) == 1) {
-////                    session_start();
-////                    $_SESSION['admin'] = 1;
-////                    header('Location: NoOx/user/profile');
-////                    echo('admin');
-////                }
-////                else {
-////                    session_start();
-////                    $_SESSION['login'] = 1;
-////                    echo('admin');
-////                    header('Location: NoOx/user/profile');
-////                }
-//
-//            }
-//            else {
-//                echo('Identifiant ou mot de passe incorect');
-//            }
+                    $loginnow = new LoginM();
+
+
+                    $res = $loginnow->loginTry($mail,$pwd);
+
+                    echo "TEEESST \n ";
+
+                    $loginnow->test();
+                    //echo($res);
+
+                    if($res == 1){
+                        echo('logintry reussi');
+                        session_start();
+                        $_SESSION['idcurrentUser'] = $loginnow->getId();
+                        echo('login marche');
+                        header('Location : NoOx/user/profileC.php?id =' . $_SESSION['idcurrentUser'] );
+
+//                if($loginnow->adminTry($login) == 1) {
+//                    session_start();
+//                    $_SESSION['admin'] = 1;
+//                    header('Location: NoOx/user/profile');
+//                    echo('admin');
+//                }
+//                else {
+//                    session_start();
+//                    $_SESSION['login'] = 1;
+//                    echo('admin');
+//                    header('Location: NoOx/user/profile');
+//                }
+
+                    }
+                    else {
+                        echo('Adresse mail ou mot de passe incorect');
+                    }
+                }
+                else {
+                    echo('Adresse mail non valide');
+                }
+
+            }
+            else {
+                echo('Tous les cahmps doivent être complété');
+            }
         }
         if (isset($_POST['lostpwd'])) {
-            $_SESSION['lostpwd'] = 1;
             header('Location: NoOx/user/lostPwd');
         }
     }

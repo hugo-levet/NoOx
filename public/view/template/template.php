@@ -39,62 +39,62 @@
     <title>NoOx</title>
 </head>
 <body>
-<section id="logoNavContainer">
-    <button id="navbarTrigger" class="buttonNavND">
-        <i class="fas fa-bars"></i>
-    </button>
+    <section id="logoNavContainer">
+        <button id="navbarTrigger" class="buttonNavND">
+            <i class="fas fa-bars"></i>
+        </button>
 
 
-    <!-- logo -->
-    <img src="./NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
-</section>
+        <!-- logo -->
+        <img src="./NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
+    </section>
 
-<!-- si utilisateur connecté -->
-<section id="header" class="navND">
-    <nav id="navbarContainer">
+    <!-- si utilisateur connecté -->
+    <section id="header" class="navND">
+        <nav id="navbarContainer">
 
-        <div id="navUser">
-            <label for="navUser" class="navLabel">Utilisateur</label>
+            <div id="navUser">
+                <label for="navUser" class="navLabel">Utilisateur</label>
 
+                <?php
+                if (!isset($_SESSION['id'])) {
+                    echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
+                    echo '</div>';
+                }
+                else {
+                ?>
+                <a href="" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
+                <a href="" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+            </div>
+
+            <div id="navParangon">
+                <label for="navParangon" class="navLabel">Paragons</label>
+                <a href="" class="navLink"><i class="far fa-eye"></i> Mes Parangons</a>
+            </div>
+
+            <div id="navAvatar">
+                <label for="navAvatar" class="navLabel">Avatars</label>
+                <a href="" class="navLink"><i class="far fa-eye"></i> Mes Avatars</a>
+            </div>
+
+            <div id="navScenario">
+                <label for="navScenario" class="navLabel">Scénarios</label>
+                <a href="" class="navLink"><i class="far fa-file-alt"></i> Mes scénarios</a>
+            </div>
             <?php
-            if (!isset($_SESSION['id'])) {
-                echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
-                echo '</div>';
             }
-            else {
             ?>
-            <a href="" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
-            <a href="" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+
+        </nav>
+        <div id="footerContainer">
+            2019 - NoOx
         </div>
+    </section>
 
-        <div id="navParangon">
-            <label for="navParangon" class="navLabel">Paragons</label>
-            <a href="" class="navLink"><i class="far fa-eye"></i> Mes Parangons</a>
-        </div>
-
-        <div id="navAvatar">
-            <label for="navAvatar" class="navLabel">Avatars</label>
-            <a href="" class="navLink"><i class="far fa-eye"></i> Mes Avatars</a>
-        </div>
-
-        <div id="navScenario">
-            <label for="navScenario" class="navLabel">Scénarios</label>
-            <a href="" class="navLink"><i class="far fa-file-alt"></i> Mes scénarios</a>
-        </div>
-        <?php
-        }
-        ?>
-
-    </nav>
-    <div id="footerContainer">
-        2019 - NoOx
-    </div>
-</section>
-
-<?= require_once($fileView); ?>
-<script type="text/javascript">
-    document.title = "<?= $title; ?> | NoOx"
-</script>
+    <?= require_once($fileView); ?>
+    <script type="text/javascript">
+        document.title = "<?= $title; ?> | NoOx"
+    </script>
 
 
 </body>

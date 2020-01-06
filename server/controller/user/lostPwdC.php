@@ -11,19 +11,26 @@ require_once ('./server/model/user/lostpwdM.php');
 require_once ('./server/controller/ControllerC.php');
 
 
-class LosstPwd extends Controller {
+class LostPwd extends Controller {
 
     function __construct()
     {
         if (isset($_POST['lostPwdSubmit'])) {
-            $mail = $_POST['lostPwdMail'];
-            $lostPwd = new lostpwd($mail);
-            if ($lostPwd->setLogin() == 1) {
-                echo('hello');
-                $lostPwd->sendMail();
+            $mail = htmlspecialchars($_POST['lostPwdMail']);
+            if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
+                $lostPwd = new LostpwdM($mail);
+
+                echo($lostPwd->setLogin());
+
+                if ($lostPwd->setLogin() == 1) {
+                    $lostPwd->sendMail();
+                }
+                else {
+                    echo('Mail non existant');
+                }
             }
             else {
-                echo('Mail non existant');
+                echo('Adresse mail invalide');
             }
 
         }

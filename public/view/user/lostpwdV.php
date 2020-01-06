@@ -9,5 +9,6 @@
  <form method="POST">
      <label>Mail : </label>
      <input type="text" name="lostPwdMail" required>
-     <input type="submit" placeholder="Envoyer" name="lostPwdSubmit" value="submit">
+     <input type="submit" placeholder="Envoyer" name="lostPwdSubmit" value="Envoyer">
  </form>
+<?php

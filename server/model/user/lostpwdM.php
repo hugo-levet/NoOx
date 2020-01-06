@@ -8,7 +8,7 @@
 
 require_once ('./server/model/ModelM.php');
 
-class lostpwd extends Model {
+class LostpwdM extends Model {
     private $mail;
     private $login;
 
@@ -17,7 +17,7 @@ class lostpwd extends Model {
     }
 
     public function getLogin() {
-        $sql = "SELECT pseudo FROM user WHERE email = $this->mail . ";
+        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail' ";
         $res = $this->execute($sql);
         return $res;
     }
