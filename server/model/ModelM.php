@@ -36,26 +36,30 @@ abstract class Model{
     public function execute($query)
     {
         $result = mysqli_query(self::$database, $query);
-        if (!$result)
+        if(!preg_match('/^(UPDATE).*$/', $query))
         {
-            echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$bdd);
-        }
-        else
-        {
-            if (mysqli_num_rows($result) != 0)
+            if (!$result)
             {
-                $table = [];
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    array_push ($table, $row);
-                }
+                echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$bdd);
             }
             else
             {
-                return null;
+                
+                    if (mysqli_num_rows($result) != 0)
+                    {
+                        $table = [];
+                        while ($row = mysqli_fetch_assoc($result))
+                        {
+                            array_push ($table, $row);
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
             }
+            return $table;
         }
-        return $table;
     }
 }
 ?>

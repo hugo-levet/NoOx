@@ -5,7 +5,7 @@
     started on : 27/11/2019
     brief : global controller
 */
-require_once('model/user/UserM.php');
+require_once('./server/model/user/User.php');
 abstract class Controller
 {
     protected $currentUser = null;
@@ -27,7 +27,7 @@ abstract class Controller
         {
             //TODO verify if password and id are correct
             $this->isConnected = true;
-            $this->currentUser = new MUser($_SESSION['idcurrentUser']);
+            $this->currentUser = new User($_SESSION['idcurrentUser']);
         }
 
         // initialization $rootReturn
@@ -47,6 +47,52 @@ abstract class Controller
                 $this->urlHere .= '/';
             }
         }
+    }
+
+    /*
+        name : getUrlHere
+        author : Hugo.L
+        brief : Get the value of urlHere
+        return : mixed
+    */
+    public function getUrlHere()
+    {
+        return $this->urlHere;
+    }
+
+    /*
+        name : setUrlHere
+        author : Hugo.L
+        brief : Set the value of urlHere
+        input parameters : mixed $urlHere  
+        return : null
+    */
+    public function setUrlHere()
+    {
+        $this->urlHere = $urlHere;
+    }
+
+    /*
+        name : getRootReturn
+        author : Hugo.L
+        brief : Get the value of rootReturn
+        return : mixed
+    */
+    public function getRootReturn()
+    {
+        return $this->rootReturn;
+    }
+
+    /*
+        name : setRootReturn
+        author : Hugo.L
+        brief : Set the value of rootReturn
+        input parameters : mixed $rootReturn  
+        return : null
+    */
+    public function setRootReturn()
+    {
+        $this->rootReturn = $rootReturn;
     }
 }
 ?>

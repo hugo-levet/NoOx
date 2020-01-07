@@ -14,13 +14,27 @@ if(isset($_GET['url']))
     {
         $category ="avatar";
     }
+    if(preg_match ( "/.*(P|p)arangon.*/" , $classController))
+    {
+        $category ="parangon";
+    }
     else
     {
         $category ="user";
     }
-    
-    $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
-    $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
+
+    //found files
+    if($category == "parangon" && isset($url[1]))
+    {
+        $classController = ucfirst($url[1]);
+        $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
+        $fileView = './public/view/' . $category . '/' . $url[1] . 'V.php';
+    }
+    else
+    {
+        $fileController = './server/controller/' . $category . '/' . $classController . 'C.php';
+        $fileView = './public/view/' . $category . '/' . $url[0] . 'V.php';
+    }
     
     try
     {

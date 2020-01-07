@@ -1,0 +1,56 @@
+[
+    {
+        "name" : "Art martial",
+        "id" : 1,
+        "pattern" : "233",
+        "coords" : "159,252,232,217,261,243,181,279"
+    },
+    {
+        "name" : "Arme improvisée",
+        "id" : 2,
+        "pattern" : "2",
+        "coords" : "289,260,274,229,352,204,366,235"
+    },
+    {
+        "name" : "Arme blanche",
+        "id" : 3,
+        "pattern" : "223",
+        "coords" : "201,340,277,302,295,328,218,368"
+    },
+    {
+        "name" : "Corps à corps",
+        "id" : 4,
+        "pattern" : "222",
+        "coords" : "288,299,296,327,371,303,361,276"
+    },
+    {
+        "name" : "Arme de tir",
+        "id" : 5,
+        "pattern" : "223",
+        "coords" : "368,273,445,254,461,280,380,302"
+    },
+    {
+        "name" : "Arme lourde",
+        "id" : 6,
+        "pattern" : "223",
+        "coords" : "394,222,455,207,464,235,403,252"
+    },
+    {
+        "name" : "Esquive",
+        "id" : 7,
+        "pattern" : "222",
+        "coords" : "413,350,481,328,499,356,419,381"
+    },
+    {
+        "name" : "Arme de trait",
+        "id" : 8,
+        "pattern" : "223",
+        "coords" : "303,450,323,480,396,422,370,394"
+    },
+    {
+        "name" : "Arme de jet",
+        "id" : 9,
+        "pattern" : "223",
+        "coords" : "240,443,260,478,333,420,307,394"
+    }
+]
