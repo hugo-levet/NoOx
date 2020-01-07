@@ -8,10 +8,9 @@
 ?>
 
 <form method="POST">
-    <label>Adresse mail : </label>
-    <input type="text" name="mail">
-    <label>Mot de passe : </label>
-    <input type="password" name="pwd">
+
+    <input style="border:0px" type="text" name="mail" placeholder="Adresse mail">
+    <input style="border:0px" type="password" name="pwd" placeholder="Mot de passe">
     <input type="submit" value="Valider" name="submit">
     <input type="submit" value="Mot de passe oublié" name="lostpwd">
 </form>

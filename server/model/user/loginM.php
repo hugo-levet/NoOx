@@ -49,7 +49,7 @@ class LoginM extends Model
     
     public function getID() {
         $email = $this->mail;
-        $sql = "SELECT id FROM USER WEHRE email = '$email'";
+        $sql = "SELECT id FROM USER WEHRE email = ' . $email. ' ";
         $res = $this->excute($sql);
         return $res[0]['id'];
     } 
