@@ -17,6 +17,9 @@ class SpheringSkills extends Controller
         
         $skillsManager = new SkillsManager(1); //1 = DEV
         $this->skills = $skillsManager->getSkills();
+
+        //display view
+        require_once('./public/view/template/template.php');
     }
 
     /*

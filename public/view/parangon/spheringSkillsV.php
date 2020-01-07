@@ -9,9 +9,9 @@ brief : sphering skills view
 $title = 'Sphérier de compétences';
 ?>
         <h1>Sphérier de compétences</h1>
-        <!-- <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
-        <!-- <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
-        <img src="<?= $controller->getRootReturn(); ?>public/assets/images/sherier.png" usemap="#image-map">
+        <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
+        <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
+        <img src="<?= $this->getRootReturn(); ?>public/assets/images/sherier.png" usemap="#image-map" id="spheringSkillsImg">
         
         <map name="image-map">
                 <?php
@@ -68,14 +68,14 @@ $title = 'Sphérier de compétences';
             </div>
         </div>
 
-        <script src="<?= $controller->getRootReturn(); ?>public\assets\js\ajax.js"></script>
-        <script src="<?= $controller->getRootReturn(); ?>public\assets\js\skills.js"></script>
+        <script src="<?= $this->getRootReturn(); ?>public\assets\js\ajax.js"></script>
+        <script src="<?= $this->getRootReturn(); ?>public\assets\js\skills.js"></script>
 
 
         <script>
         function updateBd()
         {
-            lesCompetences = <?php echo json_encode($controller->getSkills()); ?>; //TRANSLATE
+            lesCompetences = <?php echo json_encode($this->getSkills()); ?>; //TRANSLATE
         }
         updateBd();
         </script>
@@ -85,12 +85,32 @@ $title = 'Sphérier de compétences';
         <script>
             $(function(){
                 console.log('jQuery est prêt !');
+                
+                //le rapport de  map pour l'image
+                reduction = $('#spheringSkillsImg').width() / 1587;
+                $('map').children('area').each(function(index){
+                    console.log('une area');
+
+                    // divise la chaine de caractere des coordonnées en tableau
+                    tabCoords = $(this).attr('coords').split(',');
+                    console.log(tabCoords);
+
+                    // multiplie chaque coordonnées
+                    tabCoords.forEach(function(element, index){
+                        tabCoords[index] = Math.floor(element * reduction);
+                    });
+                    console.log(tabCoords);
+
+                    //applique les changements
+                    $(this).attr('coords', tabCoords.join(','));
+
+                });
 
                 $("#plus").click(function(){
                     console.log('plus');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
-                        url : '<?= $controller->getRootReturn(); ?>parangon/AddSkill', // La ressource ciblée
+                        url : '<?= $this->getRootReturn(); ?>parangon/AddSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',
@@ -123,7 +143,7 @@ $title = 'Sphérier de compétences';
                     console.log('moins');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
-                        url : '<?= $controller->getRootReturn(); ?>parangon/RemoveSkill', // La ressource ciblée
+                        url : '<?= $this->getRootReturn(); ?>parangon/RemoveSkill', // La ressource ciblée
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',
