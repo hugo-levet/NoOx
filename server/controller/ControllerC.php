@@ -96,5 +96,28 @@ abstract class Controller
     {
         $this->rootReturn = $rootReturn;
     }
+
+    /*
+        name : getCurrentUser
+        author : Hugo.L
+        brief : Get the value of currentUser
+        return : mixed
+    */
+    public function getCurrentUser()
+    {
+        return $this->currentUser;
+    }
+
+    /*
+        name : setCurrentUser
+        author : Hugo.L
+        brief : Set the value of currentUser
+        input parameters : mixed $currentUser  
+        return : null
+    */
+    public function setCurrentUser()
+    {
+        $this->currentUser = $currentUser;
+    }
 }
 ?>

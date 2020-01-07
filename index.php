@@ -10,8 +10,12 @@ if(isset($_GET['url']))
     $url = explode("/", $_GET['url']);
     
         $classController = lcfirst($url[sizeof($url)-1]);
-        $fileController = './server/controller/' . $url[0] . '/' . $classController . 'C.php';
-        $fileView = './public/view/' . $url[0] . '/' . $url[1] . 'V.php';
+        $fileController = './server/controller/';
+        for($i = 0; $i < count($url)-1; ++$i)
+        {
+            $fileController .= $url[$i] . '/';
+        }
+        $fileController .= $classController . 'C.php';
     
     try
     {
@@ -53,6 +57,6 @@ if(isset($_GET['url']))
 }
 else
 {
-    echo 'not yet implement : open home';
+    require_once('./server/controller/HomePageC.php');
 }
 ?>

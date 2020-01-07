@@ -56,7 +56,7 @@
                 <label for="navUser" class="navLabel">Utilisateur</label>
 
                 <?php
-                if (!isset($_SESSION['id'])) {
+                if (!$this->$isConnected) {
                     echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
                     echo '</div>';
                 }

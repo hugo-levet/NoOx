@@ -6,7 +6,7 @@
     brief : controller page login
 */
 
-require_once ('./public/view/user/loginV.php');
+// require_once ('./public/view/user/loginV.php');
 require_once ('./server/model/user/loginM.php');
 require_once ('./server/controller/ControllerC.php');
 
@@ -32,7 +32,7 @@ class Login extends Controller {
 
                     if($res == 1){
                         echo('logintry reussi');
-                        session_start();
+                        // session_start();
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
                         echo('login marche');
                         header('Location : NoOx/user/profileC.php?id =' . $_SESSION['idcurrentUser'] );
@@ -67,7 +67,8 @@ class Login extends Controller {
         if (isset($_POST['lostpwd'])) {
             header('Location: NoOx/user/lostPwd');
         }
+        
+        //display view
+        require_once('./public/view/template/template.php');
     }
-
-
 }
