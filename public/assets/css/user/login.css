@@ -1,6 +1,19 @@
-/* 
+/*
     title : login.css
-    author :
+    author : Celia.H
     started on :
-    brief : design page connexion.css
+    brief : design page login.css
 */
+
+form {
+    display: grid;
+    border: none;
+    background: transparent;
+    padding: 10%;
+    outline: none;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+
+}
+
+
