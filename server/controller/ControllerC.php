@@ -5,7 +5,11 @@
     started on : 27/11/2019
     brief : global controller
 */
+<<<<<<< HEAD
 require_once('./server/model/user/User.php');
+=======
+require_once('./server/model/user/UserM.php');
+>>>>>>> origin/develop
 abstract class Controller
 {
     protected $currentUser = null;
@@ -31,13 +35,15 @@ abstract class Controller
         }
 
         // initialization $rootReturn
-        foreach ($url as $key)
+        $this->rootReturn = './';
+        foreach ($url as $key => $value)
         {
             if($key != 0)
             {
                 $this->rootReturn .= '../';
             }
         }
+        
         // initialization $urlHere
         foreach ($url as $key => $p)
         {

@@ -5,6 +5,7 @@ author : Hugo.L
 started on : 03/12/2019
 brief : sphering skills view
 */
+<<<<<<< HEAD
 ?>
 
 <!DOCTYPE html>
@@ -78,11 +79,24 @@ brief : sphering skills view
         <!-- <img src="../public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
         <!-- <img src="../public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
         <img src="../public/assets/images/sherier.png" usemap="#image-map"/>
+=======
+
+$title = 'Sphérier de compétences';
+?>
+        <h1>Sphérier de compétences</h1>
+        <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
+        <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
+        <img src="<?= $this->getRootReturn(); ?>public/assets/images/sherier.png" usemap="#image-map" id="spheringSkillsImg">
+>>>>>>> origin/develop
         
         <map name="image-map">
                 <?php
                 //load file json
+<<<<<<< HEAD
                 $contentFileJson = file_get_contents('public/assets/js/skills.json');
+=======
+                $contentFileJson = file_get_contents('./public/assets/js/skills.json');
+>>>>>>> origin/develop
                 $skills = json_decode($contentFileJson, true);
                 for($i = 0; $i < count($skills); $i++)
                 {
@@ -134,14 +148,23 @@ brief : sphering skills view
             </div>
         </div>
 
+<<<<<<< HEAD
         <script src="..\public\assets\js\ajax.js"></script>
         <script src="..\public\assets\js\skills.js"></script>
+=======
+        <script src="<?= $this->getRootReturn(); ?>public\assets\js\ajax.js"></script>
+        <script src="<?= $this->getRootReturn(); ?>public\assets\js\skills.js"></script>
+>>>>>>> origin/develop
 
 
         <script>
         function updateBd()
         {
+<<<<<<< HEAD
             lesCompetences = <?php echo json_encode($controller->getSkills()); ?>;
+=======
+            lesCompetences = <?php echo json_encode($this->getSkills()); ?>; //TRANSLATE
+>>>>>>> origin/develop
         }
         updateBd();
         </script>
@@ -151,12 +174,39 @@ brief : sphering skills view
         <script>
             $(function(){
                 console.log('jQuery est prêt !');
+<<<<<<< HEAD
+=======
+                
+                //le rapport de  map pour l'image
+                reduction = $('#spheringSkillsImg').width() / 1587;
+                $('map').children('area').each(function(index){
+                    console.log('une area');
+
+                    // divise la chaine de caractere des coordonnées en tableau
+                    tabCoords = $(this).attr('coords').split(',');
+                    console.log(tabCoords);
+
+                    // multiplie chaque coordonnées
+                    tabCoords.forEach(function(element, index){
+                        tabCoords[index] = Math.floor(element * reduction);
+                    });
+                    console.log(tabCoords);
+
+                    //applique les changements
+                    $(this).attr('coords', tabCoords.join(','));
+
+                });
+>>>>>>> origin/develop
 
                 $("#plus").click(function(){
                     console.log('plus');
                     console.log('currentComp[\'id\']' + currentComp['id']);
                     $.ajax({
+<<<<<<< HEAD
                         url : '<?= $controller->getRootReturn(); ?>../parangon/recupBd', // La ressource ciblée
+=======
+                        url : '<?= $this->getRootReturn(); ?>parangon/AddSkill', // La ressource ciblée
+>>>>>>> origin/develop
                         type : 'POST', // Le type de la requête HTTP.
                         data : 'comp_id=' + currentComp['id'],
                         dataType : 'text',
@@ -166,9 +216,13 @@ brief : sphering skills view
                             {
                                 console.log('text[2] ' + text[2]);
                                 currentComp['level'] = text[2];//TO AMELIORE
+<<<<<<< HEAD
                                 
                                 // closePopup(); //TO DELETE
                                 // openPopup(currentComp['id']);
+=======
+                            
+>>>>>>> origin/develop
                                 createRond(currentCompJson);
                             }
                             else
@@ -186,8 +240,46 @@ brief : sphering skills view
                         }
                     });
                 });
+<<<<<<< HEAD
             });
         </script>
 
     </body>
 </html>
+=======
+
+                $("#moins").click(function(){
+                    console.log('moins');
+                    console.log('currentComp[\'id\']' + currentComp['id']);
+                    $.ajax({
+                        url : '<?= $this->getRootReturn(); ?>parangon/RemoveSkill', // La ressource ciblée
+                        type : 'POST', // Le type de la requête HTTP.
+                        data : 'comp_id=' + currentComp['id'],
+                        dataType : 'text',
+                        success : function(text, statut){
+                            console.log(text);
+                            if(text[0] != '/')
+                            {
+                                console.log('text[2] ' + text[2]);
+                                currentComp['level'] = text[2];//TO AMELIORE
+                            
+                                createRond(currentCompJson);
+                            }
+                            else
+                            {
+                                console.log('Cette compétence ne peut pas être enlevé.');
+                            }
+                            
+                        },
+                        error : function(resultat, statut, erreur){
+                            
+                        },
+
+                        complete : function(resultat, statut){
+
+                        }
+                    });
+                });
+            });
+        </script>
+>>>>>>> origin/develop

@@ -35,6 +35,7 @@ abstract class Model{
     */
     public function execute($query)
     {
+        $this->databaseConnection();
         $result = mysqli_query(self::$database, $query);
         if(!preg_match('/^(UPDATE).*$/', $query))
         {
@@ -62,4 +63,3 @@ abstract class Model{
         }
     }
 }
-?>

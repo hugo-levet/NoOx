@@ -1,6 +1,10 @@
 <?php
 /*
+<<<<<<< HEAD
 title : spheringSkillsV.php
+=======
+title : spheringSkillsC.php
+>>>>>>> origin/develop
 author : Hugo.L
 started on : 03/12/2019
 brief : sphering skills controller
@@ -17,6 +21,12 @@ class SpheringSkills extends Controller
         
         $skillsManager = new SkillsManager(1); //1 = DEV
         $this->skills = $skillsManager->getSkills();
+<<<<<<< HEAD
+=======
+
+        //display view
+        require_once('./public/view/template/template.php');
+>>>>>>> origin/develop
     }
 
     /*
@@ -41,10 +51,13 @@ class SpheringSkills extends Controller
     {
         $this->skills = $skills;
     }
+<<<<<<< HEAD
 
     public function ditMoiOui()
     {
         echo 'OUI';
     }
+=======
+>>>>>>> origin/develop
 }
 ?>

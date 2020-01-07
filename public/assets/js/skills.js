@@ -3,7 +3,11 @@ ajaxGet("./../public/assets/js/skills.json", function(rep){
     compJson = JSON.parse(rep);
 });
 
+<<<<<<< HEAD
 function trouverComp(compId)
+=======
+function trouverComp(compId) //TRANSLATE
+>>>>>>> origin/develop
 {
     updateBd();
     for(var i = 0; i < lesCompetences.length; ++i)
@@ -16,7 +20,11 @@ function trouverComp(compId)
     return 0;
 }
 
+<<<<<<< HEAD
 function trouverCompJson(compId)
+=======
+function trouverCompJson(compId) //TRANSLATE
+>>>>>>> origin/develop
 {
     //trouver id dans json
     for(var i = 0; i < compJson.length; ++i)
