@@ -30,7 +30,7 @@
     }
     ?>
 
-    <?= '<link rel="stylesheet" href="' . $this->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
+    <?= '<link rel="stylesheet" href="' . $this->getRootReturn() . 'public/assets/css/' . $this->getUrlHere() . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
     
@@ -56,7 +56,7 @@
                 <label for="navUser" class="navLabel">Utilisateur</label>
 
                 <?php
-                if (!$this->$isConnected) {
+                if (!$this->isConnected) {
                     echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
                     echo '</div>';
                 }
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <?= require_once('./public/view/' . $url[0] . '/' . $url[1] . 'V.php'); ?>
+    <?= require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
     <script type="text/javascript">
         document.title = "<?= $title; ?> | NoOx"
     </script>

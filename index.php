@@ -57,6 +57,8 @@ if(isset($_GET['url']))
 }
 else
 {
-    require_once('./server/controller/HomePageC.php');
+    header('Location: ./HomePage');
+    // require_once('./server/controller/HomePageC.php');
+    // $controller = new HomePage([]);
 }
 ?>
