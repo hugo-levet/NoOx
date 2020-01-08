@@ -6,8 +6,8 @@
     brief : global model
 */
 abstract class Model{
-    protected static $database;
-    protected static $connected;
+    private static $database;
+    private static $connected;
     
     /*
         name : databaseConnection
@@ -20,9 +20,23 @@ abstract class Model{
     {
         if(!self::$connected)
         {
-            require(__DIR__.'../../config.php');
-            self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
-            self::$connected = true;
+            require(__DIR__.'/../config.php');
+            try
+            {
+                // Connexion à la base de données.
+                $dsn = 'mysql:host=' . $host . ';dbname=' . $databaseName;
+                self::$database = new PDO($dsn, $databaseId, $databasePassword);
+                // Codage de caractères.
+                self::$database->exec('SET CHARACTER SET utf8');
+                // Gestion des erreurs sous forme d'exceptions.
+                self::$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$connected = true;
+            }
+            catch(PDOException $e)
+            {
+                // Affichage de l'erreur.
+                die('Erreur : ' . $e->getMessage());
+            }
         }
     }
     
@@ -33,29 +47,52 @@ abstract class Model{
         input parameters : string $query
         return : array of result or null
     */
-    public function execute($query)
+    public function execute($query/*, $var*/)
     {
-        $result = mysqli_query(self::$database, $query);
-        if (!$result)
+        $this->databaseConnection();
+        // $q = self::$database->prepare($query);
+        // $q->execute($var);
+        $result = self::$database->query($query);
+        if(!preg_match('/^(UPDATE).*$/', $query))
         {
-            echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$database);
-        }
-        else
-        {
-            if (mysqli_num_rows($result) != 0)
+            if (!$result)
             {
-                $table = [];
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    array_push ($table, $row);
-                }
+                echo 'Can\'t execute the query ', $query, ' : ', mysqli_error(self::$bdd);
             }
             else
             {
-                return null;
+                if (gettype($result) != "boolean")
+                {
+                    $table = [];
+                    while ($row = $result->fetch())
+                    {
+                        array_push ($table, $row);
+                    }
+                }
+                else
+                {
+                    return null;
+                }
             }
+            return $table;
         }
-        return $table;
+    }
+
+        /*
+        name : update
+        author : Hugo.L
+        brief : update queries
+        input parameters : string $query
+        return : booleanS
+    */
+    public function update($query) {
+        if(!($dbResult = self::$database->query($query))) {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        }   else return $dbResult;
     }
 }
-?>
