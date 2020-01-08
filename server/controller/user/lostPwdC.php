@@ -6,7 +6,6 @@
     brief : controller page lost password
 */
 
-require ('./public/view/user/lostPwdV.php');
 require_once ('./server/model/user/lostpwdM.php');
 require_once ('./server/controller/ControllerC.php');
 
@@ -15,6 +14,8 @@ class LostPwd extends Controller {
 
     function __construct()
     {
+        $url = './HomePage';
+        $this->automaticConnection($url);
         if (isset($_POST['lostPwdSubmit'])) {
             $mail = htmlspecialchars($_POST['lostPwdMail']);
             if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
@@ -34,6 +35,7 @@ class LostPwd extends Controller {
             }
 
         }
+        require_once('./public/view/template/template.php');
     }
 }
 

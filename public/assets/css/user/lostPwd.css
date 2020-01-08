@@ -6,6 +6,7 @@
 */
 
 form {
+    padding: 20%;
     display: block;
     flex-direction: column;
     border: none;

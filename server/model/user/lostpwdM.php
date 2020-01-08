@@ -17,7 +17,7 @@ class LostpwdM extends Model {
     }
 
     public function getLogin() {
-        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail' ";
+        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail'";
         $res = $this->execute($sql);
         return $res;
     }
@@ -44,7 +44,7 @@ class LostpwdM extends Model {
 
     public function bddPwd() {
         $tmpPwd = $this->randPwd();
-        $sql = "UPDATE user SET password = ' $tmpPwd 'WHERE pseudo = ' $this->login'";
+        $sql = "UPDATE user SET password = '$tmpPwd'WHERE pseudo = '$this->login'";
         $this->execute($sql);
         return $tmpPwd;
     }

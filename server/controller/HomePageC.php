@@ -15,4 +15,5 @@ class HomePage extends Controller{
         $this->automaticConnection($url);
         require_once('./public/view/template/template.php');
     }
+
 }

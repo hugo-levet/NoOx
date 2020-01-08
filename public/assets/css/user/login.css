@@ -9,7 +9,7 @@ form {
     display: grid;
     border: none;
     background: transparent;
-    padding: 10%;
+    padding: 20%;
     outline: none;
     grid-auto-flow: column;
     grid-column-gap: 10px;
