@@ -59,11 +59,13 @@
                 if (!$this->isConnected) {
                     echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
                     echo '</div>';
+                    echo '<a href = "./login" class="navLink"><i class="fas"></i>Connexion<a/>';
+                    echo '</div>';
                 }
                 else {
                 ?>
                 <a href="" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
-                <a href="" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+                <a href="user/logout" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
             </div>
 
             <div id="navParangon">

@@ -1,0 +1,10 @@
+div {
+    padding: 20%;
+}
+
+button{
+    border: none;
+    background: transparent;
+    outline: none;
+    color: blue;
+}

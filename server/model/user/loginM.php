@@ -11,35 +11,43 @@ require_once ('./server/model/ModelM.php');
 class LoginM extends Model
 {
     private $mail;
-    
-    public function test () {
-        $sql = "SELECT * FROM user WHERE id = '$this->mail'";
-        echo $sql;
-        $res = $this->execute($sql);
-        print_r($res);
-    }
-    
-    public function loginTry ($mailt, $pwd) {
-        $this->mail = $mailt;
-        $sql = "SELECT password FROM user WHERE email = '$mailt'";
-        // echo $sql;
-        $res = $this->execute($sql);
-        // echo $res;
-        print_r($res);
-        // echo($res[0]['password']);
-        if ($res[0]['password'] == $pwd){
-            echo('yes');
-            return 1;
+    private $login;
+
+    public function loginTry ($bool, $var, $pwd) {
+        if($bool == 1) { //dans le cas où c'est un mail
+            $this->mail = $var;
+            $sql = "SELECT password FROM user WHERE email = '$this->mail'";
+            $res = $this->execute($sql);
+            if ($res[0]['password'] == $pwd){
+                echo'yes';
+                return 1;
+            }
+            else {
+                return 0;
+            }
         }
-        else {
-            echo('noo');
-            return 0;
+
+        if($bool == 0) { //dans le cas où c'est un pseudo
+            $this->login = $var;
+            $sql = "SELECT password FROM user WHERE pseudo = '$this->login'";
+            $res = $this->execute($sql);
+            $sql2 = "SELECT email FROM user WHERE pseudo = '$this->login'";
+            $res2 = $this->execute($sql2);
+            $this->mail = $res2[0]['email'];
+            if ($res[0]['password'] == $pwd){
+                echo'yes';
+                return 1;
+            }
+            else {
+                return 0;
+            }
         }
+
+
     }
 
     public function adminTry() {
-        $email = $this->mail;
-        $sql = "SELECT admin FROM USER WHERE email = '$email'";
+        $sql = "SELECT admin FROM user WHERE email = '$this->mail'";
         $res = $this->exucute($sql);
         if ($res == 1)
             return 1;
@@ -48,10 +56,12 @@ class LoginM extends Model
     }
     
     public function getID() {
-        $email = $this->mail;
-        $sql = "SELECT id FROM USER WEHRE email = '$email'";
-        $res = $this->excute($sql);
-        return $res[0]['id'];
+        $sql = "SELECT id FROM user WHERE email = ' .$this->mail'";
+        echo $sql;
+        $req = $this->execute($sql);
+        $res = $req[0]['id'];
+        echo $res;
+        return $res;
     } 
 
 }

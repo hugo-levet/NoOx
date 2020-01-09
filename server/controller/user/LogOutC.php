@@ -10,6 +10,6 @@ class LogOut extends Controller {
     function __construct()
     {
         session_destroy();
-        header('Location: NoOx/user/HomePage');
+        header('Location: NoOx/HomePage');
     }
 }
