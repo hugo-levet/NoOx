@@ -21,7 +21,7 @@ class Login extends Controller {
 
                 if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
                     $loginnow = new LoginM();
-                    $res = $loginnow->loginTry($mail,$pwd);
+                    $res = $loginnow->loginTry(1,$mail,$pwd);
 
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
@@ -36,12 +36,30 @@ class Login extends Controller {
                         }
 
                     }
-                    else {
-                        echo('Adresse mail ou mot de passe incorect');
+                    else{
+                        echo('Pseudo ou mot de passe invalide');
                     }
+
                 }
-                else {
-                    echo('Adresse mail non valide');
+                else{
+                    $pseudo = $mail;
+                    $loginnow = new LoginM();
+                    $res = $loginnow->loginTry(0,$pseudo,$pwd);
+
+                    if($res == 1){
+                        $_SESSION['idcurrentUser'] = $loginnow->getId();
+
+                        if($loginnow->adminTry($login) == 1) {
+                            $_SESSION['admin'] = 1;
+                            header('Location: profile');
+            //                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
+                        }
+                        else {
+                            header('Location: profile');
+            //                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
+                        }
+
+                    }
                 }
 
             }
