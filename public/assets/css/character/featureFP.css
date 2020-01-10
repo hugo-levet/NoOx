@@ -1,0 +1,313 @@
+/* 
+    title : caracteristique.css
+    author : Audrey W
+    started-on : 20/11/2019
+
+    brief : design page fiche personnage caracteristique
+*/
+
+
+/* 
+    fonts
+*/
+@import url('https://fonts.googleapis.com/css?family=Alata|Lato&display=swap');
+
+
+.categCaracContainer {
+    position : absolute;
+    top : 0;
+    left : 0;
+    
+    font-size : 21px;
+    font-family: 'Alata', sans-serif;
+    font-weight: 600;
+
+    padding : 10px;
+}
+
+
+
+/* 
+    ame + traits
+*/
+
+#ameTraitContainer {
+    width : 100%;
+
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+}
+
+
+/* 
+    ame
+*/
+#ameContainer {
+    width : 150px;
+
+
+    position : relative;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+}
+
+#ame {
+    width : 150px;
+    height : 150px;
+
+    position : relative;
+}
+
+.ameCircle {
+    width : 15px;
+    height : 15px;
+    
+    border-radius : 50%;
+
+    background-color : black;
+
+    position: absolute;
+    top:  100%; 
+    left: 100%;
+
+    margin : -75px;
+}
+
+#circle2 {
+    transform: rotate(-30deg)
+               translate(50px)
+               rotate(30deg);
+}
+#circle3 {
+    transform: rotate(30deg)
+               translate(50px)
+               rotate(-30deg);
+}
+#circle4 {
+    transform: rotate(90deg)
+               translate(50px)
+               rotate(-90deg);
+}
+#circle5 {
+    transform: rotate(150deg)
+               translate(50px)
+               rotate(-150deg);
+}
+#circle6 {
+    transform: rotate(210deg)
+               translate(50px)
+               rotate(-210deg);
+}
+#circle7 {
+    transform: rotate(270deg)
+               translate(50px)
+               rotate(-270deg);
+}
+
+
+/* 
+    traits
+*/
+#traitsContainer {
+    width : 250px;
+
+    padding : 20px;
+
+    position : relative;
+
+    display : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    align-items : center;
+    flex-wrap : wrap;
+}
+
+#traitLabel {
+    width : 100%;
+    
+    padding-left : 0;
+    padding-right : 0;
+
+    text-align : center;
+}
+
+.trait {
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items : center;
+}
+
+.traitCpt {
+    font-size : 40px;
+
+    font-family: 'Alata', sans-serif;
+}
+
+.traitTitle {
+    font-family: 'Alata', sans-serif;
+
+    font-size : 15px;
+}
+
+
+
+
+/* 
+    list caractéristiques
+*/
+#listCaracContainer {
+    width : 100%;
+}
+
+.listCaract {
+    width : 100%;
+
+    margin-bottom : 50px;
+}
+
+.titleCaract {
+    padding : 10px 0 10px 0;
+    
+    background-color : #345570;
+
+    font-family: 'Alata', sans-serif;
+    font-size : 25px;
+    color : #f1f1f1;
+    text-align : center;
+}
+
+.tableContainer {
+    overflow-x : auto;
+
+    box-shadow : 0 0 15px rgba(21,21,21,0.8);
+}
+
+table {
+    width : 100%;
+    
+    border-collapse: collapse;
+
+    box-shadow : 0 0 15px rgba(21,21,21,0.9);
+}
+
+thead, tbody {
+    width : 100%;
+    
+    text-align : center;
+    
+}
+
+thead {
+    width : 100%;
+
+    background-color : #3c6382;
+   
+    font-family: 'Alata', sans-serif;
+
+    color : #f1f1f1;
+
+    border-bottom : 5px solid #EAB543;
+
+}
+
+tbody {
+    font-family: 'Lato', sans-serif;
+}
+
+
+thead > tr {
+    font-size : 20px;
+}
+
+tbody > tr {
+    font-size : 15px;
+}
+
+
+td {
+    padding : 5px;
+
+    text-align : center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #F2F3EC;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #DCDCD6;
+}
+
+
+.pointsCarac {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : nowrap;
+    justify-content: space-evenly;
+
+}
+
+.categTD {
+    border-right : 1px solid #212121;
+}
+
+tbody > tr > td:not(.categTD):hover  {
+    background-color : rgba(5,5,5,0.2);
+}
+
+label {
+    height : 15px;
+}
+
+.formRating {
+    display : flex;
+    flex-direction : row;
+    justify-content: center;
+}
+
+.rating {
+    text-align : center;
+}
+
+.rating:not(:checked) > input {
+    display : none;
+}
+  
+.rating:not(:checked) > label {
+    padding:0;
+
+    float:right;
+
+    color: #212121;  
+    cursor:pointer;
+    overflow:hidden;
+
+    transition: color 0.2s ease-in-out;
+
+    white-space:nowrap;
+}
+  
+  
+
+
+.rating:not(:checked) + label:hover,
+.rating:not(:checked) + label:hover ~ label,
+.rating > input:checked ~ label{
+    color: #60a3bc;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4);
+}
+
+
+
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label {
+    color : #3c6382;
+}

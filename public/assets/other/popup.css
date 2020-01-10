@@ -1,0 +1,58 @@
+/* 
+    title : popup
+    author : Audrey
+    started on :
+
+    brief : design popups
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Acme|Alegreya+Sans+SC|Montserrat+Alternates&display=swap');
+
+.popup {
+    width: 320px;
+
+    padding : 10px 0px 10px 0px;
+
+    position: fixed;
+    bottom : 50px;
+    z-index : 50;
+
+    display : flex;
+    flex-direction: column;
+    align-items : center;
+    justify-content: center;
+
+    box-shadow: 0 0 10px #212121;
+
+    color : white;
+    
+    animation : fadeout 0.5s;
+    animation-delay: 4.75s;
+    transition : 0.5s;
+}
+.popupTarget {
+    font-size : 20px;
+    font-weight: 600;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+.popupMessage {
+    font-size : 15px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.popupsuccess {
+    background-color : #6ab04c;
+}
+.popuperror {
+    background-color: #eb4d4b;
+}
+
+
+@keyframes fadeout {
+    0% {
+        opacity : 1;
+    }
+    100% {
+        opacity : 0;
+    }
+}

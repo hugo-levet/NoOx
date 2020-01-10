@@ -35,7 +35,7 @@ a {
     position : fixed;
     bottom : 0;
 
-    z-index: -1;
+    z-index: 11;
 
     background-color : #212529;
 
@@ -143,14 +143,16 @@ a {
     align-items : flex-start;
 
     position : fixed;
+    z-index: 12;
     top : 0;
-    z-index: 3;
 }
 
 #logoTopImg {
     width : 120px;
 
     user-select: none;
+
+    touch-action: none;
 
     filter: drop-shadow(0 0 2px #212121);
 }
@@ -183,4 +185,10 @@ a {
 }
 #navbarTrigger:focus {
     outline : none;
+}
+
+
+main {
+    position : relative;
+    z-index: 1;
 }

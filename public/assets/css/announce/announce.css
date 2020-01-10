@@ -1,0 +1,179 @@
+/*
+    title : index.css
+    author : Audrey
+    started on : 24/12/2019
+    brief : design announce
+
+*/
+* {
+    margin : 0;
+    padding : 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Acme|Alegreya+Sans+SC|Montserrat+Alternates&display=swap');
+
+main{
+    width: 80%;
+    max-width: 1024px;
+
+    margin : 70px auto 50px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+
+
+}
+.PageTitle {
+
+    padding: 10px 0 30px 0;
+
+    font-size: 50px ;
+    text-align: center;
+
+}
+
+
+/*
+    announce part
+*/
+#announceContainer {
+    width: 80%;
+    max-width: 1024px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.announce {
+    min-width: 320px;
+    width: 90%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    text-align: center;
+    background : linear-gradient(#ff3838,#a72929 , #701d1d  ) ;
+    color : #fff;
+
+    box-shadow: 2px 2px 4px rgba(21,21,21, 0.8);
+
+    margin-bottom : 25px;
+
+}
+
+.announceIcon{
+    padding-left : 10px;
+    padding-right : 10px;
+
+    width : 50px;
+    height: 100%;
+
+   margin: 0 auto 0 auto;
+
+}
+
+.announceContent{
+    width: 100%;
+
+    padding : 10px;
+
+    text-align: justify;
+
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+.announceTitle {
+    font-size : 17px;
+}
+
+.announceDescription {
+    font-size : 15px;
+
+    padding: 10px;
+}
+
+.announceDate {
+    float: right;
+    font-size : 12px;
+    color : #fff;
+}
+
+/*
+    links
+*/
+
+#linkContainer{
+    width: 80%;
+    max-width: 1024px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner {
+    min-width: 320px;
+    width : 55%;
+    height: 50px;
+    
+    margin : 10px;
+    padding : 10px;
+   
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+#linkWiki, #linkShop , #feedback {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    box-shadow: 2px 2px 10px rgba(21,21,21, 0.8);
+
+    transition: 0.3s;
+    
+}
+
+#linkWiki:hover, #linkShop:hover , #feedback:hover {
+    box-shadow: 2px 2px 10px rgba(21,21,21, 0.4 );
+    cursor: pointer;
+
+    transition : 0.3s;
+
+
+}
+
+#linkWiki {
+    background-color: #BFC0C0;
+
+}
+
+#linkShop{
+    background-color: #DB9D47;
+
+}
+
+#feedback {
+    background-color: #3498db;
+
+}
+
+.icon {
+    position :relative;
+    left : -30px;
+    font-size: 30px;
+}

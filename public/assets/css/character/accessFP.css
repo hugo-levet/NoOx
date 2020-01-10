@@ -1,0 +1,295 @@
+/* 
+    title : accessFP.css
+    author : Audrey W
+    started on : 8/12/2019
+
+    brief : design acess character part
+*/
+@import url('https://fonts.googleapis.com/css?family=Acme|Alegreya+Sans+SC|Montserrat+Alternates&display=swap');
+
+body {
+    padding-top : 0px;
+    padding-bottom : 0px;
+}
+
+main {
+    width : 100%;
+    max-width: 100%;
+    min-height : 100vh;
+    height : auto;
+
+    padding-top : 0;
+    padding-bottom : 0;
+
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#mainCircle {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.access {
+    margin : 20px;
+    width : 320px;
+    height : 250px;
+
+    background-size: 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color : #e1e1e1;
+}
+
+.accessTitle {
+    display : none;
+}
+.access:hover .accessTitle {
+    display : initial;
+    position : absolute;
+    top : calc(50%-14px);
+    font-size : 16px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+
+
+#combat {
+    background-image: url("../../other/combat.png");
+}
+
+#nature {
+    background-image: url("../../other/nature.png");
+}
+
+#psychurgie {
+    background-image: url("../../other/psychurgie.png");
+}
+
+#sciences {
+    background-image: url("../../other/sciences.png");
+}
+
+#social {
+    background-image: url("../../other/social.png");
+
+}
+#soutien {
+
+    background-image: url("../../other/soutien.png");
+}
+
+#technologie {
+    background-image: url("../../other/technologie.png");
+
+} 
+
+
+.access:hover {
+    background-color : white;
+    background-image: unset !important;
+}
+
+@media screen and (min-width : 768px) {
+    #mainCircle {
+        width : 500px;
+        height : 500px;
+    
+        position : relative;
+    
+        padding : 0;
+    
+        border-radius : 50%;
+    
+        border : 5px solid #345570;
+    }
+    
+    #mainCircle > .access {
+        position : absolute;
+        top : 50%;
+        left : 50%;
+        margin : -50px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        border : 3px solid #345570;
+        background-color : #fafafa;
+    
+        width : 100px;
+        height : 100px;
+    
+        border-radius : 50%;
+    
+        background-size: 70%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    
+    .formRating {
+        padding-bottom: 15px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    #combat {
+        transform: rotate(0deg)
+                   translate(250px)
+                   rotate(-0deg);
+    
+    }
+    
+    #nature {
+        transform: rotate(50deg)
+                   translate(250px)
+                   rotate(-50deg);
+    
+    }
+    
+    #psychurgie {
+        transform: rotate(100deg)
+                   translate(250px)
+                   rotate(-100deg);
+    
+    }
+    
+    #sciences {
+        transform: rotate(150deg)
+                   translate(250px)
+                   rotate(-150deg);
+    
+    }
+    
+    #social {
+        transform: rotate(200deg)
+                   translate(250px)
+                   rotate(-200deg);
+    
+    
+    }
+    
+    #soutien{
+        transform: rotate(250deg)
+                   translate(250px)
+                   rotate(-250deg);
+    
+    }
+    
+    #technologie {
+        transform: rotate(300deg)
+                   translate(250px)
+                   rotate(-300deg);
+        
+    } 
+}
+
+
+@media screen and (min-width : 768px) {
+    #mainCircle {
+        width : 500px;
+        height : 500px;
+    
+        position : relative;
+    
+        padding : 0;
+    
+        border-radius : 50%;
+    
+        border : 5px solid #345570;
+    }
+    
+    #mainCircle > .access {
+        position : absolute;
+        top : 50%;
+        left : 50%;
+        margin : -50px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        border : 3px solid #345570;
+        background-color : #fafafa;
+    
+        width : 100px;
+        height : 100px;
+    
+        border-radius : 50%;
+    
+        background-size: 70%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    
+    .formRating {
+        padding-bottom: 15px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    #combat {
+        transform: rotate(0deg)
+                   translate(250px)
+                   rotate(-0deg);
+    
+    }
+    
+    #nature {
+        transform: rotate(51.4deg)
+                   translate(250px)
+                   rotate(-51.4deg);
+    
+    }
+    
+    #psychurgie {
+        transform: rotate(102.8deg)
+                   translate(250px)
+                   rotate(-102.8deg);
+    
+    }
+    
+    #sciences {
+        transform: rotate(154.2deg)
+                   translate(250px)
+                   rotate(-154.2deg);
+    
+    }
+    
+    #social {
+        transform: rotate(205.6deg)
+                   translate(250px)
+                   rotate(-205.6deg);
+    }
+    
+    #soutien {
+        transform: rotate(257deg)
+                   translate(250px)
+                   rotate(-257deg);
+    }
+    
+    #technologie {
+        transform: rotate(308.4)
+                   translate(250px)
+                   rotate(-308.4deg);
+    } 
+}
