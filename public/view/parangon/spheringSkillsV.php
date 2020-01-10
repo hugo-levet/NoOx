@@ -11,7 +11,7 @@ $title = 'Sphérier de compétences';
         <h1>Sphérier de compétences</h1>
         <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphering_skills.jpg" alt="sphering_skills" usemap="#map" /> -->
         <!-- <img src="<?= $this->getRootReturn(); ?>public/assets/images/sphérié-de-compétance-revus-24032019.svg" usemap="#image-map"> -->
-        <img src="<?= $this->getRootReturn(); ?>public/assets/images/sherier.png" usemap="#image-map" id="spheringSkillsImg">
+        <img src="<?= $this->getRootReturn(); ?>public/assets/images/spherier.png" usemap="#image-map" id="spheringSkillsImg">
         
         <map name="image-map">
                 <?php
