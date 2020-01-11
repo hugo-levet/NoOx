@@ -53,7 +53,7 @@ abstract class Model{
         // $q = self::$database->prepare($query);
         // $q->execute($var);
         $result = self::$database->query($query);
-        if(!preg_match('/^(UPDATE).*$/', $query))
+        if(!preg_match('/^(UPDATE).*$/', $query) || !preg_match('/^(INSERT).*$/', $query))
         {
             if (!$result)
             {
@@ -77,7 +77,6 @@ abstract class Model{
             return $table;
         }
     }
-
         /*
         name : update
         author : Hugo.L
@@ -94,5 +93,9 @@ abstract class Model{
             echo 'Requête : ' . $query . '<br/>';
             exit();
         }   else return $dbResult;
+    }
+
+    public function getDatabase() {
+        return $this->$database;
     }
 }

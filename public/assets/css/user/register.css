@@ -88,6 +88,10 @@ textarea
     }
 }
 
+#logoTopImg
+{
+    display: none;
+}
 
 .ButtonRegister
 {

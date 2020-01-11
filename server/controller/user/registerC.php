@@ -8,6 +8,8 @@
 
 require('../../model/popup/popupM.php');
 
+define('SITE_KEY' , '6Ld108wUAAAAAP8VfLcpYm7Fqos4wYGJLGfFuk_-');
+define('SECRET_KEY', '6Ld108wUAAAAAFlQfX9ZQ3RQF7PsnQi-GGNyIVKt');
 
 // Cration d'un compte
 
@@ -49,8 +51,7 @@ if(isset($_POST['submit']))
                     $firstname, $adress, $city, $phone, $birthday,
                     $presentation);
                 $registration->register($newUser);
-                $_SESSION['popup'] = new PopUp('success', 'Utilisateur', 'Vous êtes maintenant inscrit !');
-                header('Location: ../../../server/controller/user/loginC.php');
+                header('Location: ../../../server/controller/user/registerC.php');
 
             }
 
@@ -63,6 +64,19 @@ if(isset($_POST['submit']))
             {
                 header('Location: ../../../server/controller/user/registerC.php?error=email');
             }
+        }
+
+        function getCaptcha($SecretKey){
+            $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_KEY."&response={$SecretKey}");
+            $Return = json_decode($Response);
+            return $Return;
+        }
+        $Return = getCaptcha($_POST['g-recaptcha-response']);
+        if($Return->success == true && $Return->score > 0.5){
+            echo "Succes!";
+        }
+        else {
+            echo "You are a Robot!!";
         }
     }
     else

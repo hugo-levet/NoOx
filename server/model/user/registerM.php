@@ -11,31 +11,32 @@ require(__DIR__."/../ModelM.php");
 class registration extends Model
 {
     public function register($newUser) {
-        $this->databaseConnection();
         $sql = 'INSERT INTO user ( pseudo, email, password, status, community_rank, language_code, portrait, civility, surname, firstname, address, city, phone, birthday, presentation) 
-                VALUES (\'' . $newUser->getMyPseudo() . '\',
-                        \'' . $newUser->getMyEmail() . '\',
-                        \'' . $newUser->getMyPassword() . '\',
-                        \'' . $newUser->getMyStatus() . '\',
-                        \'' . $newUser->getMyCommunityRank() . '\',
-                        \'' . $newUser->getMyLanguageCode() . '\',
-                        \'' . $newUser->getMyPortrait() . '\',
-                        \'' . $newUser->getMyCivility() . '\',
-                        \'' . $newUser->getMySurname() . '\',
-                        \'' . $newUser->getMyFirstName() . '\',
-                        \'' . $newUser->getMyAdress() . '\',  
-                        \'' . $newUser->getMyCity() . '\',
-                        \'' . $newUser->getMyPhone() . '\',
-                        \'' . $newUser->getMyBirthday() . '\',                                                                                                                               
-                        \'' . $newUser->getMyPresentaion() . '\')';
+            VALUES (\'' . $newUser->getMyPseudo() . '\',
+                    \'' . $newUser->getMyEmail() . '\',
+                    \'' . $newUser->getMyPassword() . '\',
+                    \'' . $newUser->getMyStatus() . '\',
+                    \'' . $newUser->getMyCommunityRank() . '\',
+                    \'' . $newUser->getMyLanguageCode() . '\',
+                    \'' . $newUser->getMyPortrait() . '\',
+                    \'' . $newUser->getMyCivility() . '\',
+                    \'' . $newUser->getMySurname() . '\',
+                    \'' . $newUser->getMyFirstName() . '\',
+                    \'' . $newUser->getMyAdress() . '\',  
+                    \'' . $newUser->getMyCity() . '\',
+                    \'' . $newUser->getMyPhone() . '\',
+                    \'' . $newUser->getMyBirthday() . '\',                                                                                                                               
+                    \'' . $newUser->getMyPresentaion() . '\')';
         $this->execute($sql);
+
+        $_SESSION['popup'] = new PopUp('success', 'Utilisateur', 'Vous êtes maintenant inscrit !');
     }//register()
 
     public function checkEmail ( $email ) {
         $this->databaseConnection();
         $sql = 'SELECT email FROM user WHERE email = \'' . $email . '\'';
         $res = $this->execute($sql);
-        if (count($res) == 1)
+        if ($res[0]['email'] == $email)
             return 1;
         else
             return 0;
@@ -45,8 +46,7 @@ class registration extends Model
         $this->databaseConnection();
         $sql = 'SELECT pseudo FROM user WHERE pseudo = \'' . $pseudo . '\'';
         $res = $this->execute($sql);
-        print $res[0];
-        if (count($res) == 1)
+        if ($res[0]['pseudo'] == $pseudo)
             return 1;
         else
             return 0;

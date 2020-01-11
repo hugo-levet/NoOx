@@ -13,6 +13,17 @@ $title = 'Inscription';
 ob_start();
 
 ?>
+
+<head>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld108wUAAAAAP8VfLcpYm7Fqos4wYGJLGfFuk_-"></script></head>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('<?php echo SITE_KEY; ?>', {action: 'homepage'})
+            .then(function(token) {
+        });
+    });
+</script>
+
 <div id="Register">
     <main>
         <div id="LogoRegister">
@@ -44,15 +55,19 @@ ob_start();
                 <input type="text" name="city" placeholder="Ville" class="FormInput">
                 <input type="tel" name="phone" placeholder="Téléphone" class="FormInput">
                 <input type="text" name="portrait" placeholder="Portrait" class="FormInput">
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
                 <textarea name="presentation" placeholder="Présentez vous !" rows="4" cols="40" class="FormInput"></textarea><br>
                 <div id="SubmitRegister">
                     <input type="submit" value="S'inscrire" name="submit" class="ButtonRegister">
                 </div>
                 <?php echo $error; ?>
+
             </form>
             <p id="LoginRegister">
                 Vous possédez déjà un compte ? <a id="LoginButton" href="../../../server/controller/user/loginC.php">Se connecter</a>
             </p>
+
+
         </section>
     </main>
 </div>
@@ -61,8 +76,3 @@ ob_start();
 $content=ob_get_clean();
 require(__DIR__.'/../template.php')
 ?>
-
-
-
-
-
