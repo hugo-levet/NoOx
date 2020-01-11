@@ -1,9 +1,9 @@
 <?php
 /*
-    title : loginV.php
+    title : homePageV.php
     author : Celia.H
     started on :
-    brief : view page login
+    brief : view page homePage
 */
 ?>
 <div align="center">

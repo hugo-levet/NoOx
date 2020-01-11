@@ -18,7 +18,7 @@ class LoginM extends Model
             $this->mail = $var;
             $sql = "SELECT password FROM user WHERE email = '$this->mail'";
             $res = $this->execute($sql);
-            if ($res[0]['password'] == $pwd){
+            if (password_verify($pwd,$res[0]['password'])){
                 echo'yes';
                 return 1;
             }
@@ -34,7 +34,7 @@ class LoginM extends Model
             $sql2 = "SELECT email FROM user WHERE pseudo = '$this->login'";
             $res2 = $this->execute($sql2);
             $this->mail = $res2[0]['email'];
-            if ($res[0]['password'] == $pwd){
+            if (password_verify($pwd,$res[0]['password'])){
                 echo'yes';
                 return 1;
             }

@@ -8,7 +8,7 @@
 
 if(!isset($_GET['token'])){ ?>
     <form method="POST">
-        <input style="border: 0px" type="text" name="lostPwdMail" placeholder="Adressse mail" required>
+        <input style="border: 0px" type="text" name="lostPwdMail" placeholder="Adressse mail">
         <input type="submit" placeholder="Envoyer" name="lostPwdSubmit" value="Envoyer">
     </form>
 

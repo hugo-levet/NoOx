@@ -1,9 +1,9 @@
 <?php
 /*
-    title : loginC.php
+    title : HomePageC.php
     author : Celia.H
     started on :
-    brief : controller page login
+    brief : controller page homepage
 */
 
 require_once ('./server/controller/ControllerC.php');

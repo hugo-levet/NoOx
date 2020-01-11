@@ -20,6 +20,14 @@ class LostpwdM extends Model {
 
     }
 
+    public function getMail(){
+        return $this->mail;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
     public function setId(){
         $sql = "SELECT id FROM user WHERE pseudo = '$this->login'";
         $req = $this->execute($sql);
@@ -28,13 +36,12 @@ class LostpwdM extends Model {
     }
 
     public function getLogin() {
-        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail'";
-        $res = $this->execute($sql);
-        return $res;
+        return $this->login;
     }
 
     public function setLogin() {
-        $res = $this->getLogin();
+        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail'";
+        $res = $this->execute($sql);
         if ($res != null) {
             $this->login = $res[0]['pseudo'];
             return 1;
@@ -53,14 +60,6 @@ class LostpwdM extends Model {
         return implode($tmpPwd);
     }
 
-    public function bddPwd() {
-        $tmpPwd = $this->randPwd();
-        $sql = "UPDATE user SET password = '$tmpPwd'WHERE pseudo = '$this->login'";
-        $this->execute($sql);
-        return $tmpPwd;
-    }
-
-
 
     public function createToken(){
         $token = password_hash($this->randPwd());
@@ -69,15 +68,9 @@ class LostpwdM extends Model {
         $this->execute($sql);
     }
 
-    public function tokenExist(){
-        $sql = "SELECT pseudo FROM token where pseudo = '$this->login'";
-        $req = $this->execute($sql);
-        $res = $req[0]['pseudo'];
-        return $res;
-    }
 
-    public function tokenValid(){
-        $sql = "SELECT * FROM token WHERE pseudo = '$this->login'";
+    public function tokenValid($token){
+        $sql = "SELECT * FROM token WHERE id = '$token'";
         $req = $this->execute($sql);
         if(!empty($req[0]['pseudo'])) {
             $today = explode('-', date('Y-m-d'));
@@ -89,16 +82,29 @@ class LostpwdM extends Model {
 
                     if ($today[2] == $date[2]){
 
-                        return $req[0]['id'];
+                        $this->id = $req[0]['id'];
+                        $this->login = $req[0]['pseudo'];
+                        //token valide
+                        return 2;
                     }
                 }
+                //token invalide
                 return 1;
             }
+            //token invalide
             return 1;
         }
         else{
+            //token non existant
             return 0;
         }
+
+    }
+
+    public function changePwd($newPwd){
+        $new = password_hash($newPwd);
+        $sql = "UPDATE USER SET password = '$new' WHERE pseudo = '$this->login'";
+        $this->execute($sql);
     }
 
     public function destroyToken(){
@@ -106,21 +112,20 @@ class LostpwdM extends Model {
         $req = $this->execute($sql);
     }
 
-    public function changePwd($newPwd){
-        $sql = "UPDATE user SET password = '$newPwd' WHERE pseudo = '$this->login'";
-        $this->execute($sql);
-    }
 
     public function sendMail() {
         $tmp = $this->bddPwd();
         $message = 'Bonjour ' . $this->login . ', '." \n\n";
         $message .= 'Suite à votre signalement du mot de passe perdu, ';
         $message .= 'voici un lien pour pouvoir changer de mot de passe : '."\n";
-        $message .= 'http://projetnoox.alwaysdata.net/user/lostPwd-' . $this->createToken();
+        $message .= 'http://projetnoox.alwaysdata.net/user/lostPwd?token=' . $this->createToken();
+        // 'http://projetnoox.alwaysdata.net/user/lostPwd-' . $this->createToken
+        //mettre ca quand le site sera creer
         $message .= 'Si vous n\'avez pas fait cette demande, veuillez ne pas prendre en compte de ce mail';
         $to = $this->mail;
         $subject = 'Mot de passe perdu';
         $header =
         mail($to, $subject, $message);
     }
+
 }
