@@ -8,7 +8,7 @@
 abstract class Model{
     private static $database;
     private static $connected;
-
+    
     /*
         name : databaseConnection
         author : Hugo.L
@@ -26,6 +26,7 @@ abstract class Model{
                 // Connexion à la base de données.
                 $dsn = 'mysql:host=' . $host . ';dbname=' . $databaseName;
                 self::$database = new PDO($dsn, $databaseId, $databasePassword);
+
                 // Codage de caractères.
                 self::$database->exec('SET CHARACTER SET utf8');
                 // Gestion des erreurs sous forme d'exceptions.
@@ -39,7 +40,7 @@ abstract class Model{
             }
         }
     }
-
+    
     /*
         name : execute
         author : Hugo.L
@@ -53,6 +54,8 @@ abstract class Model{
         // $q = self::$database->prepare($query);
         // $q->execute($var);
         $result = self::$database->query($query);
+        
+
         if(!preg_match('/^(UPDATE).*$/', $query) || !preg_match('/^(INSERT).*$/', $query))
         {
             if (!$result)
@@ -61,22 +64,24 @@ abstract class Model{
             }
             else
             {
-                if (gettype($result) != "boolean")
-                {
-                    $table = [];
-                    while ($row = $result->fetch())
+                    if (gettype($result) != "boolean")
                     {
-                        array_push ($table, $row);
+                        $table = [];
+                        while ($row = $result->fetch())
+                        {
+                            array_push ($table, $row);
+                        }
                     }
-                }
-                else
-                {
-                    return null;
-                }
+                    else
+                    {
+                        return null;
+                    }
             }
             return $table;
         }
     }
+
+
         /*
         name : update
         author : Hugo.L
@@ -85,6 +90,8 @@ abstract class Model{
         return : booleanS
     */
     public function update($query) {
+        $this->databaseConnection();
+
         if(!($dbResult = self::$database->query($query))) {
             echo 'Erreur dans requête<br />';
             // Affiche le type d'erreur.
@@ -95,7 +102,11 @@ abstract class Model{
         }   else return $dbResult;
     }
 
-    public function getDatabase() {
-        return $this->$database;
+    public function insert($query) {
+        $this->databaseConnection();
+
+        self::$database->query($query);
+
+        return self::$database->lastInsertId();
     }
 }

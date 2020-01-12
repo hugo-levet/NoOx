@@ -36,13 +36,14 @@ if(isset($_POST['submit']))
         if ($password != $password2)
         {
             header('Location: ../../../server/controller/user/registerC.php?error=password');
+
         }
         else
         {
             require (__DIR__ . '/../../model/user/registerM.php');
             require (__DIR__ . '/../../model/user/User.php');
             $registration = new registration();
-
+            $_SESSION['popup'] = new PopUp('success', 'Inscription', 'Vous êtes maintenant inscrit !');
             if (($registration->checkEmail($email)) == 0 AND ($registration->checkPseudo($pseudo)) == 0)
             {
                 $password = password_hash($password, PASSWORD_DEFAULT);
@@ -52,7 +53,6 @@ if(isset($_POST['submit']))
                     $presentation);
                 $registration->register($newUser);
                 header('Location: ../../../server/controller/user/registerC.php');
-
             }
 
             else if (($registration->checkPseudo($pseudo)) != 0)
@@ -79,22 +79,16 @@ if(isset($_POST['submit']))
             echo "You are a Robot!!";
         }
     }
-    else
-    {
-        header('Location: ../../../server/controller/user/registerC.php?error=wrong');
-    }
 }
 
 if (isset($_GET['error']))
 {
-    if ($_GET['error'] == 'wrong')
-        $error = 'Vous n\'avez pas rempli un des champs.';
-    else if ($_GET['error'] == 'password')
-        $error = 'Les mots de passe sont différents.';
+    if ($_GET['error'] == 'password')
+        $_SESSION['popup'] = new PopUp('error', 'Inscription', 'Mot de passe différents');
     else if ($_GET['error'] == 'pseudo')
-        $error = 'Le pseudo que vous avez choisi est déjà utilisé.';
+        $_SESSION['popup'] = new PopUp('error', 'Inscription', 'Le pseudo est déjà existant');
     else if ($_GET['error'] == 'email')
-        $error = 'L\'email que vous avez choisi est déjà utilisé';
+        $_SESSION['popup'] = new PopUp('error', 'Inscription', 'L\'email est déjà existant');
     else
         $error = '';
 }

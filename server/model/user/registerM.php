@@ -27,9 +27,7 @@ class registration extends Model
                     \'' . $newUser->getMyPhone() . '\',
                     \'' . $newUser->getMyBirthday() . '\',                                                                                                                               
                     \'' . $newUser->getMyPresentaion() . '\')';
-        $this->execute($sql);
-
-        $_SESSION['popup'] = new PopUp('success', 'Utilisateur', 'Vous êtes maintenant inscrit !');
+        $this->insert($sql);
     }//register()
 
     public function checkEmail ( $email ) {
