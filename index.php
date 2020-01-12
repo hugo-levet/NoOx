@@ -6,9 +6,6 @@ $controller;
 if(isset($_GET['url']))
 {
     $url = explode("/", $_GET['url']);
-<<<<<<< HEAD
-
-=======
     
         $classController = lcfirst($url[sizeof($url)-1]);
         $fileController = './server/controller/';
@@ -17,8 +14,6 @@ if(isset($_GET['url']))
             $fileController .= $url[$i] . '/';
         }
         $fileController .= $classController . 'C.php';
-    
->>>>>>> 14b10e2f0c9abc274c54406cea182f7076ca72e4
     try
     {
         if(file_exists($fileController))
