@@ -14,5 +14,12 @@
     <input type="submit" value="Valider" name="submit">
     <input type="submit" value="Mot de passe oublié" name="lostpwd">
 
-
 </form>
+
+<?php
+if(isset($error)){
+    echo'<font color="red">'.$error.'</font>';
+}
+else{
+    echo'<br>';
+}

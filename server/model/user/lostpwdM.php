@@ -129,7 +129,6 @@ class LostpwdM extends Model {
         $message .= "Pensez à le changer";
         $to = $this->mail;
         $subject = 'Mot de passe perdu';
-        $header =
         mail($to, $subject, $message);
     }
 

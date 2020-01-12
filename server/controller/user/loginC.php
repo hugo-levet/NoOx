@@ -29,17 +29,17 @@ class Login extends Controller {
 
                     }
                     else{
-                        echo('Adresse mail ou mot de passe invalide');
+                        $error = 'Adresse mail ou mot de passe invalide';
                     }
 
                 }
                 else{
-                    echo('Adresse mail non valide');
+                    $error = 'Adresse mail non valide';
                 }
 
             }
             else {
-                echo('Tous les champs doivent être complétés');
+                $error = 'Tous les champs doivent être complétés';
             }
         }
         if (isset($_POST['lostpwd'])) {

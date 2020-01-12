@@ -22,18 +22,18 @@ class LostPwd extends Controller {
                     $lostPwd = new LostpwdM($mail);
                     if ($lostPwd->setLogin() == 1) {
                         $lostPwd->sendMail();
-                        echo('Un mail vient de vous être envoyer veuillez suivre les étapes indiquées');
+                        $send = 'Un mail vient de vous être envoyer veuillez suivre les étapes indiquées';
                     }
                     else {
-                        echo('Mail non existant');
+                        $error = 'Mail non existant';
                     }
                 }
                 else {
-                    echo('Adresse mail invalide');
+                    $error = 'Adresse mail invalide';
                 }
             }
             else{
-                echo('Veuillez remplir tous les champs');
+                $error = 'Veuillez remplir tous les champs';
             }
         }
         require_once('./public/view/template/template.php');
