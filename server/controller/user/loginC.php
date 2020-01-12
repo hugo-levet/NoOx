@@ -20,49 +20,26 @@ class Login extends Controller {
             if (!empty($pwd) AND !empty($mail)) {
 
                 if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
-                    $loginnow = new LoginM();
-                    $res = $loginnow->loginTry(1,$mail,$pwd);
+                    $loginnow = new LoginM($mail);
+                    $res = $loginnow->loginTry($mail,$pwd);
 
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
-//                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-
-                        if($loginnow->adminTry() == 1) {
-                            $_SESSION['admin'] = 1;
-                            header('Location: profile');
-                        }
-                        else {
-                            header('Location: profile');
-                        }
+                        header('Location: homePage');
 
                     }
                     else{
-                        echo('Pseudo ou mot de passe invalide');
+                        $error = 'Adresse mail ou mot de passe invalide';
                     }
 
                 }
                 else{
-                    $pseudo = $mail;
-                    $loginnow = new LoginM();
-                    $res = $loginnow->loginTry(0,$pseudo,$pwd);
-
-                    if($res == 1){
-                        $_SESSION['idcurrentUser'] = $loginnow->getId();
-
-                        if($loginnow->adminTry() == 1) {
-                            $_SESSION['admin'] = 1;
-                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-                        }
-                        else {
-                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-                        }
-
-                    }
+                    $error = 'Adresse mail non valide';
                 }
 
             }
             else {
-                echo('Tous les champs doivent être complétés');
+                $error = 'Tous les champs doivent être complétés';
             }
         }
         if (isset($_POST['lostpwd'])) {

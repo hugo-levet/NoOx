@@ -36,12 +36,13 @@ class LostpwdM extends Model {
     }
 
     public function getLogin() {
-        return $this->login;
+        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail'";
+        $res = $this->execute($sql);
+        return $res;
     }
 
     public function setLogin() {
-        $sql = "SELECT pseudo FROM user WHERE email = '$this->mail'";
-        $res = $this->execute($sql);
+        $res = $this->getLogin();
         if ($res != null) {
             $this->login = $res[0]['pseudo'];
             return 1;
@@ -113,16 +114,21 @@ class LostpwdM extends Model {
     }
 
 
+    public function bddPwd() {
+        $tmpPwd = $this->randPwd();
+        $sql = "UPDATE user SET password = '$tmpPwd' WHERE pseudo = '$this->login'";
+        $this->execute($sql);
+        return $tmpPwd;
+    }
+
     public function sendMail() {
         $tmp = $this->bddPwd();
         $message = 'Bonjour ' . $this->login . ', '." \n\n";
         $message .= 'Suite à votre signalement du mot de passe perdu, ';
-        $message .= 'voici un lien pour pouvoir changer de mot de passe : '."\n";
-        $message .= 'http://projetnoox.alwaysdata.net/user/lostPwd?token=' . $this->createToken();
-        $message .= 'Si vous n\'avez pas fait cette demande, veuillez ne pas prendre en compte de ce mail';
+        $message .= 'voici votre nouveau mot de passe : ' . $tmp . "\n";
+        $message .= "Pensez à le changer";
         $to = $this->mail;
         $subject = 'Mot de passe perdu';
-        $header =
         mail($to, $subject, $message);
     }
 
