@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <?= require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
+    <?php require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
     <script type="text/javascript">
         document.title = "<?= $title; ?> | NoOx"
     </script>
