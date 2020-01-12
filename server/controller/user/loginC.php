@@ -27,7 +27,7 @@ class Login extends Controller {
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
 //                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
 
-                        if($loginnow->adminTry($login) == 1) {
+                        if($loginnow->adminTry() == 1) {
                             $_SESSION['admin'] = 1;
                             header('Location: profile');
                         }
@@ -49,14 +49,12 @@ class Login extends Controller {
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
 
-                        if($loginnow->adminTry($login) == 1) {
+                        if($loginnow->adminTry() == 1) {
                             $_SESSION['admin'] = 1;
-                            header('Location: profile');
-            //                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
+                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
                         }
                         else {
-                            header('Location: profile');
-            //                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
+                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
                         }
 
                     }
@@ -64,7 +62,7 @@ class Login extends Controller {
 
             }
             else {
-                echo('Tous les cahmps doivent être complété');
+                echo('Tous les champs doivent être complétés');
             }
         }
         if (isset($_POST['lostpwd'])) {
