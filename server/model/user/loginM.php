@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
     title : LoginM.php
     author : Celia.H
@@ -45,5 +46,13 @@ class LoginM extends Model
     } 
 
 }
+=======
+    /*
+        title : loginM.php
+        author : Celia 
+        started on :
+        brief : model page connexion
+    */
+>>>>>>> Juliendevelop
 
 ?>

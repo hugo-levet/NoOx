@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
     title : loginC.php
     author : Celia.H
@@ -50,3 +51,12 @@ class Login extends Controller {
         require_once('./public/view/template/template.php');
     }
 }
+=======
+    /*
+        title : loginC.php
+        author : Celia
+        started on : 
+        brief : controller page connexion + cookies se souvenir de moi
+    */
+?>
+>>>>>>> Juliendevelop

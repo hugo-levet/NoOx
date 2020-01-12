@@ -29,7 +29,6 @@ abstract class Controller
             $this->isConnected = true;
             $this->currentUser = new MUser($_SESSION['idcurrentUser']);
         }
-
         // initialization $rootReturn
         $this->rootReturn = './';
         foreach ($url as $key => $value)
@@ -50,7 +49,6 @@ abstract class Controller
             }
         }
     }
-
     /*
         name : getUrlHere
         author : Hugo.L
@@ -61,7 +59,6 @@ abstract class Controller
     {
         return $this->urlHere;
     }
-
     /*
         name : setUrlHere
         author : Hugo.L
@@ -73,7 +70,6 @@ abstract class Controller
     {
         $this->urlHere = $urlHere;
     }
-
     /*
         name : getRootReturn
         author : Hugo.L
@@ -84,7 +80,6 @@ abstract class Controller
     {
         return $this->rootReturn;
     }
-
     /*
         name : setRootReturn
         author : Hugo.L

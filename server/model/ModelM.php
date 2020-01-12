@@ -20,12 +20,20 @@ abstract class Model{
     {
         if(!self::$connected)
         {
+<<<<<<< HEAD
             require('server/config.php');
+=======
+            require(__DIR__.'/../config.php');
+>>>>>>> Juliendevelop
             try
             {
                 // Connexion à la base de données.
                 $dsn = 'mysql:host=' . $host . ';dbname=' . $databaseName;
                 self::$database = new PDO($dsn, $databaseId, $databasePassword);
+<<<<<<< HEAD
+=======
+
+>>>>>>> Juliendevelop
                 // Codage de caractères.
                 self::$database->exec('SET CHARACTER SET utf8');
                 // Gestion des erreurs sous forme d'exceptions.
@@ -35,7 +43,11 @@ abstract class Model{
             catch(PDOException $e)
             {
                 // Affichage de l'erreur.
+<<<<<<< HEAD
                 die('Erreur à la ligne' . $e->getLine() . ' : ' . $e->getMessage());
+=======
+                die('Erreur : ' . $e->getMessage());
+>>>>>>> Juliendevelop
             }
         }
     }
@@ -53,6 +65,11 @@ abstract class Model{
         // $q = self::$database->prepare($query);
         // $q->execute($var);
         $result = self::$database->query($query);
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> Juliendevelop
         if(!preg_match('/^(UPDATE).*$/', $query) || !preg_match('/^(INSERT).*$/', $query))
         {
             if (!$result)
@@ -64,8 +81,12 @@ abstract class Model{
                     if (gettype($result) != "boolean")
                     {
                         $table = [];
+<<<<<<< HEAD
                         // while ($row = $result->fetch())
                         foreach($result->fetchAll(PDO::FETCH_ASSOC) as $row)
+=======
+                        while ($row = $result->fetch())
+>>>>>>> Juliendevelop
                         {
                             array_push ($table, $row);
                         }
@@ -77,5 +98,39 @@ abstract class Model{
             }
             return $table;
         }
+<<<<<<< HEAD
     }
 }
+=======
+    }
+
+
+        /*
+        name : update
+        author : Hugo.L
+        brief : update queries
+        input parameters : string $query
+        return : booleanS
+    */
+    public function update($query) {
+        $this->databaseConnection();
+
+        if(!($dbResult = self::$database->query($query))) {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        }   else return $dbResult;
+    }
+
+    public function insert($query) {
+        $this->databaseConnection();
+
+        self::$database->query($query);
+
+        return self::$database->lastInsertId();
+    }
+}
+>>>>>>> Juliendevelop

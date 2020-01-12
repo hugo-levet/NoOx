@@ -4,7 +4,7 @@
     started on : 20/11/19
     brief : website Template
 */
-
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="<?= $this->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
-
     if(isset($listStyles))
     {
         for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
