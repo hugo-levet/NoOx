@@ -14,9 +14,8 @@ class LostPwd extends Controller {
 
     function __construct()
     {
+        $this->automaticConnection($url);
         if(!isset($_GET['token'])) {
-            $url = './HomePage';
-            $this->automaticConnection($url);
             if (isset($_POST['lostPwdSubmit'])) {
                 if(!empty($_POST['lostPwdMail'])) {
                     $mail = htmlspecialchars($_POST['lostPwdMail']);
