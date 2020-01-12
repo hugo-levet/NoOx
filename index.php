@@ -2,13 +2,23 @@
 
 $controller;
 
-// $noView = array("parangon/RemoveSkill", "parangon/AddSkill");
-
 //redirects to the good controller
 if(isset($_GET['url']))
 {
     $url = explode("/", $_GET['url']);
+<<<<<<< HEAD
 
+=======
+    
+        $classController = lcfirst($url[sizeof($url)-1]);
+        $fileController = './server/controller/';
+        for($i = 0; $i < count($url)-1; ++$i)
+        {
+            $fileController .= $url[$i] . '/';
+        }
+        $fileController .= $classController . 'C.php';
+    
+>>>>>>> 14b10e2f0c9abc274c54406cea182f7076ca72e4
     try
     {
         if(file_exists($fileController))
@@ -21,20 +31,6 @@ if(isset($_GET['url']))
             throw new Exception('Controller file not found.');
         }
         $controller = new $classController($url);
-        
-        //si le fichier n'as pas de vue n'appelle pas le template
-        // if(!in_array($_GET['url'], $noView))
-        // {
-        //     if(file_exists($fileView))
-        //     {
-        //         //appelle le template
-        //         require_once('./public/view/template/template.php');
-        //     }
-        //     else
-        //     {
-        //         throw new Exception('View file not found.');
-        //     }
-        // }
     }
     catch(Exception $e)
     {
@@ -49,6 +45,6 @@ if(isset($_GET['url']))
 }
 else
 {
-    echo 'not yet implement : open home';
+    header('Location: ./HomePage');
 }
 ?>

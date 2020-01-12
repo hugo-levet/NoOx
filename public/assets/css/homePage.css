@@ -1,0 +1,16 @@
+/*
+    title : HomePage.css
+    author : Celia.H
+    started on :
+    brief : design page homePage.css
+*/
+div {
+    padding: 20%;
+}
+
+button{
+    border: none;
+    background: transparent;
+    outline: none;
+    color: blue;
+}

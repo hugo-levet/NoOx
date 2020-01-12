@@ -1,5 +1,5 @@
 var compJson;
-ajaxGet("./../public/assets/js/skills.json", function(rep){
+ajaxGet("./../public/assets/js/parangon/skills.json", function(rep){
     compJson = JSON.parse(rep);
 });
 
@@ -9,7 +9,7 @@ function trouverComp(compId)
 function trouverComp(compId) //TRANSLATE
 >>>>>>> origin/develop
 {
-    updateBd();
+    // updateBd();
     for(var i = 0; i < lesCompetences.length; ++i)
     {
         if(lesCompetences[i]['comp_id'] == compId)
@@ -68,9 +68,10 @@ function closePopup()
 
 function createRond(a_comp)
 {
+    console.log('creation ronds');
     var tabDeRonds = lesronds.getElementsByTagName("div");
     
-    updateBd();
+    // updateBd();
 
     //crée les rond de la compétences
     var nombreRond = tabDeRonds.length;

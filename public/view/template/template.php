@@ -1,12 +1,11 @@
 <?php
 /*
-    title : template.php
     author : Audrey Hugo.L
     started on : 20/11/19
     brief : website Template
 */
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,6 +15,7 @@
 
     <link rel="stylesheet" href="<?= $this->getRootReturn(); ?>public/assets/css/templateG.css">
     <?php
+
     if(isset($listStyles))
     {
         for ( $i= 0 ; $i < sizeof ($listStyles); ++$i)
@@ -30,7 +30,7 @@
     }
     ?>
 
-    <?= '<link rel="stylesheet" href="' . $this->getRootReturn() . 'public/assets/css/' . $url[0] . '/' . lcfirst($url[1]) . '.css">'; ?>
+    <?= '<link rel="stylesheet" href="' . $this->getRootReturn() . 'public/assets/css/' . $this->getUrlHere() . '.css">'; ?>
 
     <script src="https://kit.fontawesome.com/b18ab37082.js" crossorigin="anonymous"></script>
     
@@ -42,6 +42,7 @@
         <button id="navbarTrigger" class="buttonNavND">
             <i class="fas fa-bars"></i>
         </button>
+
 
         <!-- logo -->
         <img src="<?= $this->getRootReturn(); ?>public/assets/other/NoOxLogo.png" id="logoTopImg" alt="NoOx logo">
@@ -55,44 +56,51 @@
                 <label for="navUser" class="navLabel">Utilisateur</label>
 
                 <?php
-                    if (!isset($_SESSION['id'])) {
-                        echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
-                        echo '</div>';
-                    }
-                    else {
+                if (!$this->isConnected) {
+                    echo '<a href="" class="navLink"><i class="fas fa-sign-in-alt"></i> S\'inscrire</a>';
+                    echo '</div>';
+                    echo '<a href = "./login" class="navLink"><i class="fas"></i>Connexion<a/>';
+                    echo '</div>';
+                }
+                else {
                 ?>
-                    <a href="" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
-                    <a href="" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
-                </div>
+                <a href="" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
+                <a href="user/logout" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+            </div>
 
-                <div id="navParangon">
-                    <label for="navParangon" class="navLabel">Paragons</label>
-                    <a href="" class="navLink"><i class="far fa-eye"></i> Mes Parangons</a>
-                </div> 
+            <div id="navParangon">
+                <label for="navParangon" class="navLabel">Paragons</label>
+                <a href="" class="navLink"><i class="far fa-eye"></i> Mes Parangons</a>
+            </div>
 
-                <div id="navAvatar">
-                    <label for="navAvatar" class="navLabel">Avatars</label>
-                    <a href="" class="navLink"><i class="far fa-eye"></i> Mes Avatars</a>
-                </div>
+            <div id="navAvatar">
+                <label for="navAvatar" class="navLabel">Avatars</label>
+                <a href="" class="navLink"><i class="far fa-eye"></i> Mes Avatars</a>
+            </div>
 
-                <div id="navScenario">
-                    <label for="navScenario" class="navLabel">Scénarios</label>
-                    <a href="" class="navLink"><i class="far fa-file-alt"></i> Mes scénarios</a>
-                </div>
-                    <?php
-                        }
-                    ?>
+            <div id="navScenario">
+                <label for="navScenario" class="navLabel">Scénarios</label>
+                <a href="" class="navLink"><i class="far fa-file-alt"></i> Mes scénarios</a>
+            </div>
+            <?php
+            }
+            ?>
 
-            </nav>
+        </nav>
         <div id="footerContainer">
-            <p>2019 - NoOx</p>
+            2019 - NoOx
         </div>
     </section>
-
-    <?= require_once('./public/view/' . $url[0] . '/' . $url[1] . 'V.php'); ?>
+    <?php require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
+    <?php
+    if(isset($title))
+    {
+    ?>
     <script type="text/javascript">
-        document.title = "<?= $title; ?> | NoOx"
+        document.title = "<?= $title; ?> | NoOx";
     </script>
-
+    <?php
+    }
+    ?>
 </body>
 </html>

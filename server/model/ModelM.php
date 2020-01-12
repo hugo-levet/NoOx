@@ -21,8 +21,22 @@ abstract class Model{
         if(!self::$connected)
         {
             require('server/config.php');
-            self::$database = mysqli_connect($host, $databaseId, $databasePassword, $databaseName) or die('Server connection error : ' . mysqli_connect_error());
-            self::$connected = true;
+            try
+            {
+                // Connexion à la base de données.
+                $dsn = 'mysql:host=' . $host . ';dbname=' . $databaseName;
+                self::$database = new PDO($dsn, $databaseId, $databasePassword);
+                // Codage de caractères.
+                self::$database->exec('SET CHARACTER SET utf8');
+                // Gestion des erreurs sous forme d'exceptions.
+                self::$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$connected = true;
+            }
+            catch(PDOException $e)
+            {
+                // Affichage de l'erreur.
+                die('Erreur : ' . $e->getMessage());
+            }
         }
     }
     
@@ -33,11 +47,13 @@ abstract class Model{
         input parameters : string $query
         return : array of result or null
     */
-    public function execute($query)
+    public function execute($query/*, $var*/)
     {
         $this->databaseConnection();
-        $result = mysqli_query(self::$database, $query);
-        if(!preg_match('/^(UPDATE).*$/', $query))
+        // $q = self::$database->prepare($query);
+        // $q->execute($var);
+        $result = self::$database->query($query);
+        if(!preg_match('/^(UPDATE).*$/', $query) || !preg_match('/^(INSERT).*$/', $query))
         {
             if (!$result)
             {
@@ -45,11 +61,10 @@ abstract class Model{
             }
             else
             {
-                
-                    if (mysqli_num_rows($result) != 0)
+                    if (gettype($result) != "boolean")
                     {
                         $table = [];
-                        while ($row = mysqli_fetch_assoc($result))
+                        while ($row = $result->fetch())
                         {
                             array_push ($table, $row);
                         }
