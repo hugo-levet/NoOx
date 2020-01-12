@@ -35,7 +35,7 @@ abstract class Model{
             catch(PDOException $e)
             {
                 // Affichage de l'erreur.
-                die('Erreur : ' . $e->getMessage());
+                die('Erreur à la ligne' . $e->getLine() . ' : ' . $e->getMessage());
             }
         }
     }
@@ -64,7 +64,8 @@ abstract class Model{
                     if (gettype($result) != "boolean")
                     {
                         $table = [];
-                        while ($row = $result->fetch())
+                        // while ($row = $result->fetch())
+                        foreach($result->fetchAll(PDO::FETCH_ASSOC) as $row)
                         {
                             array_push ($table, $row);
                         }
