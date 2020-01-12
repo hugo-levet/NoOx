@@ -2,8 +2,6 @@
 
 $controller;
 
-// $noView = array("parangon/RemoveSkill", "parangon/AddSkill");
-
 //redirects to the good controller
 if(isset($_GET['url']))
 {
