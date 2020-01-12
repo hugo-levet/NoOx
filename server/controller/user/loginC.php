@@ -25,39 +25,16 @@ class Login extends Controller {
 
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
-//                        header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-
-                        if($loginnow->adminTry() == 1) {
-                            $_SESSION['admin'] = 1;
-                            header('Location: profile');
-                        }
-                        else {
-                            header('Location: profile');
-                        }
+                        header('Location: homePage');
 
                     }
                     else{
-                        echo('Pseudo ou mot de passe invalide');
+                        echo('Adresse mail ou mot de passe invalide');
                     }
 
                 }
                 else{
-                    $pseudo = $mail;
-                    $loginnow = new LoginM();
-                    $res = $loginnow->loginTry(0,$pseudo,$pwd);
-
-                    if($res == 1){
-                        $_SESSION['idcurrentUser'] = $loginnow->getId();
-
-                        if($loginnow->adminTry() == 1) {
-                            $_SESSION['admin'] = 1;
-                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-                        }
-                        else {
-                            header('Location : NoOx/user/profile?id =' . $_SESSION['idcurrentUser'] );
-                        }
-
-                    }
+                    echo('Adresse mail non valide');
                 }
 
             }
