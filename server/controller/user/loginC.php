@@ -25,7 +25,7 @@ class Login extends Controller {
 
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
-                        header('Location: homePage');
+                        header('Location: Profile');
 
                     }
                     else{
