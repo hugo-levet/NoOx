@@ -12,7 +12,7 @@ require_once ('./server/controller/ControllerC.php');
 
 class LostPwd extends Controller {
 
-    function __construct()
+    function __construct($url)
     {
         if(!isset($_GET['token'])) {
             $url = './HomePage';
