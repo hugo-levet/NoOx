@@ -399,13 +399,5 @@ class User extends Model {
         $this->currency = $currency;
     }
 }
-=======
-    /*  
-        title : User.php
-        author : 
-        started on : 
-        brief : class user
-    */
->>>>>>> origin/develop:server/model/user/UserM.php
 
 ?>
