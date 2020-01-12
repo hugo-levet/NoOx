@@ -18,7 +18,7 @@
 
 <?php
 if(isset($error)){
-    echo'<font color="red">'.$error.'</font>';
+    echo'<font  color="red">'.$error.'</font>';
 }
 else{
     echo'<br>';
