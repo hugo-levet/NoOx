@@ -20,8 +20,8 @@ class Login extends Controller {
             if (!empty($pwd) AND !empty($mail)) {
 
                 if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
-                    $loginnow = new LoginM();
-                    $res = $loginnow->loginTry(1,$mail,$pwd);
+                    $loginnow = new LoginM($mail);
+                    $res = $loginnow->loginTry($mail,$pwd);
 
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
