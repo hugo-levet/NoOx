@@ -8,6 +8,10 @@ div {
     padding: 20%;
 }
 
+div li {
+    list-style: none;
+}
+
 button{
     border: none;
     background: transparent;
