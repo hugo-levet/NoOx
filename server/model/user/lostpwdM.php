@@ -64,13 +64,13 @@ class LostpwdM extends Model {
     public function createToken(){
         $token = password_hash($this->randPwd());
         $date = date('Y-m-d');
-        $sql = "INSERT INTO token (pseudo, token, date) VALUES ('$this->login','$token','$date')";
+        $sql = "INSERT INTO token (token, pseudo, date) VALUES ($token, '$this->login','$date')";
         $this->execute($sql);
     }
 
 
     public function tokenValid($token){
-        $sql = "SELECT * FROM token WHERE id = '$token'";
+        $sql = "SELECT * FROM token WHERE token = '$token'";
         $req = $this->execute($sql);
         if(!empty($req[0]['pseudo'])) {
             $today = explode('-', date('Y-m-d'));
@@ -119,8 +119,6 @@ class LostpwdM extends Model {
         $message .= 'Suite à votre signalement du mot de passe perdu, ';
         $message .= 'voici un lien pour pouvoir changer de mot de passe : '."\n";
         $message .= 'http://projetnoox.alwaysdata.net/user/lostPwd?token=' . $this->createToken();
-        // 'http://projetnoox.alwaysdata.net/user/lostPwd-' . $this->createToken
-        //mettre ca quand le site sera creer
         $message .= 'Si vous n\'avez pas fait cette demande, veuillez ne pas prendre en compte de ce mail';
         $to = $this->mail;
         $subject = 'Mot de passe perdu';
