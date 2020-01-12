@@ -1,5 +1,5 @@
 var compJson;
-ajaxGet("./../public/assets/js/skills.json", function(rep){
+ajaxGet("./../public/assets/js/parangon/skills.json", function(rep){
     compJson = JSON.parse(rep);
 });
 

@@ -6,7 +6,7 @@
     brief : controller page login
 */
 
-require_once ('./server/controller/ControllerC.php');
+require_once('./server/controller/ControllerC.php');
 
 
 class HomePage extends Controller{

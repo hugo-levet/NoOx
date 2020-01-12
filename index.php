@@ -29,20 +29,6 @@ if(isset($_GET['url']))
             throw new Exception('Controller file not found.');
         }
         $controller = new $classController($url);
-        
-        //si le fichier n'as pas de vue n'appelle pas le template
-        // if(!in_array($_GET['url'], $noView))
-        // {
-        //     if(file_exists($fileView))
-        //     {
-        //         //appelle le template
-        //         require_once('./public/view/template/template.php');
-        //     }
-        //     else
-        //     {
-        //         throw new Exception('View file not found.');
-        //     }
-        // }
     }
     catch(Exception $e)
     {
@@ -58,7 +44,5 @@ if(isset($_GET['url']))
 else
 {
     header('Location: ./HomePage');
-    // require_once('./server/controller/HomePageC.php');
-    // $controller = new HomePage([]);
 }
 ?>

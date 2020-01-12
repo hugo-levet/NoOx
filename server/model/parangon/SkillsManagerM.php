@@ -31,7 +31,7 @@ class SkillsManager extends Model
     public function addSkill($id)
     {
         //selectionnne les infos des compétences
-        $contentFileJson = file_get_contents('public/assets/js/skills.json');
+        $contentFileJson = file_get_contents('public/assets/js/parangon/skills.json');
         $skills = json_decode($contentFileJson, true);
 
         // select la comp dans bd
@@ -84,7 +84,7 @@ class SkillsManager extends Model
     public function removeSkill($id)
     {
         //selectionnne les infos des compétences
-        $contentFileJson = file_get_contents('public/assets/js/skills.json');
+        $contentFileJson = file_get_contents('public/assets/js/parangon/skills.json');
         $skills = json_decode($contentFileJson, true);
 
         // select la comp dans bd

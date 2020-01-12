@@ -91,11 +91,16 @@
             2019 - NoOx
         </div>
     </section>
-    <?= require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
+    <?php require_once('./public/view/' . $this->getUrlHere() . 'V.php'); ?>
+    <?php
+    if(isset($title))
+    {
+    ?>
     <script type="text/javascript">
         document.title = "<?= $title; ?> | NoOx";
     </script>
-
-
+    <?php
+    }
+    ?>
 </body>
 </html>
