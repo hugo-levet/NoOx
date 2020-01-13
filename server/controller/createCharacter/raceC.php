@@ -6,7 +6,7 @@
 
         brief : controller create Character page race.
     */
-    require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
     class race {
@@ -17,6 +17,12 @@
 
         function __construct($url) {
             //Si la constitution n'a pas été renseigné
+            if (!isset($_SESSION['userID'])) {
+                $_SESSION['popup'] = new PopUp('error', 'connexion', 'Vous devez être connecté pour avoir acces à cette page');
+                header("location:/homepage");
+                exit;
+            }
+            
 
             if (!isset($_SESSION['creationCharacter']['constitutionPage'])) {
                 $_SESSION['popup'] = new PopUp('error', 'RACE', 'Il faut que vous ayez renseigné votre constitution pour acceder à cette page');

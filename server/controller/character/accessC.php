@@ -8,7 +8,7 @@
 */
 
 require(__DIR__.'/../../model/character/characterM.php');
-require(__DIR__.'/../../model/popup/popupM.php');
+require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
 class access {
@@ -34,8 +34,8 @@ class access {
 
 
         // get user id
-        //$userID = $_SESSION['user_id'];
-        $userID=1;
+        $userID = $_SESSION['userID'];
+        
 
 
         // test if character belongs to the user

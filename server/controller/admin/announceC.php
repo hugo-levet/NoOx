@@ -8,7 +8,7 @@
     */
 
     require(__DIR__.'/../../model/announce/announceM.php');
-    require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
     class announce {

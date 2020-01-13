@@ -29,8 +29,7 @@ class homepage  {
 
 
         // get user id
-        //$userID = $_SESSION['user_id'];
-        $userID=1;
+        $userID = $_SESSION['userID'];
 
 
         // test if character belongs to the user

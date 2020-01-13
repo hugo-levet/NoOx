@@ -7,16 +7,14 @@
         brief : admin scenario controller
     */
 
-    require('../../model/scenario/scenarioM.php');
-    require('../../model/popup/popupM.php');
+    require(__DIR__.'/../../model/scenario/scenarioM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
-    $scenarioC = new scenario();
     
-    class Scenario {
+    class scenario {
 
         function __construct() {
-            // $userID = $_SESSION['userID'];
-            $userID = 1; // debug 
+            $userID = $_SESSION['userID'];
 
             $searchingList = new scenarioM('user');
             if (!isset($_GET['page']) || $_GET['page'] == '1') {
@@ -32,7 +30,7 @@
     
                 if ($page*5-5 > sizeof($searchingList->getIds())-1) {
                     $_SESSION['popup'] = new PopUp('error', 'ANNONCE', 'il n\' a pas assez de scénarios pour accéder à cette page');
-                    header('location:/server/controller/scenario/searchingC.php?page=1');
+                    header('location:/scenario/searching&page=1');
                     exit;
                 } else {
                     $start = $page*5-6;
@@ -46,7 +44,7 @@
     
             }
 
-            require('../../../public/view/scenario/searchingV.php');
+            require(__DIR__.'/../../../public/view/scenario/searchingV.php');
 
         }
     }

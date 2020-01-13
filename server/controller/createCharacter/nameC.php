@@ -6,16 +6,20 @@
 
         brief : 1rst page of Character Creation controller
     */
-require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
 class name {
     
     function __construct($url) {
-        unset($_SESSION['creationCharacter']);
 
+        if (!isset($_SESSION['userID'])) {
+            $_SESSION['popup'] = new PopUp('error', 'connexion', 'Vous devez être connecté pour avoir acces à cette page');
+            header("location:/homepage");
+            exit;
+        }
         // savoir si l'utilisateur est connecté
-        $userID = 1;
+        $userID = $_SESSION['userID'];
 
         // si form submit
         if (isset($_POST['name'])) {

@@ -1,45 +1,48 @@
 <?php
-/*
-    title : loginC.php
-    author : Celia.H
-    started on :
-    brief : controller page login
-*/
-require_once (__DIR__.'/../../model/user/loginM.php');
-require_once (__DIR__.'/../ControllerC.php');
-class login extends Controller {
-    function __construct($url)
-    {
-        $this->automaticConnection($url);
-        if(isset($_POST['submit'])) {
-            $mail = htmlspecialchars($_POST['mail']);
-            $pwd = $_POST['pwd'];
-            if (!empty($pwd) AND !empty($mail)) {
-                if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
-                    $loginnow = new loginM($mail);
-                    $res = $loginnow->loginTry(1, $mail,$pwd);
-                    if($res == 1){
-                        $_SESSION['idcurrentUser'] = $loginnow->getID();
-                        $_SESSION['userID'] = $loginnow->getID();
-                        header('Location:/homepage');
-                    }
-                    else{
-                        $error = 'Adresse mail ou mot de passe invalide';
-                    }
+    /*
+        title : loginC.php
+        author : Audrey, Celia
+        started-on 
+
+        brief : controller login page
+    */
+
+    require(__DIR__.'/../../model/user/loginM.php');
+    require_once(__DIR__.'/../../model/user/UserM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
+
+    class login {
+
+        function __construct() {
+            if(isset($_POST['submit'])) {
+                if (!isset($_POST['mail']) || !isset($_POST['pwd'])) {
+                    $_SESSION['popup'] = new PopUp('error', 'Connexion', 'Vous devez remplir les champs');
+                
+                    header('location: /user/login');
+                    exit;
                 }
-                else{
-                    $error = 'Adresse mail non valide';
+
+                $loginTry = new loginM($_POST['mail'], $_POST['pwd']);
+
+
+
+                if (!$loginTry->getIsExist()) {
+                    $_SESSION['popup'] = new PopUp('error', 'Connexion', 'Mot de passe ou email/pseudo erronés');
+                    header('location: /user/login');
+                    exit;
                 }
+
+                $_SESSION['userID'] = $loginTry->getUserID();
+                $_SESSION['popup'] = new PopUp('success', 'Connexion', 'Vous êtes connecté !');
+
+                header('location: /homepage');
+                exit;
             }
-            else {
-                $error = 'Tous les champs doivent être complétés';
-            }
+            
+            require (__DIR__.'/../../../public/view/user/loginV.php');
         }
-        if (isset($_POST['lostpwd'])) {
-            header('Location: LostPwd');
-        }
-        
-        //display view
-        require_once(__DIR__.'/../../../public/view/user/loginV.php');
+
+
     }
-}
+
+?>

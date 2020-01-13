@@ -9,7 +9,7 @@
 */
 
 require(__DIR__.'/../../model/scenario/insertScenarioM.php');
-require(__DIR__.'/../../model/popup/popupM.php');
+require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
 class submit{

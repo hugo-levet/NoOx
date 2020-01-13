@@ -9,12 +9,12 @@
 
 
     require(__DIR__.'/../../model/scenario/scenarioM.php');
-    require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
     class viewing {
         function __construct($url) {
-            // $userID = $_SESSION['userID']
-            $userID = 102;
+            $userID = $_SESSION['userID'];
+            
             
             if (!isset($_GET['scenario']) || !is_numeric($_GET['scenario'])) {
                 $_SESSION['popup'] = new PopUp('error', 'SCENARIO', 'Le scénario n\'existe pas ou n\'a pas encore été validé.');

@@ -7,7 +7,7 @@
         brief : controller create Character other race.
     */
 
-    require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
     require(__DIR__.'/../../model/createCharacter/createCharactM.php'); 
 
 
@@ -18,7 +18,12 @@
                             'social accreditation', 'support accreditation', 'technical accreditation'];
         
         function __construct($url) {
-
+            if (!isset($_SESSION['userID'])) {
+                $_SESSION['popup'] = new PopUp('error', 'connexion', 'Vous devez être connecté pour avoir acces à cette page');
+                header("location:/homepage");
+                exit;
+            }
+            
             if (!isset($_SESSION['creationCharacter']['racePage'])) {
                 $_SESSION['popup'] = new PopUp('error', 'RACE', 'Il faut que vous ayez renseigné votre constitution pour acceder à cette page');
             

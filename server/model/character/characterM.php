@@ -59,6 +59,9 @@
         // states
         protected $statesList = [];
 
+
+        protected $listCharact = [];
+
         
 
         /*
@@ -68,88 +71,102 @@
             return : none
         */
         function __construct($id) {
-            $this->id = $id;
-            $this->table = 'character';
-
-            $this->databaseConnection();
-
-            $informations = $this->getCharacterGEN($id)[0];
-
-            $this->portrait = $informations['portrait'];
-
-            $this->public_reputation = $informations['public reputation'];
-            $this->private_reputation = $informations['private reputation'];
-            $this->quality_of_life =$informations['quality of life'];
-            $this->paragon_level = $informations['paragon level'];
-            $this->belief = $informations['belief'];
-            $this->dissidence = $informations['dissidence'];
+            if ($id == 'list') {
+                $this->databaseConnection();
     
-            $this->sign_category = $informations['sign_category'];
-            $this->sign = $informations['sign'];
-            
-            $this->size = $informations['size'];
-            $this->corpulence = $informations['corpulence'];
-            $this->xp = $informations['xp'];
-            $this->total_xp = $informations['total xp'];
-            $this->alias = $informations['alias'];
-            $this->generation = $informations['generation'];
-            
-            $this->name = $informations['name'];
-            $this->years = $informations['years'];
-            $this->gender = $informations['gender'];
-            $this->race = $informations['race'];
-            $this->type = $informations['type'];
+                $informations = $this->getListCharacter($_SESSION['userID']);
+
+                $this->listCharact = $informations;
+
+            } else {
+
+                $this->id = $id;
+                $this->table = 'character';
     
-            $this->initiative = $informations['initiative'];
+                $this->databaseConnection();
     
-            $this->nanitiere = $informations['nanitiere'];
-            $this->nanitiere_max = $informations['nanitiere_max'];
-            
-            $this->constitution = $informations['constitution'];
+                $informations = $this->getCharacterGEN($id)[0];
+    
+                $this->portrait = $informations['portrait'];
+    
+                $this->public_reputation = $informations['public reputation'];
+                $this->private_reputation = $informations['private reputation'];
+                $this->quality_of_life =$informations['quality of life'];
+                $this->paragon_level = $informations['paragon level'];
+                $this->belief = $informations['belief'];
+                $this->dissidence = $informations['dissidence'];
+        
+                $this->sign_category = $informations['sign_category'];
+                $this->sign = $informations['sign'];
+                
+                $this->size = $informations['size'];
+                $this->corpulence = $informations['corpulence'];
+                $this->xp = $informations['xp'];
+                $this->total_xp = $informations['total xp'];
+                $this->alias = $informations['alias'];
+                $this->generation = $informations['generation'];
+                
+                $this->name = $informations['name'];
+                $this->years = $informations['years'];
+                $this->gender = $informations['gender'];
+                $this->race = $informations['race'];
+                $this->type = $informations['type'];
+        
+                $this->initiative = $informations['initiative'];
+        
+                $this->nanitiere = $informations['nanitiere'];
+                $this->nanitiere_max = $informations['nanitiere_max'];
+                
+                $this->constitution = $informations['constitution'];
+    
+                $this->userID = $informations['user_id'];  
+                
+                // traits
+                $this->traitsList['strength'] = $informations['strength'];
+                $this->traitsList['dexterity']=$informations['dexterity'];
+                $this->traitsList['agility'] = $informations['agility'];
+                $this->traitsList['metabolism'] = $informations['metabolism'];
+                $this->traitsList['endurance'] = $informations['endurance'];
+                $this->traitsList['reflex'] = $informations['reflex'];
+    
+                $this->traitsList['instinct_char'] = $informations['instinct_char'];
+                $this->traitsList['perception_char'] = $informations['perception_char'];
+                $this->traitsList['ingenuity_char'] = $informations['ingenuity_char'];
+                $this->traitsList['intelligence_char'] = $informations['intelligence_char'];
+                $this->traitsList['charisma_char'] = $informations['charisma_char'];
+                $this->traitsList['will_char'] = $informations['will_char'];
+    
+                // access
+                $this->accessList['combat accreditation'] = $informations['combat accreditation'];
+                $this->accessList['nature accreditation'] = $informations['nature accreditation'];
+                $this->accessList['psychurgy accreditation'] = $informations['psychurgy accreditation'];
+                $this->accessList['science accreditation'] = $informations['science accreditation'];
+                $this->accessList['social accreditation'] = $informations['social accreditation'];
+                $this->accessList['support accreditation'] = $informations['support accreditation'];
+                $this->accessList['technical accreditation'] = $informations['technical accreditation'];
+                
+                
+    
+                $this->statesList['stunned_stat'] = $informations['stunned_stat'];
+                $this->statesList['seek_stat'] = $informations['seek_stat'];
+                $this->statesList['hungry_stat'] = $informations['hungry_stat'];
+                $this->statesList['asphyxia_stat'] = $informations['asphyxia_stat'];
+                $this->statesList['hypothermia_stat'] = $informations['hypothermia_stat'];
+                $this->statesList['hyperthermia_stat'] = $informations['hyperthermia_stat'];
+                $this->statesList['terrified_stat'] = $informations['terrified_stat'];
+                $this->statesList['desperate_stat'] = $informations['desperate_stat'];
+                $this->statesList['exhausted_stat'] = $informations['exhausted_stat'];
+                $this->statesList['thirst_stat'] = $informations['thirst_stat'];
+            }
 
-            $this->userID = $informations['user_id'];  
-            
-            // traits
-            $this->traitsList['strength'] = $informations['strength'];
-            $this->traitsList['dexterity']=$informations['dexterity'];
-            $this->traitsList['agility'] = $informations['agility'];
-            $this->traitsList['metabolism'] = $informations['metabolism'];
-            $this->traitsList['endurance'] = $informations['endurance'];
-            $this->traitsList['reflex'] = $informations['reflex'];
-
-            $this->traitsList['instinct_char'] = $informations['instinct_char'];
-            $this->traitsList['perception_char'] = $informations['perception_char'];
-            $this->traitsList['ingenuity_char'] = $informations['ingenuity_char'];
-            $this->traitsList['intelligence_char'] = $informations['intelligence_char'];
-            $this->traitsList['charisma_char'] = $informations['charisma_char'];
-            $this->traitsList['will_char'] = $informations['will_char'];
-
-            // access
-            $this->accessList['combat accreditation'] = $informations['combat accreditation'];
-            $this->accessList['nature accreditation'] = $informations['nature accreditation'];
-            $this->accessList['psychurgy accreditation'] = $informations['psychurgy accreditation'];
-            $this->accessList['science accreditation'] = $informations['science accreditation'];
-            $this->accessList['social accreditation'] = $informations['social accreditation'];
-            $this->accessList['support accreditation'] = $informations['support accreditation'];
-            $this->accessList['technical accreditation'] = $informations['technical accreditation'];
-            
-            
-
-            $this->statesList['stunned_stat'] = $informations['stunned_stat'];
-            $this->statesList['seek_stat'] = $informations['seek_stat'];
-            $this->statesList['hungry_stat'] = $informations['hungry_stat'];
-            $this->statesList['asphyxia_stat'] = $informations['asphyxia_stat'];
-            $this->statesList['hypothermia_stat'] = $informations['hypothermia_stat'];
-            $this->statesList['hyperthermia_stat'] = $informations['hyperthermia_stat'];
-            $this->statesList['terrified_stat'] = $informations['terrified_stat'];
-            $this->statesList['desperate_stat'] = $informations['desperate_stat'];
-            $this->statesList['exhausted_stat'] = $informations['exhausted_stat'];
-            $this->statesList['thirst_stat'] = $informations['thirst_stat'];
 
 
         } // __construct($id)
 
 
+        function getInformations() {
+            return $this->listCharact;
+        }
         /*
             name : getCharacterGEN
             author : Audrey
@@ -163,6 +180,10 @@
             return $this->execute($DBRequest);
         } // getCharacter($id)
 
+        function getListCharacter($id) {
+            $DBRequest = "SELECT `id`, `name`, `years`, `gender`, `race` FROM `character` WHERE `user_id`=".$id;
+            return $this->execute($DBRequest);
+        }
 
         /*
             title : all getters & setters

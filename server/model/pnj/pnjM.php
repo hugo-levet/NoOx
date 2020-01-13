@@ -39,7 +39,7 @@ class pnjM extends Model {
         }
         else if ($form == 'user') {
             // $request = $this->getUserListFromDB($_SESSION['user_id']);
-            $request = $this->getUserListFromDB(1);
+            $request = $this->getUserListFromDB($_SESSION['userID']);
         }
         else {
             $request = $this->getSingleFromDB($form);

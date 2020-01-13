@@ -9,14 +9,13 @@
 
 
     require(__DIR__.'/../../model/pnj/pnjM.php');
-    require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
     class viewing {
         function __construct($url) {
 
-            // $userID = $_SESSION['userID']
-            $userID = 102;
+            $userID = $_SESSION['userID']
 
             if (!isset($_GET['pnj']) || !is_numeric($_GET['pnj'])) {
                 echo 'pnj introuvable';

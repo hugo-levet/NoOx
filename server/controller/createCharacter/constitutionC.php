@@ -7,7 +7,7 @@
         brief : 2nd page of Character Creation controller
     */
 
-require(__DIR__.'/../../model/popup/popupM.php');
+    require_once(__DIR__.'/../../model/popup/popupM.php');
 
 
 class constitution {
@@ -16,7 +16,12 @@ class constitution {
                         'charisma_char', 'will_char', 'sign'];
 
     function __construct($url) {
-        
+        if (!isset($_SESSION['userID'])) {
+            $_SESSION['popup'] = new PopUp('error', 'connexion', 'Vous devez être connecté pour avoir acces à cette page');
+            header("location:/homepage");
+            exit;
+        }
+
         // si l'utilisateur n'a pas entré de nom
         if (!isset($_SESSION['creationCharacter']['namePage']) || !$_SESSION['creationCharacter']['namePage']) {
             $_SESSION['popup'] = new PopUp('error', 'NOM', 'Il faut que vous ayez entré un nom pour pouvoir accéder à cette page');
