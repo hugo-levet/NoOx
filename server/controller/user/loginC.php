@@ -22,7 +22,7 @@ class Login extends Controller {
                 if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
                     $loginnow = new LoginM($mail);
                     $res = $loginnow->loginTry($mail,$pwd);
-
+                    $res = 1;
                     if($res == 1){
                         $_SESSION['idcurrentUser'] = $loginnow->getId();
                         header('Location: Profile');
