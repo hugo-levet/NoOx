@@ -1,0 +1,78 @@
+/* 
+    title : announce.css
+    author : Audrey
+    started-on : 04/01/2020
+
+    brief : design announce page admin
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+main {
+    width : 80%;
+    max-width : 1024px;
+
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : 50px;
+}
+
+form {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left : auto;
+    margin-right : auto;
+}
+
+.inputLabel {
+    font-size : 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top : 20px;
+}
+
+#titleInput {
+    padding : 7px;
+    font-size : 15px;
+    border : 2px solid #212121;
+}
+#titleInput:focus {
+    outline : none;
+}
+
+
+#descriptionInput {
+    width :  80%;   
+    resize : none;
+    border : 2px solid #212121;
+    padding : 5px;
+}
+#descriptionInput:focus {
+    outline : none;
+}
+
+.submitButton {
+    margin-top : 30px;  
+    padding : 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    background : none;
+    border : 2px solid #fa983a;
+    color : #fa983a;
+    transition : 0.2s;
+}
+.submitButton:hover {
+    cursor : pointer;
+    background-color : #ffaf64;
+    color : white;
+    border-radius : 20px;
+    transition : 0.2s;
+}
+
+#pageTitle {
+    font-size : 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom : 10px;
+    text-align: center;
+}

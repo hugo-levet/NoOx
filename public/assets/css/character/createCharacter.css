@@ -1,0 +1,426 @@
+/* 
+    title : createCharacter.css
+    author : Audrey
+    starded on : 17/12/2019
+
+    brief : design first page create Character
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Ubuntu&display=swap');
+
+li{
+    list-style: none;
+}
+
+main{
+    width: 80%;
+    max-width: 1024px;
+
+    margin : 70px auto 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+
+
+}
+
+#PageTitle {
+
+    padding: 10px 0 30px 0;
+
+    font-size: 50px ;
+    text-align: center;
+
+}
+
+#infoForm{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+
+#infoForm > label {
+    margin: 10px 0 10px 0;
+
+    
+}
+
+.lineForm{
+    position: relative;
+
+    padding: 10px 40px 10px 5px;
+
+
+    display: flex;
+    flex-direction: row;
+}
+
+
+#nameInput {
+    margin-left: 10px;
+    
+    border: none;
+    border-bottom: solid black;
+
+}
+
+#sexeInput{
+    margin-left: 10px;
+
+
+}
+
+#yearsInput {
+    margin-left: 10px;
+
+
+}
+
+/* 
+    Constituion
+*/
+
+.line {
+    display: flex;
+    flex-direction : row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#Kapha, #Pitta, #Vata {
+    width: 30%;
+    min-width: 320px;
+
+    margin : 20px 0 20px 0;
+
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    
+    position : relative;
+}
+
+#Kapha > .listCarac, #Pitta > .listCarac , #Vata > .listCarac {
+    flex-grow: 99;
+    display : flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    background-color: #f1f1f1;
+}
+
+.radioConst {
+    position : relative;
+    padding : 20px;
+}
+.radioConst > .informationIcon {
+    position: absolute;
+    top : 0;
+    right : 0;
+}
+
+.imageConstitution {
+    padding: 10px 0 10px 0;
+
+    width : 120px;
+    height : 120px;
+}
+
+
+.imageConstitutionD {
+    width: 250px;
+
+}
+
+.informationIcon {
+    position: absolute;
+    top : 0;
+    right :0;
+
+    font-size : 30px;
+}
+.listCarac{
+    box-shadow : 0 0 5px rgba(21, 21, 21 , 0.5);
+}
+
+.caracItem{
+    margin : 10px 0 10px 0;
+    font-size :20px;
+}
+
+.partTitle {
+    padding: 20px 0 20px 100px;
+
+    font-size: 30px;
+}
+
+.choiceP {
+    font-size : 15px;
+    text-decoration: underline;
+    
+}
+
+.listCarac > li {
+    height : 100%;
+
+    padding : 5px 0 5px 0;    
+    border-bottom: 2px solid #212121;
+    text-align: center;
+    background-color: #f1f1f1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.listCarac > li:last-child {
+    border : none;   
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:not(:checked) + label {
+    filter: grayscale(100%);
+} 
+
+input[type="checkbox"]:not(:checked) + label:hover {
+    filter: grayscale(50%);
+    cursor : pointer;
+    transition : 0.4s;
+}
+
+/* 
+    race
+*/
+#Race {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+#RaceTitle {
+    padding-left : 40px;
+}
+
+.imageRace {
+    width : 150px;
+}
+
+#Race > .line {
+    padding-top : 20px;
+    padding-bottom: 20px;
+
+    margin-bottom : 30px;
+}
+
+.raceLabel {
+    font-size : 35px;
+}
+.raceItem {
+    padding : 20px;
+    position : relative;
+    border : 1px solid #e1e1e1;
+    box-shadow: 0 0 5px rgba(21, 21, 21 , 0.5);
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+    margin : 10px;
+}
+
+.raceItem .informationIcon {
+    position : absolute;
+    top : 10px;
+    right : 10px;
+}
+
+.historyIcon {
+    position: absolute;
+    bottom : 10px ;
+    right :10px;
+
+    font-size : 30px;
+
+}
+
+
+/* 
+    informations
+*/
+#informationsContainer {
+    width: 100%;
+    height : 100vh;
+    overflow-y : auto;
+
+    position : fixed;
+    top : 0;
+    left : 0;
+    
+    z-index : 2;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color : rgba(21, 21, 21 , 0.8);
+    color : black;
+    text-align: center;
+
+    
+}
+
+
+#informationsContainer > * {
+
+    padding-top : 10px;
+    padding-bottom: 10px;
+
+    width : 100%;
+    max-width : 1024px;
+    
+    background-color : white;
+    border-bottom : 2px solid #212121;
+}
+
+#topInformation {
+    display: flex;
+    justify-content: space-around;
+    font-size : 35px;
+    color : #212121;
+}
+
+#closeButton {
+    border : none;
+    background : none;
+
+    cursor: pointer;
+}
+#closeButton > i {
+    font-size : 30px;
+
+    transition : 0.2s;
+}
+#closeButton:hover > i {
+    transform: rotate(180deg);
+    transition : 0.2s;
+}
+#closeButton:focus {
+    outline: none;
+}
+
+#nominformation {
+    justify-content: center;
+    color : black;
+
+    overflow-x: scroll;
+}
+
+#nominformation td {
+    padding : 3px;
+    text-align: center;
+
+    border : 1px solid #212121;
+}
+
+#nominformation table {
+    border-collapse: collapse;
+
+    min-width: 800px;
+}
+
+tr:hover {
+    background-color : rgba(21, 21, 21 , 0.1);
+}
+
+.noToggle {
+    display: none;
+}
+.toggle {
+    display: flex;
+}
+
+#raceToggler > i{
+    left : 20px;
+    top : 22px;
+}
+
+#raceInformation, #rogueInformation, #rogueHistory, #valonienInformation, #valonienBook, 
+#limienInformation, #limienBook, #chrysaorInformation, #chrysaorBook , #incubeInformation,
+#incubeBook, #mentisInformation , #mentisBook , #lictarienInformation, #lictarienBook{
+    /* display: flex; */
+
+    justify-content: center;
+    color : black;
+    text-align: center;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+input[name="raceRadio"]:checked + label {
+    filter: drop-shadow(0 0 10px black);
+} 
+
+input[name="raceRadio"]:not(:checked) + label:hover {
+    filter: drop-shadow(0 0 5px black);
+    border-radius: 50%;
+    cursor : pointer;
+    transition : 0.4s;
+}
+
+/*
+    Arrow
+*/
+#arrow {
+    width: 100%;
+
+    margin-top: 50px;
+
+    position: relative;
+
+
+    font-size : 30px;
+}
+
+.arrowR{
+
+    position: absolute;
+    bottom : 10px;
+    right: 0;
+
+}
+
+.arrowL {
+    position: absolute;
+    bottom : 10px;
+    left: 0;
+
+
+}
+
+.arrowR:hover  {
+    transform: rotate(360deg);
+    transition : 0.2s;
+    cursor : pointer;
+
+}
+
+.arrowL:hover {
+        transform: rotate(360deg);
+        transition : 0.2s;
+        cursor : pointer;
+}

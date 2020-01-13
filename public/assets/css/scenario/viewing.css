@@ -1,0 +1,256 @@
+
+*{
+    margin : 0;
+    padding : 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Acme|Alegreya+Sans+SC|Montserrat+Alternates&display=swap');
+
+main{
+    width: 90%;
+    max-width: 1024px;
+
+    margin : 70px auto 50px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+
+
+}
+.PageTitle {
+
+    padding: 10px 0 45px 0;
+
+    font-size: 50px ;
+    text-align: center;
+    color: black;
+
+}
+
+#viewingContainer{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+}
+
+#leftSide {
+    width : 35%;
+    min-width: 320px;
+
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#pdf{
+    width: 200px;
+
+}
+
+#imageScenario{
+    width: 300px;
+
+    filter: drop-shadow(0 0 10px blue);
+    border-radius: 40%;
+}
+
+#rightSide {
+    width: 55%;
+    min-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#bloc, #description{
+    width: 100%;
+    background-color: #2c3e50;
+    color: #f1f1f1;
+    border : 30px solid #34495e;
+}
+.paragraph {
+    padding : 8px;
+}
+#description {
+
+    margin  : 20px;
+   
+}
+
+ #comment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color :#f1f1f1;
+}
+
+#sectionTitle {
+    color : #212121;
+}
+
+.numCom {
+width: 80%;
+
+
+margin: 10px;
+
+background-color: #2980b9;
+border: 3px solid #212121;
+
+}
+
+.bottomPart {
+    width: calc(100% - 20px);
+
+    padding: 5px 10px 2px 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+
+    background-color: rgba(21, 21, 21, 0.2);
+}
+
+
+.statAll {
+    color : #f5cd79;
+}
+.statDemi {
+    background : linear-gradient(90deg, #f5cd79 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+input[type="radio"] {
+    display : none;
+}
+
+#ratingContainer {
+    display :flex;
+    flex-direction : row-reverse;
+}
+
+input[type="radio"] + label {
+    padding-right: 3px;
+
+    color: #383838;
+
+    filter : drop-shadow(0 0 1px #212121);
+
+    cursor:pointer;
+    overflow:hidden;
+
+    transition: color 0.2s ease-in-out;
+
+    white-space:nowrap;
+}
+
+
+
+.rating:not(:checked) + label:hover,
+.rating:not(:checked) + label:hover ~ label,
+.rating > input:checked ~ label{
+    color: #f5cd79;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4);
+}
+
+
+
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label {
+    color : #927b4a;
+}
+
+
+#createCommentContainer {
+    width : 80%;
+    max-width : 1024px;
+
+}
+
+#createCommentContainer > form {
+    width : 100%;
+
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#leftSide {
+    width : 60%;
+}
+
+#leftSide, #rightSide {
+    min-width : 320px;
+
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#messageInput {
+    width : 100%;
+    resize : none;
+    border : 2px solid #34495e
+}
+#messageInput:focus {
+    outline : none;
+}
+
+.formLabel {
+    color : #212121;
+}
+
+#submitButton {
+    padding : 10px;
+    font-size : 20px;
+
+    background : transparent;
+    border : 2px solid #34495e;
+
+    color : #34495e;
+
+    transition : 0.2s;
+}
+#submitButton:hover {
+    color : white;
+    border : 2px solid #2c3e50;
+    background-color : #34495e;
+    cursor : pointer;
+    transition : 0.2s;
+}
+
+.alreadyVote {
+    color : #212121;
+}
+
+@media screen and (max-width : 769px) {
+    #viewingContainer {
+        flex-wrap: wrap;
+    }
+}

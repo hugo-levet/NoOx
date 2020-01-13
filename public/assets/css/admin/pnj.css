@@ -1,0 +1,79 @@
+/* 
+    title : pnj.css
+    author : Audrey
+    started-on : 4/01/2019
+
+    brief : design admin page pnj
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+main {
+    width : 80%;
+    max-width : 1024px;
+
+    margin-left : auto;
+    margin-right : auto;
+    margin-top : 50px;
+
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pnj {
+    width : 65%;
+
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap : wrap;
+
+    padding : 10px;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+div > * {
+    width : 33%;
+}
+
+.pdfLink:hover {
+    text-decoration: underline;
+    cursor : pointer;
+}
+
+main .scenario:nth-child(odd) {
+    background-color : rgba(21,21,21,0.2);
+}
+
+.submit {
+    padding : 5px;
+    border : none;
+    transition : 0.2s;
+    box-shadow: 0 0 5px rgba(21,21,21,0.4);
+    color : white;
+}
+.decline {
+    background-color : #e84118;
+
+}
+.decline:hover {
+    cursor : pointer;
+    background :#ff6741;
+    transition : 0.2s
+}
+.accept {
+    background-color : #009432;
+}
+.accept:hover {
+    cursor: pointer;
+    background : #13c24d;
+    transition : 0.2s
+}
+
+#endResult {
+    margin-top : 25px;
+    color : #5a5a5a;
+    font-family: 'Montserrat', sans-serif;
+}

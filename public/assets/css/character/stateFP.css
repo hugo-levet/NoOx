@@ -1,0 +1,184 @@
+/* 
+    title : stateFP.css
+    author : Audrey
+    started-on : 
+    
+    brief : design stats character page
+*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+
+.listStats {
+    width : 100%;
+
+    margin-bottom : 50px;
+}
+
+
+
+.titleStats {
+    padding : 10px 0 10px 0;
+    
+    background-color : #345570;
+
+    font-family: 'Alata', sans-serif;
+    font-size : 25px;
+    color : #f1f1f1;
+    text-align : center;
+}
+
+.tableContainer {
+    overflow-x : auto;
+
+    box-shadow : 0 0 15px rgba(21,21,21,0.8);
+}
+
+table {
+    width : 100%;
+    
+    border-collapse: collapse;
+
+    box-shadow : 0 0 15px rgba(21,21,21,0.9);
+}
+
+thead, tbody {
+    width : 100%;
+    
+    text-align : center;
+    
+}
+
+thead {
+    width : 100%;
+
+    background-color : #3c6382;
+   
+    font-family: 'Alata', sans-serif;
+
+    color : #f1f1f1;
+
+    border-bottom : 5px solid #EAB543;
+
+}
+
+tbody {
+    font-family: 'Lato', sans-serif;
+}
+
+
+thead > tr {
+    font-size : 20px;
+}
+
+tbody > tr {
+    font-size : 15px;
+}
+
+
+td {
+    width : auto;
+    padding : 5px;
+
+    text-align : center;
+}
+
+.pointTDC {
+    width : 100%;
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+.pointTD {
+    padding-left : 2px;
+    padding-right : 2px;
+
+    font-size : 15px;
+    width : 52px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #F2F3EC;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #DCDCD6;
+}
+
+
+.categTD {
+    border-right : 1px solid #212121;
+}
+
+tbody > tr > td:not(.categTD):hover  {
+    background-color : rgba(5,5,5,0.2);
+}
+
+label {
+    height : 15px;
+}
+
+.statIcon {
+    height : 22px;
+}
+
+
+input[type="radio"] {
+    display : none;
+}
+
+
+
+label {
+    color: white;
+
+    filter : drop-shadow(0 0 1px #212121);
+
+    cursor:pointer;
+
+    transition: color 0.2s ease-in-out;
+}
+
+
+
+
+.Srating:not(:checked) + label:hover,
+.Srating:not(:checked) + label:hover ~ label,
+.Srating > input:checked ~ label{
+    color: #60a3bc;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4);
+
+}
+
+
+
+
+.Srating > input:checked + label:hover,
+.Srating > input:checked + label:hover ~ label,
+.Srating > input:checked ~ label:hover,
+.Srating > input:checked ~ label:hover ~ label {
+color : #3c6382;
+}
+
+
+
+.rating {
+    width : 100%;
+    min-width : 300px;
+    display : block;
+    word-break: keep-all;
+}
+
+.rating > label {
+    width : 50px;
+    text-align: center;
+}
+
+.stateEffect {
+    font-family: 'Alata', sans-serif;
+}
+
+#stateContainer {
+    width : 80%;
+}
