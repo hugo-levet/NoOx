@@ -64,7 +64,7 @@ include (__DIR__.'/popup/popupV.php');
                     else {
                 ?>
                     <a href="/user/profile" class="navLink"> <i class="far fa-user"></i> Mon profil</a>
-                    <a href="/user/logout" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
+                    <a href="/user/logOut" class="navLink"> <i class="fas fa-sign-out-alt"></i> Deconnexion</a>
                 </div>
 
                 <div id="navParangon">

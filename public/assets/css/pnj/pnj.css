@@ -231,3 +231,11 @@ a.pnjStyle {
     justify-content: center;
     align-items: center;
 }
+
+.charAuthor {
+    padding : 10px;
+    width : 100%;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
